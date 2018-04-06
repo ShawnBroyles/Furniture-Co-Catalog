@@ -1,4 +1,6 @@
 ﻿Public Class frmRegistration
+    Const _cintForm As Integer = Forms.REGISTRATION
+
     Private Sub mnuWelcome_Click(sender As Object, e As EventArgs) Handles mnuWelcome.Click
         Navigate(Forms.WELCOME, Me)
     End Sub
@@ -44,7 +46,7 @@
     End Sub
 
     Private Sub mnuAbout_Click(sender As Object, e As EventArgs) Handles mnuAbout.Click
-        AboutApplication()
+        AboutApplication(_cintForm)
     End Sub
 
     Private Sub mnuPrint_Click(sender As Object, e As EventArgs) Handles mnuPrint.Click
