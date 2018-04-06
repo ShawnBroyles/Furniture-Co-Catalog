@@ -112,8 +112,8 @@
         Select Case intForm
             Case Forms.WELCOME
                 strMessageEnd = "The Welcome form is used for letting customers know they're" & vbCrLf &
-                                "welcomed to use the application. Also, it gives options for" & vbCrLf &
-                                "signing in."
+                                "welcomed to use the application. Also, it gives some information" & vbCrLf &
+                                "on how to use it."
             Case Forms.REGISTRATION
                 strMessageEnd = "The Registration form is used for creating accounts for customers." & vbCrLf &
                                 "Fill out the form to create an account."
@@ -165,26 +165,4 @@
         PositionFormOnLoad(frmCurrentForm)
 
     End Sub
-
-
-
-
-
-
-
-
-
-
-    Dim _frmCurrentForm As Form
-
-    Public Sub CreateHandlers(ByRef frmCurrentForm As Form, ByRef mnuWelcome As ToolStripMenuItem)
-        _frmCurrentForm = frmCurrentForm
-        AddHandler mnuWelcome.Click, AddressOf mnuWelcome_Click
-    End Sub
-
-    Private Sub mnuWelcome_Click(sender As Object, e As EventArgs)
-        Navigate(Forms.WELCOME, _frmCurrentForm)
-        Console.WriteLine(_frmCurrentForm.Name)
-    End Sub
-
 End Module

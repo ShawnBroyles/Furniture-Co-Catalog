@@ -1,12 +1,9 @@
 ﻿Public Class frmRegistration
     Const _cintForm As Integer = Forms.REGISTRATION
-    Dim _blnHandlersMade As Boolean = False
 
-
-
-    'Private Sub mnuWelcome_Click(sender As Object, e As EventArgs) Handles mnuWelcome.Click
-    '    Navigate(Forms.WELCOME, Me)
-    'End Sub
+    Private Sub mnuWelcome_Click(sender As Object, e As EventArgs) Handles mnuWelcome.Click
+        Navigate(Forms.WELCOME, Me)
+    End Sub
 
     Private Sub mnuRegistration_Click(sender As Object, e As EventArgs) Handles mnuRegistration.Click
         Navigate(Forms.REGISTRATION, Me)
@@ -58,9 +55,5 @@
 
     Private Sub frmRegistration_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadFormDefaults(Me)
-        If (Not _blnHandlersMade) Then
-            CreateHandlers(Me, mnuWelcome)
-            _blnHandlersMade = True
-        End If
     End Sub
 End Class

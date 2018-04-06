@@ -71,49 +71,49 @@ Partial Class frmWelcome
         'mnuWelcome
         '
         Me.mnuWelcome.Name = "mnuWelcome"
-        Me.mnuWelcome.Size = New System.Drawing.Size(152, 22)
+        Me.mnuWelcome.Size = New System.Drawing.Size(137, 22)
         Me.mnuWelcome.Text = "&Welcome"
         '
         'mnuRegistration
         '
         Me.mnuRegistration.Name = "mnuRegistration"
-        Me.mnuRegistration.Size = New System.Drawing.Size(152, 22)
+        Me.mnuRegistration.Size = New System.Drawing.Size(137, 22)
         Me.mnuRegistration.Text = "&Registration"
         '
         'mnuLogin
         '
         Me.mnuLogin.Name = "mnuLogin"
-        Me.mnuLogin.Size = New System.Drawing.Size(152, 22)
+        Me.mnuLogin.Size = New System.Drawing.Size(137, 22)
         Me.mnuLogin.Text = "&Login"
         '
         'mnuCatalog
         '
         Me.mnuCatalog.Name = "mnuCatalog"
-        Me.mnuCatalog.Size = New System.Drawing.Size(152, 22)
+        Me.mnuCatalog.Size = New System.Drawing.Size(137, 22)
         Me.mnuCatalog.Text = "&Catalog"
         '
         'mnuCheckout
         '
         Me.mnuCheckout.Name = "mnuCheckout"
-        Me.mnuCheckout.Size = New System.Drawing.Size(152, 22)
+        Me.mnuCheckout.Size = New System.Drawing.Size(137, 22)
         Me.mnuCheckout.Text = "Check&out"
         '
         'mnuAccount
         '
         Me.mnuAccount.Name = "mnuAccount"
-        Me.mnuAccount.Size = New System.Drawing.Size(152, 22)
+        Me.mnuAccount.Size = New System.Drawing.Size(137, 22)
         Me.mnuAccount.Text = "&Account"
         '
         'mnuItem
         '
         Me.mnuItem.Name = "mnuItem"
-        Me.mnuItem.Size = New System.Drawing.Size(152, 22)
+        Me.mnuItem.Size = New System.Drawing.Size(137, 22)
         Me.mnuItem.Text = "&Item"
         '
         'mnuPayment
         '
         Me.mnuPayment.Name = "mnuPayment"
-        Me.mnuPayment.Size = New System.Drawing.Size(152, 22)
+        Me.mnuPayment.Size = New System.Drawing.Size(137, 22)
         Me.mnuPayment.Text = "&Payment"
         '
         'mnuEdit
