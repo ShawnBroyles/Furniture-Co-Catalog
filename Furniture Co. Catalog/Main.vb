@@ -112,10 +112,10 @@
         Select Case intForm
             Case Forms.WELCOME
                 strMessageEnd = "The Welcome form is used for letting customers know they're" & vbCrLf &
-                                "welcomed to use the application. Also, it gives some information" & vbCrLf &
-                                "on how to use it."
+                                "welcomed to use the application. Also, it gives options for" & vbCrLf &
+                                "signing in."
             Case Forms.REGISTRATION
-                strMessageEnd = "The Registration form is used for creating accounts for customers." & vbCrLf &
+                strMessageEnd = "The Registration form is used by customers to create accounts." & vbCrLf &
                                 "Fill out the form to create an account."
             Case Forms.LOGIN
                 strMessageEnd = "The Login form is used for logging into existing accounts." & vbCrLf &
