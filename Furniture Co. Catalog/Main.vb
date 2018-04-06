@@ -12,6 +12,8 @@
         NULL
     End Enum
 
+    Const _cintZero As Integer = 0
+
     Public Sub PositionFormOnLoad(ByVal frmCurrentForm As Form)
         ' Positioning the form that was passed to this subroutine
         Try
@@ -26,7 +28,7 @@
         End Try
     End Sub
 
-    Public Sub Navigate(ByVal intForm As Integer, ByVal frmCurrentForm As Form)
+    Public Sub Navigate(ByVal intForm As Integer, ByVal frmCurrentForm As Form, Optional ByVal intItem As Integer = _cintZero)
         Dim frmChosenForm As Form
         Select Case intForm
             Case Forms.REGISTRATION
@@ -51,7 +53,7 @@
             frmChosenForm.ShowDialog()
         ElseIf (Not frmCurrentForm.Equals(frmWelcome) And frmChosenForm.Equals(frmWelcome)) Then
             frmCurrentForm.Dispose()
-        ElseIf (Not frmChosenForm.Equals(frmCurrentForm)) Then 'And Not frmChosenForm.Equals(frmWelcome)
+        ElseIf (Not frmChosenForm.Equals(frmCurrentForm)) Then
             frmCurrentForm.Dispose()
             frmChosenForm.ShowDialog()
         Else
@@ -70,6 +72,31 @@
         ' stub
         MsgBox("Signing out isn't implemented yet.")
     End Sub
+
+    Public Sub SignIn()
+        ' stub
+        MsgBox("Signing in isn't implemented yet.")
+    End Sub
+
+    Public Sub SignInAsGuest()
+        ' stub
+        MsgBox("Signing in as a guest isn't implemented yet.")
+    End Sub
+
+    Public _strUserName As String
+    Property Username() As String
+        Get
+            Return _strUserName
+        End Get
+        Set(ByVal strValue As String)
+            _strUserName = strValue
+        End Set
+    End Property
+
+    Public Function GetSignedInUsername() As String
+        Dim stub As String = "Sample Data"
+        Return stub
+    End Function
 
     Public Sub ExitApplication()
         Const cstrMessage As String = "Are you sure you want to exit the application?"
@@ -134,7 +161,6 @@
     Public Sub LoadFormDefaults(ByVal frmCurrentForm As Form)
         frmCurrentForm.ForeColor = My.Settings.ForeColor
         frmCurrentForm.BackColor = My.Settings.BackColor
-        frmCurrentForm.Font = My.Settings.Font
 
         PositionFormOnLoad(frmCurrentForm)
 

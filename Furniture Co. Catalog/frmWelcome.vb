@@ -76,4 +76,46 @@ Public Class frmWelcome
     Private Sub frmWelcome_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadFormDefaults(Me)
     End Sub
+
+    Private Sub btnRegister_Click(sender As Object, e As EventArgs) Handles btnRegister.Click
+        Navigate(Forms.REGISTRATION, Me)
+        _strUserName = "New Username"
+        UpdateSignedIn()
+    End Sub
+
+    Private Sub btnSignIn_Click(sender As Object, e As EventArgs) Handles btnSignIn.Click
+        Navigate(Forms.LOGIN, Me)
+        _strUserName = "Existing Username"
+        UpdateSignedIn()
+    End Sub
+
+    Private Sub btnSignInAsGuest_Click(sender As Object, e As EventArgs) Handles btnSignInAsGuest.Click
+        SignInAsGuest()
+        _strUserName = "Guest"
+        UpdateSignedIn()
+    End Sub
+
+    Private Sub btnSignOut_Click(sender As Object, e As EventArgs) Handles btnSignOut.Click
+        SignOut()
+        _strUserName = "N/A"
+        UpdateSignedIn()
+    End Sub
+
+    Private Sub UpdateSignedIn()
+        Const cstrSignedInFormat As String = "Currently Signed In: {0}"
+        If (_strUserName = "N/A") Then
+            lblCurrentlySignedIn.ForeColor = Color.PaleVioletRed
+            btnRegister.Enabled = True
+            btnSignIn.Enabled = True
+            btnSignInAsGuest.Enabled = True
+            btnSignOut.Enabled = False
+        Else
+            lblCurrentlySignedIn.ForeColor = Color.ForestGreen
+            btnRegister.Enabled = False
+            btnSignIn.Enabled = False
+            btnSignInAsGuest.Enabled = False
+            btnSignOut.Enabled = True
+        End If
+        lblCurrentlySignedIn.Text = String.Format(cstrSignedInFormat, _strUserName)
+    End Sub
 End Class

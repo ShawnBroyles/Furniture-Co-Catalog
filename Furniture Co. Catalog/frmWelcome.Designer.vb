@@ -42,6 +42,13 @@ Partial Class frmWelcome
         Me.mnuAbout = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnuPrint = New System.Windows.Forms.ToolStripMenuItem()
         Me.pfPrintForm = New Microsoft.VisualBasic.PowerPacks.Printing.PrintForm(Me.components)
+        Me.lblTitle = New System.Windows.Forms.Label()
+        Me.lblCurrentlySignedIn = New System.Windows.Forms.Label()
+        Me.btnSignOut = New System.Windows.Forms.Button()
+        Me.lblInfo = New System.Windows.Forms.Label()
+        Me.btnSignIn = New System.Windows.Forms.Button()
+        Me.btnRegister = New System.Windows.Forms.Button()
+        Me.btnSignInAsGuest = New System.Windows.Forms.Button()
         Me.mnuMenuStrip.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -50,7 +57,7 @@ Partial Class frmWelcome
         Me.mnuMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuNavigate, Me.mnuEdit, Me.mnuHelp})
         Me.mnuMenuStrip.Location = New System.Drawing.Point(0, 0)
         Me.mnuMenuStrip.Name = "mnuMenuStrip"
-        Me.mnuMenuStrip.Size = New System.Drawing.Size(364, 24)
+        Me.mnuMenuStrip.Size = New System.Drawing.Size(547, 24)
         Me.mnuMenuStrip.TabIndex = 0
         Me.mnuMenuStrip.Text = "MenuStrip1"
         '
@@ -161,12 +168,94 @@ Partial Class frmWelcome
         Me.pfPrintForm.PrinterSettings = CType(resources.GetObject("pfPrintForm.PrinterSettings"), System.Drawing.Printing.PrinterSettings)
         Me.pfPrintForm.PrintFileName = "Furniture Co. Catalog"
         '
+        'lblTitle
+        '
+        Me.lblTitle.AutoSize = True
+        Me.lblTitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTitle.Location = New System.Drawing.Point(69, 51)
+        Me.lblTitle.Name = "lblTitle"
+        Me.lblTitle.Size = New System.Drawing.Size(408, 75)
+        Me.lblTitle.TabIndex = 1
+        Me.lblTitle.Text = "Welcome, Customer!" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "You can use this application to purchase " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "items that are cur" &
+    "rently not in stock."
+        Me.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'lblCurrentlySignedIn
+        '
+        Me.lblCurrentlySignedIn.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.lblCurrentlySignedIn.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCurrentlySignedIn.ForeColor = System.Drawing.Color.PaleVioletRed
+        Me.lblCurrentlySignedIn.Location = New System.Drawing.Point(81, 281)
+        Me.lblCurrentlySignedIn.Name = "lblCurrentlySignedIn"
+        Me.lblCurrentlySignedIn.Size = New System.Drawing.Size(384, 23)
+        Me.lblCurrentlySignedIn.TabIndex = 2
+        Me.lblCurrentlySignedIn.Text = "Currently Signed In: N/A"
+        Me.lblCurrentlySignedIn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'btnSignOut
+        '
+        Me.btnSignOut.Enabled = False
+        Me.btnSignOut.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSignOut.Location = New System.Drawing.Point(217, 324)
+        Me.btnSignOut.Name = "btnSignOut"
+        Me.btnSignOut.Size = New System.Drawing.Size(113, 27)
+        Me.btnSignOut.TabIndex = 3
+        Me.btnSignOut.Text = "Sign &Out"
+        Me.btnSignOut.UseVisualStyleBackColor = True
+        '
+        'lblInfo
+        '
+        Me.lblInfo.AutoSize = True
+        Me.lblInfo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblInfo.Location = New System.Drawing.Point(108, 168)
+        Me.lblInfo.Name = "lblInfo"
+        Me.lblInfo.Size = New System.Drawing.Size(331, 20)
+        Me.lblInfo.TabIndex = 4
+        Me.lblInfo.Text = "To get started, Choose a method of logging in"
+        '
+        'btnSignIn
+        '
+        Me.btnSignIn.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSignIn.Location = New System.Drawing.Point(217, 211)
+        Me.btnSignIn.Name = "btnSignIn"
+        Me.btnSignIn.Size = New System.Drawing.Size(113, 27)
+        Me.btnSignIn.TabIndex = 5
+        Me.btnSignIn.Text = "&Sign In"
+        Me.btnSignIn.UseVisualStyleBackColor = True
+        '
+        'btnRegister
+        '
+        Me.btnRegister.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnRegister.Location = New System.Drawing.Point(89, 211)
+        Me.btnRegister.Name = "btnRegister"
+        Me.btnRegister.Size = New System.Drawing.Size(113, 27)
+        Me.btnRegister.TabIndex = 6
+        Me.btnRegister.Text = "&Register"
+        Me.btnRegister.UseVisualStyleBackColor = True
+        '
+        'btnSignInAsGuest
+        '
+        Me.btnSignInAsGuest.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSignInAsGuest.Location = New System.Drawing.Point(345, 211)
+        Me.btnSignInAsGuest.Name = "btnSignInAsGuest"
+        Me.btnSignInAsGuest.Size = New System.Drawing.Size(113, 27)
+        Me.btnSignInAsGuest.TabIndex = 7
+        Me.btnSignInAsGuest.Text = "Sign In As &Guest"
+        Me.btnSignInAsGuest.UseVisualStyleBackColor = True
+        '
         'frmWelcome
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(364, 285)
+        Me.ClientSize = New System.Drawing.Size(547, 392)
+        Me.Controls.Add(Me.btnSignInAsGuest)
+        Me.Controls.Add(Me.btnRegister)
+        Me.Controls.Add(Me.btnSignIn)
+        Me.Controls.Add(Me.lblInfo)
+        Me.Controls.Add(Me.btnSignOut)
+        Me.Controls.Add(Me.lblCurrentlySignedIn)
+        Me.Controls.Add(Me.lblTitle)
         Me.Controls.Add(Me.mnuMenuStrip)
         Me.MainMenuStrip = Me.mnuMenuStrip
         Me.Name = "frmWelcome"
@@ -196,4 +285,11 @@ Partial Class frmWelcome
     Friend WithEvents mnuAbout As ToolStripMenuItem
     Friend WithEvents mnuPrint As ToolStripMenuItem
     Friend WithEvents pfPrintForm As PowerPacks.Printing.PrintForm
+    Friend WithEvents lblInfo As Label
+    Friend WithEvents btnSignOut As Button
+    Friend WithEvents lblCurrentlySignedIn As Label
+    Friend WithEvents lblTitle As Label
+    Friend WithEvents btnSignInAsGuest As Button
+    Friend WithEvents btnRegister As Button
+    Friend WithEvents btnSignIn As Button
 End Class

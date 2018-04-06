@@ -56,7 +56,7 @@ Namespace My
         
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("255, 224, 192")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("255, 232, 208")>  _
         Public ReadOnly Property BackColor() As Global.System.Drawing.Color
             Get
                 Return CType(Me("BackColor"),Global.System.Drawing.Color)
@@ -69,15 +69,6 @@ Namespace My
         Public ReadOnly Property ForeColor() As Global.System.Drawing.Color
             Get
                 Return CType(Me("ForeColor"),Global.System.Drawing.Color)
-            End Get
-        End Property
-        
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Microsoft Sans Serif, 8.25pt")>  _
-        Public ReadOnly Property Font() As Global.System.Drawing.Font
-            Get
-                Return CType(Me("Font"),Global.System.Drawing.Font)
             End Get
         End Property
     End Class
