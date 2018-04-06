@@ -11,14 +11,14 @@
         PAYMENT
     End Enum
 
-    Public Sub PositionFormOnLoad(form As Form)
+    Public Sub PositionFormOnLoad(ByVal currentForm As Form)
         ' Positioning the form that was passed to this subroutine
         Try
             Dim xCoordinate As Double
             Dim yCoordinate As Double
-            xCoordinate = Screen.PrimaryScreen.WorkingArea.Width / 2 - form.Size.Width / 2
-            yCoordinate = Screen.PrimaryScreen.WorkingArea.Height / 2 - form.Size.Height / 1.5
-            form.Location = New Point(Convert.ToInt32(xCoordinate), Convert.ToInt32(yCoordinate))
+            xCoordinate = Screen.PrimaryScreen.WorkingArea.Width / 2 - currentForm.Size.Width / 2
+            yCoordinate = Screen.PrimaryScreen.WorkingArea.Height / 2 - currentForm.Size.Height / 1.5
+            currentForm.Location = New Point(Convert.ToInt32(xCoordinate), Convert.ToInt32(yCoordinate))
         Catch ex As Exception
             ' Writing the error to the output
             Console.WriteLine(ex.Message)
@@ -90,5 +90,14 @@
         ' When the PrintForm subroutine is invoked, a print preview appears
         pfObject.PrintAction = Printing.PrintAction.PrintToPreview
         pfObject.Print()
+    End Sub
+
+    Public Sub LoadFormDefaults(ByVal currentForm As Form)
+        currentForm.ForeColor = My.Settings.ForeColor
+        currentForm.BackColor = My.Settings.BackColor
+        currentForm.Font = My.Settings.Font
+
+        PositionFormOnLoad(currentForm)
+
     End Sub
 End Module

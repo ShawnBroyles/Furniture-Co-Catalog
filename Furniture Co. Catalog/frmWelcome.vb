@@ -19,10 +19,7 @@ Public Class frmWelcome
         End Get
     End Property
 
-    Private Sub frmWelcome_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        PositionFormOnLoad(Me)
 
-    End Sub
 
     Private Sub mnuWelcome_Click(sender As Object, e As EventArgs) Handles mnuWelcome.Click
         Navigate(Forms.WELCOME, Me)
@@ -74,5 +71,9 @@ Public Class frmWelcome
 
     Private Sub mnuPrint_Click(sender As Object, e As EventArgs) Handles mnuPrint.Click
         PrintForm(pfPrintForm)
+    End Sub
+
+    Private Sub frmWelcome_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        LoadFormDefaults(Me)
     End Sub
 End Class

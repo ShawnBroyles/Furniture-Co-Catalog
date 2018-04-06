@@ -52,6 +52,6 @@
     End Sub
 
     Private Sub frmAccount_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        PositionFormOnLoad(Me)
+        LoadFormDefaults(Me)
     End Sub
 End Class
