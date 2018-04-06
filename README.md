@@ -9,3 +9,6 @@ The purpose of this Visual Basic .NET application is to (hypothetically) provide
 3. Payment options will be non-functional; The user is expected to use money on account.  
 4. No items will be shipped to the user after purchase (the items don't actually exist).  
 5. No invoice email will be sent to the user after he/she makes the purchase.  
+
+## Wiki
+[Click here](https://github.com/ShawnBroyles/Furniture-Co-Catalog/wiki "Furniture Co. Catalog Wiki") to go to the wiki.
