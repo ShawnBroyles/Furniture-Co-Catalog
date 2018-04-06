@@ -64,49 +64,49 @@ Partial Class frmWelcome
         'mnuWelcome
         '
         Me.mnuWelcome.Name = "mnuWelcome"
-        Me.mnuWelcome.Size = New System.Drawing.Size(152, 22)
+        Me.mnuWelcome.Size = New System.Drawing.Size(137, 22)
         Me.mnuWelcome.Text = "&Welcome"
         '
         'mnuRegistration
         '
         Me.mnuRegistration.Name = "mnuRegistration"
-        Me.mnuRegistration.Size = New System.Drawing.Size(152, 22)
+        Me.mnuRegistration.Size = New System.Drawing.Size(137, 22)
         Me.mnuRegistration.Text = "&Registration"
         '
         'mnuLogin
         '
         Me.mnuLogin.Name = "mnuLogin"
-        Me.mnuLogin.Size = New System.Drawing.Size(152, 22)
+        Me.mnuLogin.Size = New System.Drawing.Size(137, 22)
         Me.mnuLogin.Text = "&Login"
         '
         'mnuCatalog
         '
         Me.mnuCatalog.Name = "mnuCatalog"
-        Me.mnuCatalog.Size = New System.Drawing.Size(152, 22)
+        Me.mnuCatalog.Size = New System.Drawing.Size(137, 22)
         Me.mnuCatalog.Text = "&Catalog"
         '
         'mnuCheckout
         '
         Me.mnuCheckout.Name = "mnuCheckout"
-        Me.mnuCheckout.Size = New System.Drawing.Size(152, 22)
+        Me.mnuCheckout.Size = New System.Drawing.Size(137, 22)
         Me.mnuCheckout.Text = "Check&out"
         '
         'mnuAccount
         '
         Me.mnuAccount.Name = "mnuAccount"
-        Me.mnuAccount.Size = New System.Drawing.Size(152, 22)
+        Me.mnuAccount.Size = New System.Drawing.Size(137, 22)
         Me.mnuAccount.Text = "&Account"
         '
         'mnuItem
         '
         Me.mnuItem.Name = "mnuItem"
-        Me.mnuItem.Size = New System.Drawing.Size(152, 22)
+        Me.mnuItem.Size = New System.Drawing.Size(137, 22)
         Me.mnuItem.Text = "&Item"
         '
         'mnuPayment
         '
         Me.mnuPayment.Name = "mnuPayment"
-        Me.mnuPayment.Size = New System.Drawing.Size(152, 22)
+        Me.mnuPayment.Size = New System.Drawing.Size(137, 22)
         Me.mnuPayment.Text = "&Payment"
         '
         'mnuEdit
@@ -119,19 +119,19 @@ Partial Class frmWelcome
         'mnuReload
         '
         Me.mnuReload.Name = "mnuReload"
-        Me.mnuReload.Size = New System.Drawing.Size(152, 22)
+        Me.mnuReload.Size = New System.Drawing.Size(141, 22)
         Me.mnuReload.Text = "&Reload Form"
         '
         'mnuSignOut
         '
         Me.mnuSignOut.Name = "mnuSignOut"
-        Me.mnuSignOut.Size = New System.Drawing.Size(152, 22)
+        Me.mnuSignOut.Size = New System.Drawing.Size(141, 22)
         Me.mnuSignOut.Text = "&Sign Out"
         '
         'mnuExit
         '
         Me.mnuExit.Name = "mnuExit"
-        Me.mnuExit.Size = New System.Drawing.Size(152, 22)
+        Me.mnuExit.Size = New System.Drawing.Size(141, 22)
         Me.mnuExit.Text = "E&xit"
         '
         'mnuHelp
@@ -144,13 +144,13 @@ Partial Class frmWelcome
         'mnuAbout
         '
         Me.mnuAbout.Name = "mnuAbout"
-        Me.mnuAbout.Size = New System.Drawing.Size(152, 22)
+        Me.mnuAbout.Size = New System.Drawing.Size(107, 22)
         Me.mnuAbout.Text = "&About"
         '
         'mnuPrint
         '
         Me.mnuPrint.Name = "mnuPrint"
-        Me.mnuPrint.Size = New System.Drawing.Size(152, 22)
+        Me.mnuPrint.Size = New System.Drawing.Size(107, 22)
         Me.mnuPrint.Text = "&Print"
         '
         'pfPrintForm
@@ -165,6 +165,7 @@ Partial Class frmWelcome
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(364, 285)
         Me.Controls.Add(Me.mnuMenuStrip)
         Me.MainMenuStrip = Me.mnuMenuStrip
