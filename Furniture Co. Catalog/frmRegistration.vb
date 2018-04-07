@@ -131,6 +131,8 @@
                 SQLCreateAccount(strUsername, strPassword, strFName, strLName, strEmail, strPhone, strAddress)
                 _CurrentUser.SignIn(SQLGetRecordID(DatabaseTables.ACCOUNT, cstrUsernameField, strUsername))
                 MsgBox(cstrSuccessMessage, , cstrSuccessTitle)
+                ClearForm()
+                Close()
             Catch ex As Exception
                 Console.WriteLine(ex.Message)
                 MsgBox(cstrUnknownErrorMessage, , cstrErrorTitle)

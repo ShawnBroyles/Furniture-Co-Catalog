@@ -129,6 +129,7 @@
                         blnSignedIn = True
                         MsgBox(cstrSuccessMessage, , cstrSuccessTitle)
                         ClearForm()
+                        Close()
                     Else
                         strErrorMessage = strErrorMessage & vbCrLf & "Invalid Password"
                     End If

@@ -150,7 +150,9 @@
         Const cstrMessage As String = "Program Name: Furniture Co. Catalog" & vbCrLf &
                                       "Developed By: Shawn Broyles" & vbCrLf &
                                       "Purpose: This application provides a user-friendly experience for" & vbCrLf &
-                                      "purchasing items when they are not in stock at a business location."
+                                      "purchasing items when they are not in stock at a business location." & vbCrLf & vbCrLf &
+                                      "Use the Navigate item in the MenuStrip to navigate between the forms" & vbCrLf &
+                                      "(It's located to the left of Help)."
         Const cstrTitle As String = "About"
         If String.IsNullOrWhiteSpace(strMessageEnd) Then
             MsgBox(cstrMessage, , cstrTitle)
