@@ -34,7 +34,8 @@
     End Sub
 
     Private Sub mnuReload_Click(sender As Object, e As EventArgs) Handles mnuReload.Click
-        ReloadForm(Me)
+        ClearForm()
+        txtUsername.Focus()
     End Sub
 
     Private Sub mnuSignOut_Click(sender As Object, e As EventArgs) Handles mnuSignOut.Click
@@ -55,16 +56,9 @@
 
     Private Sub frmRegistration_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadFormDefaults(Me)
-
-        If (_CurrentUser.SignedIn = True) Then
-            Const cstrErrorTitle As String = "Error"
-            Const cstrErrorMessage As String = "A user is already signed in." & vbCrLf &
-                                               "Do you want to sign out?"
-            Dim intSignOut As Integer = MessageBox.Show(cstrErrorMessage, cstrErrorTitle, MessageBoxButtons.YesNo)
-            If (intSignOut = DialogResult.Yes) Then
-                _CurrentUser.SignOut()
-            End If
-        End If
+        ' Creating a popup if the user is signed in
+        SignedInPopup()
+        txtUsername.Focus()
     End Sub
 
     Private Sub btnSubmit_Click(sender As Object, e As EventArgs) Handles btnSubmit.Click
@@ -147,8 +141,7 @@
         End If
     End Sub
 
-    Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
-        ' Clearing textboxes and setting the focus to txtUsername
+    Private Sub ClearForm()
         txtUsername.Clear()
         txtPassword.Clear()
         txtConfirmPassword.Clear()
@@ -157,6 +150,11 @@
         txtEmail.Clear()
         txtPhoneNumber.Clear()
         txtAddress.Clear()
+    End Sub
+
+    Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
+        ' Clearing textboxes and setting the focus to txtUsername
+        ClearForm()
         txtUsername.Focus()
     End Sub
 End Class

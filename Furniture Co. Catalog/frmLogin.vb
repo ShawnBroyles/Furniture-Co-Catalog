@@ -35,7 +35,8 @@
     End Sub
 
     Private Sub mnuReload_Click(sender As Object, e As EventArgs) Handles mnuReload.Click
-        ReloadForm(Me)
+        ClearForm()
+        txtUsername.Focus()
     End Sub
 
     Private Sub mnuSignOut_Click(sender As Object, e As EventArgs) Handles mnuSignOut.Click
@@ -56,5 +57,107 @@
 
     Private Sub frmLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadFormDefaults(Me)
+        ' Creating a popup if the user is signed in
+        SignedInPopup()
+        txtUsername.Focus()
+    End Sub
+
+    Private Sub btnSubmit_Click(sender As Object, e As EventArgs) Handles btnSubmit.Click
+        Const cstrSuccessTitle As String = "Success"
+        Const cstrSuccessMessage As String = "Signed in successfully!"
+        Const cstrErrorTitle As String = "Error"
+        Const cstrBaseErrorMessage As String = "Validation for the following fields failed:"
+        Const cstrUnknownErrorMessage As String = "An unknown error has occurred when trying to login."
+        Dim strErrorMessage As String = cstrBaseErrorMessage
+
+        Dim strUsername As String = txtUsername.Text
+        Dim strPassword As String = txtPassword.Text
+
+        Const cstrEmailField As String = "ACC_EMAIL"
+        Const cstrAccountIDField As String = "ACC_ID"
+        Const cstrUsernameField As String = "ACC_USERNAME"
+        Const cstrPasswordField As String = "ACC_PASSWORD"
+        Const cintMissingRecordID As Integer = -1
+
+        Dim strLoginFieldType As String
+        Dim strLoginField As String
+        Dim intValidateType As Integer
+
+        If (rbEmail.Checked) Then
+            strLoginFieldType = "Email"
+            strLoginField = cstrEmailField
+            intValidateType = SQLValidate.EMAIL
+        ElseIf (rbAccountID.Checked) Then
+            strLoginFieldType = "Account ID"
+            strLoginField = cstrAccountIDField
+            intValidateType = SQLValidate.ACCOUNT_ID
+        Else
+            strLoginFieldType = "Username"
+            strLoginField = cstrUsernameField
+            intValidateType = SQLValidate.USERNAME
+        End If
+
+        Dim blnUsernameValidated As Boolean = SQLValidateUserData(strUsername, intValidateType)
+        Dim blnPasswordValidated As Boolean = SQLValidateUserData(strPassword, SQLValidate.PASSWORD)
+
+        If (Not blnUsernameValidated) Then
+            Select Case intValidateType
+                Case SQLValidate.EMAIL
+                    strErrorMessage = strErrorMessage & vbCrLf & strLoginFieldType & "s only contain A-Z a-z 0-9 . - _ @"
+                Case SQLValidate.ACCOUNT_ID
+                    strErrorMessage = strErrorMessage & vbCrLf & strLoginFieldType & "s only contain 0-9"
+                Case Else
+                    strErrorMessage = strErrorMessage & vbCrLf & strLoginFieldType & "s start with a letter and only contain A-Z a-z 0-9"
+            End Select
+        End If
+        If (Not blnPasswordValidated) Then
+            strErrorMessage = strErrorMessage & vbCrLf & "Password field must only contain A-Z a-z 0-9 @ . - _ "
+        End If
+
+        Dim blnSignedIn As Boolean = False
+        Dim blnAttemptSignIn As Boolean = False
+
+        If (strErrorMessage.Equals(cstrBaseErrorMessage)) Then
+            Try
+                blnAttemptSignIn = True
+                strErrorMessage = "Logging in failed for the following reason(s):"
+                'SQLCreateAccount(strUsername, strPassword, strFName, strLName, strEmail, strPhone, strAddress)
+                Dim intUsernameRecordID As Integer = SQLGetRecordID(DatabaseTables.ACCOUNT, strLoginField, strUsername)
+                If (Not intUsernameRecordID.Equals(cintMissingRecordID)) Then
+                    If (SQLGetFieldInfo(DatabaseTables.ACCOUNT, intUsernameRecordID, cstrPasswordField).Equals(strPassword)) Then
+                        _CurrentUser.SignIn(intUsernameRecordID)
+                        blnSignedIn = True
+                        MsgBox(cstrSuccessMessage, , cstrSuccessTitle)
+                        ClearForm()
+                    Else
+                        strErrorMessage = strErrorMessage & vbCrLf & "Invalid Password"
+                    End If
+                Else
+                    strErrorMessage = strErrorMessage & vbCrLf & strLoginFieldType & " doesn't exist"
+                End If
+            Catch ex As Exception
+                Console.WriteLine(ex.Message)
+                MsgBox(cstrUnknownErrorMessage, , cstrErrorTitle)
+            End Try
+
+        Else
+            MsgBox(strErrorMessage, , cstrErrorTitle)
+        End If
+        If (blnAttemptSignIn And Not blnSignedIn) Then
+            ' Username/Password combo was incorrect
+            MsgBox(strErrorMessage, , cstrErrorTitle)
+        End If
+    End Sub
+
+    Private Sub ClearForm()
+        txtUsername.Clear()
+        txtPassword.Clear()
+        rbUsername.Select()
+    End Sub
+
+    Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
+        ' Clearing textboxes and setting the focus to txtUsername
+        ClearForm()
+        txtUsername.Focus()
     End Sub
 End Class

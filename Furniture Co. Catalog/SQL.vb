@@ -15,7 +15,7 @@ Module SQL
         PASSWORD
         EMAIL
         OTHER_EMPTY
-        OTHER
+        ACCOUNT_ID
     End Enum
 
     Const _cstrDatabaseName As String = "Database.db"
@@ -125,6 +125,8 @@ Module SQL
                 strAllowedCharactersRegex = "^[A-Za-z0-9.\-_]+@[A-Za-z0-9.\-_]+.[A-Za-z0-9.\-_]+$"
             Case SQLValidate.OTHER_EMPTY
                 strAllowedCharactersRegex = "^[A-Za-z0-9@.\-_\s\(\)]*$"
+            Case SQLValidate.ACCOUNT_ID
+                strAllowedCharactersRegex = "^[0-9]+$"
             Case Else
                 strAllowedCharactersRegex = "^[A-Za-z0-9@.\-_\s\(\)]+$"
         End Select
@@ -259,6 +261,5 @@ Module SQL
         Return intRecordID
 
     End Function
-
 
 End Module

@@ -1,5 +1,5 @@
 ﻿' Program:  Furniture Co. Catalog
-' Version:  0.3
+' Version:  0.4
 ' Author:   Shawn Broyles
 ' Date:     TBD
 ' Purpose:  This application provides a user-friendly experience for
@@ -98,7 +98,6 @@ Public Class frmWelcome
     Private Sub UpdateSignedIn()
         Const cstrSignedInFormat As String = "Currently Signed In: {0}"
         Dim strSignedInUsername As String = GetSignedInUsername()
-        Console.WriteLine(_CurrentUser.SignedIn)
         If (_CurrentUser.SignedIn) Then
             lblCurrentlySignedIn.ForeColor = Color.ForestGreen
             btnRegister.Enabled = False

@@ -69,19 +69,18 @@
     End Sub
 
     Public Sub SignOut()
-        Dim strUserSigningOut As String = _CurrentUser.Username
-        _CurrentUser.SignOut()
-        Console.WriteLine("Signed out of " & strUserSigningOut)
-    End Sub
-
-    Public Sub SignIn()
-        ' stub
-        MsgBox("Signing in isn't implemented yet.")
+        If (_CurrentUser.SignedIn) Then
+            Dim strUserSigningOut As String = _CurrentUser.Username
+            _CurrentUser.SignOut()
+            Console.WriteLine("Signed in = " & _CurrentUser.SignedIn & " (Signed out of " & strUserSigningOut & ")")
+        Else
+            MsgBox("You are not signed in.", , "Sign Out Error")
+        End If
     End Sub
 
     Public Sub SignInAsGuest()
         _CurrentUser.SignIn(SQLGetRecordID(DatabaseTables.ACCOUNT, "ACC_USERNAME", "Guest"))
-        Console.WriteLine("Signed in as " & _CurrentUser.Username)
+        Console.WriteLine("Signed in = " & _CurrentUser.SignedIn & " (Signed in as " & _CurrentUser.Username & ")")
     End Sub
 
     Public Function GetSignedInUsername() As String
@@ -93,6 +92,18 @@
         End If
         Return strUsername
     End Function
+
+    Public Sub SignedInPopup()
+        If (_CurrentUser.SignedIn = True) Then
+            Const cstrErrorTitle As String = "Error"
+            Const cstrErrorMessage As String = "A user is already signed in." & vbCrLf &
+                                               "Do you want to sign out?"
+            Dim intSignOut As Integer = MessageBox.Show(cstrErrorMessage, cstrErrorTitle, MessageBoxButtons.YesNo)
+            If (intSignOut = DialogResult.Yes) Then
+                _CurrentUser.SignOut()
+            End If
+        End If
+    End Sub
 
     Public Sub ExitApplication()
         Const cstrMessage As String = "Are you sure you want to exit the application?"
