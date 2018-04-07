@@ -70,7 +70,7 @@
 
     Public Sub SignOut()
         Dim strUserSigningOut As String = _CurrentUser.Username
-        _CurrentUser.SetUser(_SignedOutUser)
+        _CurrentUser.SignOut()
         Console.WriteLine("Signed out of " & strUserSigningOut)
     End Sub
 
@@ -80,8 +80,7 @@
     End Sub
 
     Public Sub SignInAsGuest()
-        Dim NewUser As User = New User(SQLGetRecordID(DatabaseTables.ACCOUNT, "ACC_USERNAME", "Guest"))
-        _CurrentUser.SetUser(NewUser)
+        _CurrentUser.SignIn(SQLGetRecordID(DatabaseTables.ACCOUNT, "ACC_USERNAME", "Guest"))
         Console.WriteLine("Signed in as " & _CurrentUser.Username)
     End Sub
 
@@ -163,8 +162,7 @@
 
     End Sub
 
-    Public _SignedOutUser As User = New User()
-    Public _CurrentUser As User = _SignedOutUser
+    Public _CurrentUser As User = New User()
 
     Public Class User
         Public Property ID As Integer
@@ -180,11 +178,18 @@
         Public Property Status As String
         Public Property SignedIn As Boolean
 
+        Public Event UserUpdated()
+
+        Const cintZero As Integer = 0
+        Const cdecZero As Decimal = 0.00D
+        Const cstrEmpty As String = ""
+        Const cstrStatusUnknown As String = "Unknown"
+
         Public Sub New()
             SignedIn = False
         End Sub
 
-        Public Sub New(ByVal intRecordID As Integer)
+        Public Sub SignIn(ByVal intRecordID As Integer)
             ID = intRecordID
             Username = SQLGetFieldInfo(DatabaseTables.ACCOUNT, intRecordID, "ACC_USERNAME")
             Password = SQLGetFieldInfo(DatabaseTables.ACCOUNT, intRecordID, "ACC_PASSWORD")
@@ -197,14 +202,25 @@
             CreationDate = SQLGetFieldInfo(DatabaseTables.ACCOUNT, intRecordID, "ACC_CREATION_DATE")
             Status = SQLGetFieldInfo(DatabaseTables.ACCOUNT, intRecordID, "ACC_STATUS")
             SignedIn = True
+            RaiseEvent UserUpdated()
         End Sub
 
-        Public Event UserUpdated(ByRef NewUser As User)
-
-        Public Sub SetUser(ByRef NewUser As User)
-            RaiseEvent UserUpdated(NewUser)
-            _CurrentUser = NewUser
+        Public Sub SignOut()
+            ID = cintZero
+            Username = cstrEmpty
+            Password = cstrEmpty
+            FirstName = cstrEmpty
+            LastName = cstrEmpty
+            Email = cstrEmpty
+            Phone = cstrEmpty
+            Address = cstrEmpty
+            Money = cdecZero
+            CreationDate = cstrEmpty
+            Status = cstrEmpty
+            SignedIn = False
+            RaiseEvent UserUpdated()
         End Sub
+
     End Class
 
 End Module

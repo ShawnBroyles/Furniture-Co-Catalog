@@ -95,11 +95,11 @@ Public Class frmWelcome
         SignOut()
     End Sub
 
-    Private Sub UpdateSignedIn(ByRef NewUser As User)
+    Private Sub UpdateSignedIn()
         Const cstrSignedInFormat As String = "Currently Signed In: {0}"
         Dim strSignedInUsername As String = GetSignedInUsername()
         Console.WriteLine(_CurrentUser.SignedIn)
-        If (NewUser.SignedIn) Then
+        If (_CurrentUser.SignedIn) Then
             lblCurrentlySignedIn.ForeColor = Color.ForestGreen
             btnRegister.Enabled = False
             btnSignIn.Enabled = False

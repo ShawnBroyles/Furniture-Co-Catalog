@@ -62,7 +62,7 @@
                                                "Do you want to sign out?"
             Dim intSignOut As Integer = MessageBox.Show(cstrErrorMessage, cstrErrorTitle, MessageBoxButtons.YesNo)
             If (intSignOut = DialogResult.Yes) Then
-                _CurrentUser = _SignedOutUser
+                _CurrentUser.SignOut()
             End If
         End If
     End Sub
@@ -135,7 +135,7 @@
         If (strErrorMessage.Equals(cstrBaseErrorMessage)) Then
             Try
                 SQLCreateAccount(strUsername, strPassword, strFName, strLName, strEmail, strPhone, strAddress)
-                _CurrentUser = New User(SQLGetRecordID(DatabaseTables.ACCOUNT, cstrUsernameField, strUsername))
+                _CurrentUser.SignIn(SQLGetRecordID(DatabaseTables.ACCOUNT, cstrUsernameField, strUsername))
                 MsgBox(cstrSuccessMessage, , cstrSuccessTitle)
             Catch ex As Exception
                 Console.WriteLine(ex.Message)
