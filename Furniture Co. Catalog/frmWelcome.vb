@@ -80,43 +80,40 @@ Public Class frmWelcome
 
     Private Sub btnRegister_Click(sender As Object, e As EventArgs) Handles btnRegister.Click
         Navigate(Forms.REGISTRATION, Me)
-        _strUserName = "New Username"
-        UpdateSignedIn()
     End Sub
 
     Private Sub btnSignIn_Click(sender As Object, e As EventArgs) Handles btnSignIn.Click
         Navigate(Forms.LOGIN, Me)
-        _strUserName = "Existing Username"
-        UpdateSignedIn()
     End Sub
 
     Private Sub btnSignInAsGuest_Click(sender As Object, e As EventArgs) Handles btnSignInAsGuest.Click
         SignInAsGuest()
-        _strUserName = "Guest"
         UpdateSignedIn()
     End Sub
 
     Private Sub btnSignOut_Click(sender As Object, e As EventArgs) Handles btnSignOut.Click
         SignOut()
-        _strUserName = "N/A"
         UpdateSignedIn()
     End Sub
 
     Private Sub UpdateSignedIn()
         Const cstrSignedInFormat As String = "Currently Signed In: {0}"
-        If (_strUserName = "N/A") Then
-            lblCurrentlySignedIn.ForeColor = Color.PaleVioletRed
-            btnRegister.Enabled = True
-            btnSignIn.Enabled = True
-            btnSignInAsGuest.Enabled = True
-            btnSignOut.Enabled = False
-        Else
+        Dim strSignedInUsername As String = ""
+        If (_CurrentUser.SignedIn) Then
+            strSignedInUsername = _CurrentUser.Username
             lblCurrentlySignedIn.ForeColor = Color.ForestGreen
             btnRegister.Enabled = False
             btnSignIn.Enabled = False
             btnSignInAsGuest.Enabled = False
             btnSignOut.Enabled = True
+        Else
+            strSignedInUsername = "N/A"
+            lblCurrentlySignedIn.ForeColor = Color.PaleVioletRed
+            btnRegister.Enabled = True
+            btnSignIn.Enabled = True
+            btnSignInAsGuest.Enabled = True
+            btnSignOut.Enabled = False
         End If
-        lblCurrentlySignedIn.Text = String.Format(cstrSignedInFormat, _strUserName)
+        lblCurrentlySignedIn.Text = String.Format(cstrSignedInFormat, strSignedInUsername)
     End Sub
 End Class

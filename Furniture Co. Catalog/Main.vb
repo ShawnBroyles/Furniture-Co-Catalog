@@ -69,8 +69,9 @@
     End Sub
 
     Public Sub SignOut()
-        ' stub
-        MsgBox("Signing out isn't implemented yet.")
+        Dim strUserSigningOut As String = _CurrentUser.Username
+        _CurrentUser = _SignedOutUser
+        Console.WriteLine("Signed out of " & strUserSigningOut)
     End Sub
 
     Public Sub SignIn()
@@ -79,19 +80,9 @@
     End Sub
 
     Public Sub SignInAsGuest()
-        ' stub
-        MsgBox("Signing in as a guest isn't implemented yet.")
+        _CurrentUser = New User(SQLGetRecordID(DatabaseTables.ACCOUNT, "ACC_USERNAME", "Guest"))
+        Console.WriteLine("Signed in as " & _CurrentUser.Username)
     End Sub
-
-    Public _strUserName As String
-    Property Username() As String
-        Get
-            Return _strUserName
-        End Get
-        Set(ByVal strValue As String)
-            _strUserName = strValue
-        End Set
-    End Property
 
     Public Function GetSignedInUsername() As String
         Dim stub As String = "Sample Data"
@@ -165,4 +156,42 @@
         PositionFormOnLoad(frmCurrentForm)
 
     End Sub
+
+    Public _SignedOutUser As User = New User()
+    Public _CurrentUser As User = _SignedOutUser
+
+    Public Class User
+        Public Property ID As Integer
+        Public Property Username As String
+        Public Property Password As String
+        Public Property FirstName As String
+        Public Property LastName As String
+        Public Property Email As String
+        Public Property Phone As String
+        Public Property Address As String
+        Public Property Money As Decimal
+        Public Property CreationDate As String
+        Public Property Status As String
+        Public Property SignedIn As Boolean
+
+        Public Sub New()
+            SignedIn = False
+        End Sub
+
+        Public Sub New(ByVal intRecordID As Integer)
+            ID = intRecordID
+            Username = SQLGetFieldInfo(DatabaseTables.ACCOUNT, intRecordID, "ACC_USERNAME")
+            Password = SQLGetFieldInfo(DatabaseTables.ACCOUNT, intRecordID, "ACC_PASSWORD")
+            FirstName = SQLGetFieldInfo(DatabaseTables.ACCOUNT, intRecordID, "ACC_FNAME")
+            LastName = SQLGetFieldInfo(DatabaseTables.ACCOUNT, intRecordID, "ACC_LNAME")
+            Email = SQLGetFieldInfo(DatabaseTables.ACCOUNT, intRecordID, "ACC_EMAIL")
+            Phone = SQLGetFieldInfo(DatabaseTables.ACCOUNT, intRecordID, "ACC_PHONE")
+            Address = SQLGetFieldInfo(DatabaseTables.ACCOUNT, intRecordID, "ACC_ADDRESS")
+            Money = Convert.ToDecimal(SQLGetFieldInfo(DatabaseTables.ACCOUNT, intRecordID, "ACC_MONEY"))
+            CreationDate = SQLGetFieldInfo(DatabaseTables.ACCOUNT, intRecordID, "ACC_CREATION_DATE")
+            Status = SQLGetFieldInfo(DatabaseTables.ACCOUNT, intRecordID, "ACC_STATUS")
+            SignedIn = True
+        End Sub
+    End Class
+
 End Module

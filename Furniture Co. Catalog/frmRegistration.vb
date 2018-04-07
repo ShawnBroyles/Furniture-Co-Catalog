@@ -55,6 +55,16 @@
 
     Private Sub frmRegistration_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadFormDefaults(Me)
+
+        If (_CurrentUser.SignedIn = True) Then
+            Const cstrErrorTitle As String = "Error"
+            Const cstrErrorMessage As String = "A user is already signed in." & vbCrLf &
+                                               "Do you want to sign out?"
+            Dim intSignOut As Integer = MessageBox.Show(cstrErrorMessage, cstrErrorTitle, MessageBoxButtons.YesNo)
+            If (intSignOut = DialogResult.Yes) Then
+                _CurrentUser = _SignedOutUser
+            End If
+        End If
     End Sub
 
     Private Sub btnSubmit_Click(sender As Object, e As EventArgs) Handles btnSubmit.Click
@@ -62,7 +72,7 @@
         Const cstrSuccessMessage As String = "Account successfully created!"
         Const cstrErrorTitle As String = "Error"
         Const cstrBaseErrorMessage As String = "Validation for the following fields failed:"
-        Const cstrUnknownErrorMessage As String = "An unknown error has occurred."
+        Const cstrUnknownErrorMessage As String = "An unknown error has occurred when trying to create an account."
         Dim strErrorMessage As String = cstrBaseErrorMessage
 
         Dim strUsername As String = txtUsername.Text
@@ -125,6 +135,7 @@
         If (strErrorMessage.Equals(cstrBaseErrorMessage)) Then
             Try
                 SQLCreateAccount(strUsername, strPassword, strFName, strLName, strEmail, strPhone, strAddress)
+                _CurrentUser = New User(SQLGetRecordID(DatabaseTables.ACCOUNT, cstrUsernameField, strUsername))
                 MsgBox(cstrSuccessMessage, , cstrSuccessTitle)
             Catch ex As Exception
                 Console.WriteLine(ex.Message)
