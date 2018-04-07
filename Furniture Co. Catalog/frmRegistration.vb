@@ -76,22 +76,33 @@
 
         Dim blnUsernameValidated As Boolean = SQLValidateUserData(strUsername, SQLValidate.USERNAME)
         Dim blnPasswordValidated As Boolean = SQLValidateUserData(strPassword, SQLValidate.PASSWORD)
-        Dim blnFNameValidated As Boolean = SQLValidateUserData(strFName, SQLValidate.OTHER)
-        Dim blnLNameValidated As Boolean = SQLValidateUserData(strLName, SQLValidate.OTHER)
+        Dim blnFNameValidated As Boolean = SQLValidateUserData(strFName, SQLValidate.OTHER_EMPTY)
+        Dim blnLNameValidated As Boolean = SQLValidateUserData(strLName, SQLValidate.OTHER_EMPTY)
         Dim blnEmailValidated As Boolean = SQLValidateUserData(strEmail, SQLValidate.EMAIL)
-        Dim blnPhoneValidated As Boolean = SQLValidateUserData(strPhone, SQLValidate.OTHER)
-        Dim blnAddressValidated As Boolean = SQLValidateUserData(strAddress, SQLValidate.OTHER)
+        Dim blnPhoneValidated As Boolean = SQLValidateUserData(strPhone, SQLValidate.OTHER_EMPTY)
+        Dim blnAddressValidated As Boolean = SQLValidateUserData(strAddress, SQLValidate.OTHER_EMPTY)
 
         If (Not blnUsernameValidated) Then
-            strErrorMessage = strErrorMessage & vbCrLf & "Username must be 4-16 characters long and only contain A-Z a-z 0-9"
+            strErrorMessage = strErrorMessage & vbCrLf & "Username must be 4-16 characters, start with a letter, and only contain A-Z a-z 0-9"
         End If
         If (Not blnPasswordValidated) Then
-            strErrorMessage = strErrorMessage & vbCrLf & "Password"
+            strErrorMessage = strErrorMessage & vbCrLf & "Password must be 6-20 characters and only contain A-Z a-z 0-9 @ . - _ "
+        End If
+        If (Not blnFNameValidated) Then
+            strErrorMessage = strErrorMessage & vbCrLf & "First Name is optional. Can only contain spaces and A-Z a-z 0-9 @ . - _ ( )"
+        End If
+        If (Not blnLNameValidated) Then
+            strErrorMessage = strErrorMessage & vbCrLf & "Last Name is optional. Can only contain spaces and A-Z a-z 0-9 @ . - _ ( )"
         End If
         If (Not blnEmailValidated) Then
-            strErrorMessage = strErrorMessage & vbCrLf & "Email must contain @ and . characters"
+            strErrorMessage = strErrorMessage & vbCrLf & "Email must be 5-50 characters and contain @ and . characters"
         End If
-
+        If (Not blnPhoneValidated) Then
+            strErrorMessage = strErrorMessage & vbCrLf & "Phone Number is optional. Can only contain spaces and A-Z a-z 0-9 @ . - _ ( )"
+        End If
+        If (Not blnAddressValidated) Then
+            strErrorMessage = strErrorMessage & vbCrLf & "Address is optional. Can only contain spaces and A-Z a-z 0-9 @ . - _ ( )"
+        End If
         If (Not strPassword.Equals(strConfirmPassword)) Then
             strErrorMessage = strErrorMessage & vbCrLf & "Password and Confirm Password fields do not match"
         End If

@@ -14,6 +14,7 @@ Module SQL
         USERNAME
         PASSWORD
         EMAIL
+        OTHER_EMPTY
         OTHER
     End Enum
 
@@ -119,9 +120,11 @@ Module SQL
             Case SQLValidate.USERNAME
                 strAllowedCharactersRegex = "^[A-Za-z][A-Za-z0-9]{3,}$"
             Case SQLValidate.PASSWORD
-                strAllowedCharactersRegex = "^[A-Za-z0-9@.\-_\s]+$"
+                strAllowedCharactersRegex = "^[A-Za-z0-9@.\-_\s]{6,}$"
             Case SQLValidate.EMAIL
                 strAllowedCharactersRegex = "^[A-Za-z0-9.\-_]+@[A-Za-z0-9.\-_]+.[A-Za-z0-9.\-_]+$"
+            Case SQLValidate.OTHER_EMPTY
+                strAllowedCharactersRegex = "^[A-Za-z0-9@.\-_\s\(\)]*$"
             Case Else
                 strAllowedCharactersRegex = "^[A-Za-z0-9@.\-_\s\(\)]+$"
         End Select
