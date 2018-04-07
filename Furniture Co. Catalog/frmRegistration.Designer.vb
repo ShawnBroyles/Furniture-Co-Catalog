@@ -45,6 +45,7 @@ Partial Class frmRegistration
         Me.lblTitle = New System.Windows.Forms.Label()
         Me.lblSubTitle = New System.Windows.Forms.Label()
         Me.grpRegistration = New System.Windows.Forms.GroupBox()
+        Me.lblRequired4 = New System.Windows.Forms.Label()
         Me.lblRequired3 = New System.Windows.Forms.Label()
         Me.lblRequired2 = New System.Windows.Forms.Label()
         Me.lblRequired1 = New System.Windows.Forms.Label()
@@ -67,7 +68,6 @@ Partial Class frmRegistration
         Me.lblPassword = New System.Windows.Forms.Label()
         Me.lblUsername = New System.Windows.Forms.Label()
         Me.lblRequired = New System.Windows.Forms.Label()
-        Me.lblRequired4 = New System.Windows.Forms.Label()
         Me.mnuMenuStrip.SuspendLayout()
         Me.grpRegistration.SuspendLayout()
         Me.SuspendLayout()
@@ -240,6 +240,17 @@ Partial Class frmRegistration
         Me.grpRegistration.TabStop = False
         Me.grpRegistration.Text = "Registration"
         '
+        'lblRequired4
+        '
+        Me.lblRequired4.AutoSize = True
+        Me.lblRequired4.ForeColor = System.Drawing.Color.Red
+        Me.lblRequired4.Location = New System.Drawing.Point(6, 181)
+        Me.lblRequired4.Name = "lblRequired4"
+        Me.lblRequired4.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.lblRequired4.Size = New System.Drawing.Size(11, 13)
+        Me.lblRequired4.TabIndex = 22
+        Me.lblRequired4.Text = "*"
+        '
         'lblRequired3
         '
         Me.lblRequired3.AutoSize = True
@@ -275,7 +286,6 @@ Partial Class frmRegistration
         '
         'btnClear
         '
-        Me.btnClear.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.btnClear.Location = New System.Drawing.Point(164, 277)
         Me.btnClear.Name = "btnClear"
         Me.btnClear.Size = New System.Drawing.Size(75, 23)
@@ -441,23 +451,10 @@ Partial Class frmRegistration
         Me.lblRequired.TabIndex = 18
         Me.lblRequired.Text = "* Required field"
         '
-        'lblRequired4
-        '
-        Me.lblRequired4.AutoSize = True
-        Me.lblRequired4.ForeColor = System.Drawing.Color.Red
-        Me.lblRequired4.Location = New System.Drawing.Point(6, 181)
-        Me.lblRequired4.Name = "lblRequired4"
-        Me.lblRequired4.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.lblRequired4.Size = New System.Drawing.Size(11, 13)
-        Me.lblRequired4.TabIndex = 22
-        Me.lblRequired4.Text = "*"
-        '
         'frmRegistration
         '
-        Me.AcceptButton = Me.btnSubmit
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.CancelButton = Me.btnClear
         Me.ClientSize = New System.Drawing.Size(483, 491)
         Me.Controls.Add(Me.grpRegistration)
         Me.Controls.Add(Me.lblRequired)

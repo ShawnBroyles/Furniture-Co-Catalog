@@ -258,7 +258,6 @@ Partial Class frmLogin
         '
         'btnClear
         '
-        Me.btnClear.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.btnClear.Location = New System.Drawing.Point(197, 177)
         Me.btnClear.Name = "btnClear"
         Me.btnClear.Size = New System.Drawing.Size(75, 23)
