@@ -10,6 +10,13 @@ Module SQL
         PRODUCT
     End Enum
 
+    Enum SQLValidate
+        USERNAME
+        PASSWORD
+        EMAIL
+        OTHER
+    End Enum
+
     Const _cstrDatabaseName As String = "Database.db"
     Const _cstrConnection As String = "Data Source=" & _cstrDatabaseName
 
@@ -41,17 +48,17 @@ Module SQL
         PAY_ID              INTEGER PRIMARY KEY,
         ACC_ID              INTEGER,
         PAY_DATE            DATE DEFAULT CURRENT_TIMESTAMP,
-        PAY_PRICE           INTEGER,
+        PAY_PRICE           REAL DEFAULT 0.00,
         FOREIGN KEY (ACC_ID) REFERENCES ACCOUNT (ACC_ID)
         );
         CREATE TABLE IF NOT EXISTS PRODUCT (
         PROD_ID             INTEGER PRIMARY KEY,
-        PROD_NAME           TEXT,
-        PROD_PRICE          REAL,
-        PROD_STOCK          INTEGER,
-        PROD_FEE            REAL,
-        PROD_CATEGORY       TEXT,
-        PROD_DESCRIPTION    TEXT
+        PROD_NAME           TEXT DEFAULT '',
+        PROD_PRICE          REAL DEFAULT 0.00,
+        PROD_STOCK          INTEGER DEFAULT 0,
+        PROD_FEE            REAL DEFAULT 0.00,
+        PROD_CATEGORY       TEXT DEFAULT '',
+        PROD_DESCRIPTION    TEXT DEFAULT ''
         );"
 
         Dim strSQLCreateGuestRecord As String = "INSERT INTO ACCOUNT (ACC_USERNAME, ACC_PASSWORD, ACC_FNAME, ACC_LNAME, ACC_EMAIL, ACC_PHONE, ACC_ADDRESS)
@@ -78,9 +85,19 @@ Module SQL
         SQLConn.Close()
     End Sub
 
-    Function SQLValidateUserData(ByVal strData As String) As Boolean
+    Function SQLValidateUserData(ByVal strData As String, ByVal intDataType As Integer) As Boolean
         Dim blnReturn As Boolean
-        Dim strAllowedCharactersRegex = "^[A-Za-z0-9@.-_]+$"
+        Dim strAllowedCharactersRegex As String
+        Select Case intDataType
+            Case SQLValidate.USERNAME
+                strAllowedCharactersRegex = "^[A-Za-z][A-Za-z0-9]{3,}$"
+            Case SQLValidate.PASSWORD
+                strAllowedCharactersRegex = "^[A-Za-z0-9@.\-_\s]+$"
+            Case SQLValidate.EMAIL
+                strAllowedCharactersRegex = "^[A-Za-z0-9.\-_]+@[A-Za-z0-9.\-_]+.[A-Za-z0-9.\-_]+$"
+            Case Else
+                strAllowedCharactersRegex = "^[A-Za-z0-9@.\-_\s\(\)]+$"
+        End Select
         If (System.Text.RegularExpressions.Regex.IsMatch(strData, strAllowedCharactersRegex)) Then
             blnReturn = True
         Else
