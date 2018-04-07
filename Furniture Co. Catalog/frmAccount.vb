@@ -55,6 +55,60 @@
     End Sub
 
     Private Sub frmAccount_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        LoadFormDefaults(Me)
+        If (ConfirmPasswordPopup()) Then
+            LoadFormDefaults(Me)
+            ResetForm()
+        Else
+            Close()
+        End If
+
+    End Sub
+
+    Private Sub ResetForm()
+        lblAccountIDOutput.Text = _CurrentUser.ID.ToString()
+        txtUsername.Text = _CurrentUser.Username
+        txtFirstName.Text = _CurrentUser.FirstName
+        txtLastName.Text = _CurrentUser.LastName
+        txtEmail.Text = _CurrentUser.Email
+        txtPhone.Text = _CurrentUser.Phone
+        txtAddress.Text = _CurrentUser.Address
+        lblMoneyOutput.Text = _CurrentUser.Money.ToString("C2")
+        lblCreationDateOutput.Text = _CurrentUser.CreationDate
+        lblAccountStatusOutput.Text = _CurrentUser.Status
+        txtUsername.Enabled = False
+        txtFirstName.Enabled = False
+        txtLastName.Enabled = False
+        txtEmail.Enabled = False
+        txtPhone.Enabled = False
+        txtAddress.Enabled = False
+        btnChangeInfo.Enabled = True
+        btnSave.Enabled = False
+        btnReset.Enabled = False
+    End Sub
+
+    Private Sub btnChangeInfo_Click(sender As Object, e As EventArgs) Handles btnChangeInfo.Click
+        If (_CurrentUser.ID = _cstrEmpty Or _CurrentUser.SignedIn = False) Then
+            MsgBox("You are not signed in.", , "Error")
+        ElseIf (_CurrentUser.Username = "Guest") Then
+            MsgBox("You cannot change the info for Guest.", , "Error")
+        Else
+            txtUsername.Enabled = True
+            txtFirstName.Enabled = True
+            txtLastName.Enabled = True
+            txtEmail.Enabled = True
+            txtPhone.Enabled = True
+            txtAddress.Enabled = True
+            btnChangeInfo.Enabled = False
+            btnSave.Enabled = True
+            btnReset.Enabled = True
+        End If
+    End Sub
+
+    Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
+
+    End Sub
+
+    Private Sub btnReset_Click(sender As Object, e As EventArgs) Handles btnReset.Click
+
     End Sub
 End Class

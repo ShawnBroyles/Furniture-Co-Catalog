@@ -12,7 +12,9 @@
         NULL
     End Enum
 
-    Const _cintZero As Integer = 0
+    Public Const _cintZero As Integer = 0
+    Public Const _cdecZero As Decimal = 0.00D
+    Public Const _cstrEmpty As String = ""
 
     Public Sub PositionFormOnLoad(ByVal frmCurrentForm As Form)
         ' Positioning the form that was passed to this subroutine
@@ -57,7 +59,7 @@
             frmCurrentForm.Dispose()
             frmChosenForm.ShowDialog()
         Else
-            Const cstrMessage As String = "Unable to navigate to a form that is already displayed."
+            Const cstrMessage As String = "Unable to navigate to the displayed form."
             Const cstrTitle As String = "Error"
             MsgBox(cstrMessage, , cstrTitle)
         End If
@@ -104,6 +106,17 @@
             End If
         End If
     End Sub
+
+    Function ConfirmPasswordPopup() As Boolean
+        Dim blnConfirmed As Boolean = False
+        Dim strPassword As String = InputBox("Re-Enter your password to confirm your identity.", "Re-Enter Password")
+        ' SQL validation is not required here because User.Password is in memory
+        blnConfirmed = strPassword.Equals(_CurrentUser.Password)
+        If (Not blnConfirmed) Then
+            MsgBox("Invalid Password.", , "Error")
+        End If
+        Return blnConfirmed
+    End Function
 
     Public Sub ExitApplication()
         Const cstrMessage As String = "Are you sure you want to exit the application?"
@@ -193,12 +206,20 @@
 
         Public Event UserUpdated()
 
-        Const cintZero As Integer = 0
-        Const cdecZero As Decimal = 0.00D
-        Const cstrEmpty As String = ""
         Const cstrStatusUnknown As String = "Unknown"
 
         Public Sub New()
+            ID = _cintZero
+            Username = _cstrEmpty
+            Password = _cstrEmpty
+            FirstName = _cstrEmpty
+            LastName = _cstrEmpty
+            Email = _cstrEmpty
+            Phone = _cstrEmpty
+            Address = _cstrEmpty
+            Money = _cdecZero
+            CreationDate = _cstrEmpty
+            Status = _cstrEmpty
             SignedIn = False
         End Sub
 
@@ -219,17 +240,17 @@
         End Sub
 
         Public Sub SignOut()
-            ID = cintZero
-            Username = cstrEmpty
-            Password = cstrEmpty
-            FirstName = cstrEmpty
-            LastName = cstrEmpty
-            Email = cstrEmpty
-            Phone = cstrEmpty
-            Address = cstrEmpty
-            Money = cdecZero
-            CreationDate = cstrEmpty
-            Status = cstrEmpty
+            ID = _cintZero
+            Username = _cstrEmpty
+            Password = _cstrEmpty
+            FirstName = _cstrEmpty
+            LastName = _cstrEmpty
+            Email = _cstrEmpty
+            Phone = _cstrEmpty
+            Address = _cstrEmpty
+            Money = _cdecZero
+            CreationDate = _cstrEmpty
+            Status = _cstrEmpty
             SignedIn = False
             RaiseEvent UserUpdated()
         End Sub
