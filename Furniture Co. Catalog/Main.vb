@@ -70,7 +70,7 @@
 
     Public Sub SignOut()
         Dim strUserSigningOut As String = _CurrentUser.Username
-        _CurrentUser = _SignedOutUser
+        _CurrentUser.SetUser(_SignedOutUser)
         Console.WriteLine("Signed out of " & strUserSigningOut)
     End Sub
 
@@ -80,13 +80,19 @@
     End Sub
 
     Public Sub SignInAsGuest()
-        _CurrentUser = New User(SQLGetRecordID(DatabaseTables.ACCOUNT, "ACC_USERNAME", "Guest"))
+        Dim NewUser As User = New User(SQLGetRecordID(DatabaseTables.ACCOUNT, "ACC_USERNAME", "Guest"))
+        _CurrentUser.SetUser(NewUser)
         Console.WriteLine("Signed in as " & _CurrentUser.Username)
     End Sub
 
     Public Function GetSignedInUsername() As String
-        Dim stub As String = "Sample Data"
-        Return stub
+        Dim strUsername As String
+        If (_CurrentUser.SignedIn) Then
+            strUsername = _CurrentUser.Username
+        Else
+            strUsername = "N/A"
+        End If
+        Return strUsername
     End Function
 
     Public Sub ExitApplication()
@@ -191,6 +197,13 @@
             CreationDate = SQLGetFieldInfo(DatabaseTables.ACCOUNT, intRecordID, "ACC_CREATION_DATE")
             Status = SQLGetFieldInfo(DatabaseTables.ACCOUNT, intRecordID, "ACC_STATUS")
             SignedIn = True
+        End Sub
+
+        Public Event UserUpdated(ByRef NewUser As User)
+
+        Public Sub SetUser(ByRef NewUser As User)
+            RaiseEvent UserUpdated(NewUser)
+            _CurrentUser = NewUser
         End Sub
     End Class
 

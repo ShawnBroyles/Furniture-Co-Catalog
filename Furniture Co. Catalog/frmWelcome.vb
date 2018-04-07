@@ -76,6 +76,7 @@ Public Class frmWelcome
     Private Sub frmWelcome_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadFormDefaults(Me)
         SQLInitializeDatabase()
+        AddHandler _CurrentUser.UserUpdated, AddressOf UpdateSignedIn
     End Sub
 
     Private Sub btnRegister_Click(sender As Object, e As EventArgs) Handles btnRegister.Click
@@ -88,26 +89,23 @@ Public Class frmWelcome
 
     Private Sub btnSignInAsGuest_Click(sender As Object, e As EventArgs) Handles btnSignInAsGuest.Click
         SignInAsGuest()
-        UpdateSignedIn()
     End Sub
 
     Private Sub btnSignOut_Click(sender As Object, e As EventArgs) Handles btnSignOut.Click
         SignOut()
-        UpdateSignedIn()
     End Sub
 
-    Private Sub UpdateSignedIn()
+    Private Sub UpdateSignedIn(ByRef NewUser As User)
         Const cstrSignedInFormat As String = "Currently Signed In: {0}"
-        Dim strSignedInUsername As String = ""
-        If (_CurrentUser.SignedIn) Then
-            strSignedInUsername = _CurrentUser.Username
+        Dim strSignedInUsername As String = GetSignedInUsername()
+        Console.WriteLine(_CurrentUser.SignedIn)
+        If (NewUser.SignedIn) Then
             lblCurrentlySignedIn.ForeColor = Color.ForestGreen
             btnRegister.Enabled = False
             btnSignIn.Enabled = False
             btnSignInAsGuest.Enabled = False
             btnSignOut.Enabled = True
         Else
-            strSignedInUsername = "N/A"
             lblCurrentlySignedIn.ForeColor = Color.PaleVioletRed
             btnRegister.Enabled = True
             btnSignIn.Enabled = True
