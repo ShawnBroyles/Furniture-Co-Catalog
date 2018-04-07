@@ -119,6 +119,7 @@
         txtLastName.Clear()
         txtEmail.Clear()
         txtPhoneNumber.Clear()
+        txtAddress.Clear()
         txtUsername.Focus()
     End Sub
 End Class

@@ -45,9 +45,9 @@ Partial Class frmRegistration
         Me.lblTitle = New System.Windows.Forms.Label()
         Me.lblSubTitle = New System.Windows.Forms.Label()
         Me.grpRegistration = New System.Windows.Forms.GroupBox()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
+        Me.lblRequired3 = New System.Windows.Forms.Label()
+        Me.lblRequired2 = New System.Windows.Forms.Label()
+        Me.lblRequired1 = New System.Windows.Forms.Label()
         Me.btnClear = New System.Windows.Forms.Button()
         Me.btnSubmit = New System.Windows.Forms.Button()
         Me.txtAddress = New System.Windows.Forms.TextBox()
@@ -66,8 +66,8 @@ Partial Class frmRegistration
         Me.lblConfirmPassword = New System.Windows.Forms.Label()
         Me.lblPassword = New System.Windows.Forms.Label()
         Me.lblUsername = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
+        Me.lblRequired = New System.Windows.Forms.Label()
+        Me.lblRequired4 = New System.Windows.Forms.Label()
         Me.mnuMenuStrip.SuspendLayout()
         Me.grpRegistration.SuspendLayout()
         Me.SuspendLayout()
@@ -211,10 +211,10 @@ Partial Class frmRegistration
         '
         'grpRegistration
         '
-        Me.grpRegistration.Controls.Add(Me.Label5)
-        Me.grpRegistration.Controls.Add(Me.Label4)
-        Me.grpRegistration.Controls.Add(Me.Label3)
-        Me.grpRegistration.Controls.Add(Me.Label2)
+        Me.grpRegistration.Controls.Add(Me.lblRequired4)
+        Me.grpRegistration.Controls.Add(Me.lblRequired3)
+        Me.grpRegistration.Controls.Add(Me.lblRequired2)
+        Me.grpRegistration.Controls.Add(Me.lblRequired1)
         Me.grpRegistration.Controls.Add(Me.btnClear)
         Me.grpRegistration.Controls.Add(Me.btnSubmit)
         Me.grpRegistration.Controls.Add(Me.txtAddress)
@@ -240,41 +240,42 @@ Partial Class frmRegistration
         Me.grpRegistration.TabStop = False
         Me.grpRegistration.Text = "Registration"
         '
-        'Label4
+        'lblRequired3
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.ForeColor = System.Drawing.Color.Red
-        Me.Label4.Location = New System.Drawing.Point(6, 88)
-        Me.Label4.Name = "Label4"
-        Me.Label4.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label4.Size = New System.Drawing.Size(11, 13)
-        Me.Label4.TabIndex = 21
-        Me.Label4.Text = "*"
+        Me.lblRequired3.AutoSize = True
+        Me.lblRequired3.ForeColor = System.Drawing.Color.Red
+        Me.lblRequired3.Location = New System.Drawing.Point(6, 88)
+        Me.lblRequired3.Name = "lblRequired3"
+        Me.lblRequired3.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.lblRequired3.Size = New System.Drawing.Size(11, 13)
+        Me.lblRequired3.TabIndex = 21
+        Me.lblRequired3.Text = "*"
         '
-        'Label3
+        'lblRequired2
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.ForeColor = System.Drawing.Color.Red
-        Me.Label3.Location = New System.Drawing.Point(6, 57)
-        Me.Label3.Name = "Label3"
-        Me.Label3.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label3.Size = New System.Drawing.Size(11, 13)
-        Me.Label3.TabIndex = 20
-        Me.Label3.Text = "*"
+        Me.lblRequired2.AutoSize = True
+        Me.lblRequired2.ForeColor = System.Drawing.Color.Red
+        Me.lblRequired2.Location = New System.Drawing.Point(6, 57)
+        Me.lblRequired2.Name = "lblRequired2"
+        Me.lblRequired2.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.lblRequired2.Size = New System.Drawing.Size(11, 13)
+        Me.lblRequired2.TabIndex = 20
+        Me.lblRequired2.Text = "*"
         '
-        'Label2
+        'lblRequired1
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.ForeColor = System.Drawing.Color.Red
-        Me.Label2.Location = New System.Drawing.Point(6, 26)
-        Me.Label2.Name = "Label2"
-        Me.Label2.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label2.Size = New System.Drawing.Size(11, 13)
-        Me.Label2.TabIndex = 19
-        Me.Label2.Text = "*"
+        Me.lblRequired1.AutoSize = True
+        Me.lblRequired1.ForeColor = System.Drawing.Color.Red
+        Me.lblRequired1.Location = New System.Drawing.Point(6, 26)
+        Me.lblRequired1.Name = "lblRequired1"
+        Me.lblRequired1.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.lblRequired1.Size = New System.Drawing.Size(11, 13)
+        Me.lblRequired1.TabIndex = 19
+        Me.lblRequired1.Text = "*"
         '
         'btnClear
         '
+        Me.btnClear.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.btnClear.Location = New System.Drawing.Point(164, 277)
         Me.btnClear.Name = "btnClear"
         Me.btnClear.Size = New System.Drawing.Size(75, 23)
@@ -429,35 +430,37 @@ Partial Class frmRegistration
         Me.lblUsername.TabIndex = 0
         Me.lblUsername.Text = "Username:"
         '
-        'Label1
+        'lblRequired
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.ForeColor = System.Drawing.Color.Red
-        Me.Label1.Location = New System.Drawing.Point(60, 124)
-        Me.Label1.Name = "Label1"
-        Me.Label1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label1.Size = New System.Drawing.Size(79, 13)
-        Me.Label1.TabIndex = 18
-        Me.Label1.Text = "* Required field"
+        Me.lblRequired.AutoSize = True
+        Me.lblRequired.ForeColor = System.Drawing.Color.Red
+        Me.lblRequired.Location = New System.Drawing.Point(60, 124)
+        Me.lblRequired.Name = "lblRequired"
+        Me.lblRequired.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.lblRequired.Size = New System.Drawing.Size(79, 13)
+        Me.lblRequired.TabIndex = 18
+        Me.lblRequired.Text = "* Required field"
         '
-        'Label5
+        'lblRequired4
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.ForeColor = System.Drawing.Color.Red
-        Me.Label5.Location = New System.Drawing.Point(6, 181)
-        Me.Label5.Name = "Label5"
-        Me.Label5.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label5.Size = New System.Drawing.Size(11, 13)
-        Me.Label5.TabIndex = 22
-        Me.Label5.Text = "*"
+        Me.lblRequired4.AutoSize = True
+        Me.lblRequired4.ForeColor = System.Drawing.Color.Red
+        Me.lblRequired4.Location = New System.Drawing.Point(6, 181)
+        Me.lblRequired4.Name = "lblRequired4"
+        Me.lblRequired4.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.lblRequired4.Size = New System.Drawing.Size(11, 13)
+        Me.lblRequired4.TabIndex = 22
+        Me.lblRequired4.Text = "*"
         '
         'frmRegistration
         '
+        Me.AcceptButton = Me.btnSubmit
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.CancelButton = Me.btnClear
         Me.ClientSize = New System.Drawing.Size(483, 491)
         Me.Controls.Add(Me.grpRegistration)
-        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.lblRequired)
         Me.Controls.Add(Me.lblSubTitle)
         Me.Controls.Add(Me.lblTitle)
         Me.Controls.Add(Me.mnuMenuStrip)
@@ -511,9 +514,9 @@ Partial Class frmRegistration
     Friend WithEvents lblPassword As Label
     Friend WithEvents btnSubmit As Button
     Friend WithEvents btnClear As Button
-    Friend WithEvents Label4 As Label
-    Friend WithEvents Label3 As Label
-    Friend WithEvents Label2 As Label
-    Friend WithEvents Label1 As Label
-    Friend WithEvents Label5 As Label
+    Friend WithEvents lblRequired3 As Label
+    Friend WithEvents lblRequired2 As Label
+    Friend WithEvents lblRequired1 As Label
+    Friend WithEvents lblRequired As Label
+    Friend WithEvents lblRequired4 As Label
 End Class
