@@ -96,6 +96,21 @@
             strErrorMessage = strErrorMessage & vbCrLf & "Password and Confirm Password fields do not match"
         End If
 
+        Const cstrEmailField As String = "ACC_EMAIL"
+        Const cstrUsernameField As String = "ACC_USERNAME"
+        Const cintMissingRecordID As Integer = -1
+        Dim blnUsernameExists As Boolean = False
+        Dim blnEmailExists As Boolean = False
+
+        If (Not SQLGetRecordID(DatabaseTables.ACCOUNT, cstrUsernameField, strUsername).Equals(cintMissingRecordID)) Then
+            blnUsernameExists = True
+            strErrorMessage = strErrorMessage & vbCrLf & "Username already exists in the database"
+        End If
+        If (Not SQLGetRecordID(DatabaseTables.ACCOUNT, cstrEmailField, strEmail).Equals(cintMissingRecordID)) Then
+            blnEmailExists = True
+            strErrorMessage = strErrorMessage & vbCrLf & "Email already exists in the database"
+        End If
+
         If (strErrorMessage.Equals(cstrBaseErrorMessage)) Then
             Try
                 SQLCreateAccount(strUsername, strPassword, strFName, strLName, strEmail, strPhone, strAddress)

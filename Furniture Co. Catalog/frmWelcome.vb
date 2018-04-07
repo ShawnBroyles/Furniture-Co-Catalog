@@ -1,5 +1,5 @@
 ﻿' Program:  Furniture Co. Catalog
-' Version:  0.2
+' Version:  0.3
 ' Author:   Shawn Broyles
 ' Date:     TBD
 ' Purpose:  This application provides a user-friendly experience for
