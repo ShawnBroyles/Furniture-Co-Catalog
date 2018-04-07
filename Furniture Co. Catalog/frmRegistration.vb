@@ -56,8 +56,6 @@
 
     Private Sub frmRegistration_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadFormDefaults(Me)
-        ' Creating a popup if the user is signed in
-        SignedInPopup()
         txtUsername.Focus()
     End Sub
 

@@ -55,13 +55,8 @@
     End Sub
 
     Private Sub frmAccount_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        If (ConfirmPasswordPopup()) Then
-            LoadFormDefaults(Me)
-            ResetForm()
-        Else
-            Close()
-        End If
-
+        LoadFormDefaults(Me)
+        ResetForm()
     End Sub
 
     Private Sub ResetForm()
@@ -105,10 +100,10 @@
     End Sub
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
-
+        MsgBox("Feature not yet implemented.")
     End Sub
 
     Private Sub btnReset_Click(sender As Object, e As EventArgs) Handles btnReset.Click
-
+        ResetForm()
     End Sub
 End Class

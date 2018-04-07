@@ -32,36 +32,62 @@
 
     Public Sub Navigate(ByVal intForm As Integer, ByVal frmCurrentForm As Form, Optional ByVal intItem As Integer = _cintZero)
         Dim frmChosenForm As Form
+        Dim blnSignedOutRequired As Boolean = False
+        Dim blnSignedInRequired As Boolean = False
+        Dim blnPasswordRequired As Boolean = False
         Select Case intForm
             Case Forms.REGISTRATION
                 frmChosenForm = frmRegistration
+                blnSignedOutRequired = True
             Case Forms.LOGIN
                 frmChosenForm = frmLogin
+                blnSignedOutRequired = True
             Case Forms.CATALOG
                 frmChosenForm = frmCatalog
+                blnSignedInRequired = True
             Case Forms.CHECKOUT
                 frmChosenForm = frmCheckout
+                blnSignedInRequired = True
             Case Forms.ACCOUNT
                 frmChosenForm = frmAccount
+                blnSignedInRequired = True
+                blnPasswordRequired = True
             Case Forms.ITEM
                 frmChosenForm = frmItem
+                blnSignedInRequired = True
             Case Forms.PAYMENT
                 frmChosenForm = frmPayment
+                blnSignedInRequired = True
+                blnPasswordRequired = True
             Case Else
                 frmChosenForm = frmWelcome
         End Select
 
-        If (frmCurrentForm.Equals(frmWelcome) And Not frmChosenForm.Equals(frmWelcome)) Then
-            frmChosenForm.ShowDialog()
-        ElseIf (Not frmCurrentForm.Equals(frmWelcome) And frmChosenForm.Equals(frmWelcome)) Then
-            frmCurrentForm.Dispose()
-        ElseIf (Not frmChosenForm.Equals(frmCurrentForm)) Then
-            frmCurrentForm.Dispose()
-            frmChosenForm.ShowDialog()
+        Dim strMessage As String = "Unable to navigate to the displayed form."
+        Dim cstrTitle As String = "Error"
+
+        If (blnSignedInRequired And _CurrentUser.SignedIn.Equals(False)) Then
+            strMessage = "You must be signed in to navigate to this form."
+            MsgBox(strMessage, , cstrTitle)
+        ElseIf (blnSignedOutRequired And _CurrentUser.SignedIn.Equals(True)) Then
+            strMessage = "You must be signed out to navigate to this form."
+            MsgBox(strMessage, , cstrTitle)
+        ElseIf (blnPasswordRequired AndAlso ConfirmPasswordPopup().Equals(False)) Then
+            strMessage = "Invalid Password."
+            MsgBox(strMessage, , cstrTitle)
         Else
-            Const cstrMessage As String = "Unable to navigate to the displayed form."
-            Const cstrTitle As String = "Error"
-            MsgBox(cstrMessage, , cstrTitle)
+            ' Navigating
+            If (frmCurrentForm.Equals(frmWelcome) And Not frmChosenForm.Equals(frmWelcome)) Then
+                frmChosenForm.ShowDialog()
+            ElseIf (Not frmCurrentForm.Equals(frmWelcome) And frmChosenForm.Equals(frmWelcome)) Then
+                frmCurrentForm.Dispose()
+            ElseIf (Not frmChosenForm.Equals(frmCurrentForm)) Then
+                frmCurrentForm.Dispose()
+                frmChosenForm.ShowDialog()
+            Else
+                strMessage = "Unable to navigate to the displayed form."
+                MsgBox(strMessage, , cstrTitle)
+            End If
         End If
     End Sub
 
@@ -74,15 +100,14 @@
         If (_CurrentUser.SignedIn) Then
             Dim strUserSigningOut As String = _CurrentUser.Username
             _CurrentUser.SignOut()
-            Console.WriteLine("Signed in = " & _CurrentUser.SignedIn & " (Signed out of " & strUserSigningOut & ")")
         Else
             MsgBox("You are not signed in.", , "Sign Out Error")
         End If
     End Sub
 
     Public Sub SignInAsGuest()
+        ' Hard-coded guest sign-in (no SQL validation)
         _CurrentUser.SignIn(SQLGetRecordID(DatabaseTables.ACCOUNT, "ACC_USERNAME", "Guest"))
-        Console.WriteLine("Signed in = " & _CurrentUser.SignedIn & " (Signed in as " & _CurrentUser.Username & ")")
     End Sub
 
     Public Function GetSignedInUsername() As String
@@ -95,26 +120,11 @@
         Return strUsername
     End Function
 
-    Public Sub SignedInPopup()
-        If (_CurrentUser.SignedIn = True) Then
-            Const cstrErrorTitle As String = "Error"
-            Const cstrErrorMessage As String = "A user is already signed in." & vbCrLf &
-                                               "Do you want to sign out?"
-            Dim intSignOut As Integer = MessageBox.Show(cstrErrorMessage, cstrErrorTitle, MessageBoxButtons.YesNo)
-            If (intSignOut = DialogResult.Yes) Then
-                _CurrentUser.SignOut()
-            End If
-        End If
-    End Sub
-
     Function ConfirmPasswordPopup() As Boolean
         Dim blnConfirmed As Boolean = False
         Dim strPassword As String = InputBox("Re-Enter your password to confirm your identity.", "Re-Enter Password")
         ' SQL validation is not required here because User.Password is in memory
         blnConfirmed = strPassword.Equals(_CurrentUser.Password)
-        If (Not blnConfirmed) Then
-            MsgBox("Invalid Password.", , "Error")
-        End If
         Return blnConfirmed
     End Function
 
@@ -236,10 +246,12 @@
             CreationDate = SQLGetFieldInfo(DatabaseTables.ACCOUNT, intRecordID, "ACC_CREATION_DATE")
             Status = SQLGetFieldInfo(DatabaseTables.ACCOUNT, intRecordID, "ACC_STATUS")
             SignedIn = True
+            Console.WriteLine("Signed in = " & _CurrentUser.SignedIn & " (Signed in as " & _CurrentUser.Username & ")")
             RaiseEvent UserUpdated()
         End Sub
 
         Public Sub SignOut()
+            Dim strUserSigningOut As String = _CurrentUser.Username
             ID = _cintZero
             Username = _cstrEmpty
             Password = _cstrEmpty
@@ -252,6 +264,7 @@
             CreationDate = _cstrEmpty
             Status = _cstrEmpty
             SignedIn = False
+            Console.WriteLine("Signed in = " & _CurrentUser.SignedIn & " (Signed out of " & strUserSigningOut & ")")
             RaiseEvent UserUpdated()
         End Sub
 
