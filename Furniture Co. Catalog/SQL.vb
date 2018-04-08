@@ -27,6 +27,12 @@ Module SQL
     Const _cstrCaseInsensitive As String = " COLLATE NOCASE"
 
     Public Sub SQLInitializeDatabase()
+        SQLCreateDatabaseIfNotExists()
+        SQLCreateGuestIfNotExists()
+        UpdateProducts()
+    End Sub
+
+    Public Sub SQLCreateDatabaseIfNotExists()
         Dim strSQLCreateDatabase As String = "CREATE TABLE IF NOT EXISTS ACCOUNT (
         ACC_ID              INTEGER PRIMARY KEY,
         ACC_USERNAME        TEXT UNIQUE NOT NULL,
@@ -72,6 +78,9 @@ Module SQL
         ' Close the connection
         SQLConn.Close()
 
+    End Sub
+
+    Public Sub SQLCreateGuestIfNotExists()
         ' Creating a new record in the ACCOUNT table for Guest if it doesn't already exist
         Try
             Dim intErrorID As Integer = -1
@@ -79,7 +88,7 @@ Module SQL
             Dim strFieldValue As String = "Guest"
             Dim intGuestRecordID As Integer = SQLGetRecordID(DatabaseTables.ACCOUNT, strField, strFieldValue)
             If (intGuestRecordID.Equals(intErrorID)) Then
-                SQLCreateAccount("Guest", "pass", "Guest_FName", "Guest_LName", "Guest@example.com", "+1 (234) 567-8901", "123 North Main St.")
+                SQLCreateAccount("Guest", "password", "Guest_FName", "Guest_LName", "Guest@example.com", "+1 (234) 567-8901", "123 North Main St.")
                 Console.WriteLine("Guest account created.")
             Else
                 Console.WriteLine("Guest account already exists.")

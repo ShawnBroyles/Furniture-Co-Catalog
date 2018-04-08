@@ -206,8 +206,84 @@ Module Main
         frmCurrentForm.BackColor = My.Settings.BackColor
 
         PositionFormOnLoad(frmCurrentForm)
-
+        Console.WriteLine("_Products has " & _Products.Count() & " items.")
     End Sub
+
+    ' Array of ShoppingCartItems
+    Public _ShoppingCart As ShoppingCartItem()
+
+    Public Sub AddToShoppingCart(ByRef sciNewItem As ShoppingCartItem)
+        Array.Resize(_ShoppingCart, _ShoppingCart.Length + 1)
+        _ShoppingCart(_ShoppingCart.Length - 1) = sciNewItem
+    End Sub
+
+    ' Array of Items
+    Public _Products As Item()
+
+    Public Sub AddToProducts(ByRef itmNewItem As Item)
+        Array.Resize(_Products, _Products.Length + 1)
+        _Products(_Products.Length - 1) = itmNewItem
+    End Sub
+
+    Public Sub UpdateProducts() ' stub
+        ' for each record
+        Dim intID As Integer = _cintZero
+        Dim strName As String = _cstrEmpty
+        Dim decPrice As Decimal = _cdecZero
+        Dim intStock As Integer = _cintZero
+        Dim decFee As Decimal = _cdecZero
+        Dim strCategory As String = _cstrEmpty
+        Dim strDescription As String = _cstrEmpty
+        Dim itmProduct As Item = New Item(intID, strName, decPrice, intStock, decFee, strCategory, strDescription)
+        AddToProducts(itmProduct)
+        ' loop
+    End Sub
+
+    Public Class Item
+        Public Property ID As Integer
+        Public Property Name As String
+        Public Property Price As Decimal
+        Public Property Stock As Integer
+        Public Property Fee As Decimal
+        Public Property Category As String
+        Public Property Description As String
+
+        Public Sub New()
+            ID = _cintZero
+            Name = _cstrEmpty
+            Price = _cdecZero
+            Stock = _cintZero
+            Fee = _cdecZero
+            Category = _cstrEmpty
+            Description = _cstrEmpty
+        End Sub
+
+        Public Sub New(ByVal intID As Integer, ByVal strName As String, ByVal decPrice As Decimal, ByVal intStock As Integer, ByVal decFee As Decimal, ByVal strCategory As String, ByVal strDescription As String)
+            ID = intID
+            Name = strName
+            Price = decPrice
+            Stock = intStock
+            Fee = decFee
+            Category = strCategory
+            Description = strDescription
+        End Sub
+
+    End Class
+
+    Public Class ShoppingCartItem
+        Public Property Item As Item
+        Public Property Quantity As Integer
+
+        Public Sub New()
+            Item = New Item()
+            Quantity = _cintZero
+        End Sub
+
+        Public Sub New(ByRef itmItem As Item, ByVal intQuantity As Integer)
+            Item = itmItem
+            Quantity = intQuantity
+        End Sub
+    End Class
 
     Public _CurrentUser As User = New User()
 
