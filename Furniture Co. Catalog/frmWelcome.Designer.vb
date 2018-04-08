@@ -199,7 +199,7 @@ Partial Class frmWelcome
         Me.btnSignOut.Location = New System.Drawing.Point(217, 324)
         Me.btnSignOut.Name = "btnSignOut"
         Me.btnSignOut.Size = New System.Drawing.Size(113, 27)
-        Me.btnSignOut.TabIndex = 3
+        Me.btnSignOut.TabIndex = 4
         Me.btnSignOut.Text = "Sign &Out"
         Me.btnSignOut.UseVisualStyleBackColor = True
         '
@@ -219,7 +219,7 @@ Partial Class frmWelcome
         Me.btnSignIn.Location = New System.Drawing.Point(217, 211)
         Me.btnSignIn.Name = "btnSignIn"
         Me.btnSignIn.Size = New System.Drawing.Size(113, 27)
-        Me.btnSignIn.TabIndex = 5
+        Me.btnSignIn.TabIndex = 2
         Me.btnSignIn.Text = "&Sign In"
         Me.btnSignIn.UseVisualStyleBackColor = True
         '
@@ -229,7 +229,7 @@ Partial Class frmWelcome
         Me.btnRegister.Location = New System.Drawing.Point(89, 211)
         Me.btnRegister.Name = "btnRegister"
         Me.btnRegister.Size = New System.Drawing.Size(113, 27)
-        Me.btnRegister.TabIndex = 6
+        Me.btnRegister.TabIndex = 1
         Me.btnRegister.Text = "&Register"
         Me.btnRegister.UseVisualStyleBackColor = True
         '
@@ -239,7 +239,7 @@ Partial Class frmWelcome
         Me.btnSignInAsGuest.Location = New System.Drawing.Point(345, 211)
         Me.btnSignInAsGuest.Name = "btnSignInAsGuest"
         Me.btnSignInAsGuest.Size = New System.Drawing.Size(113, 27)
-        Me.btnSignInAsGuest.TabIndex = 7
+        Me.btnSignInAsGuest.TabIndex = 3
         Me.btnSignInAsGuest.Text = "Sign In As &Guest"
         Me.btnSignInAsGuest.UseVisualStyleBackColor = True
         '

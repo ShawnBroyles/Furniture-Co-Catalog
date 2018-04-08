@@ -91,19 +91,19 @@
             strErrorMessage = strErrorMessage & vbCrLf & "Password must be 6-20 characters and only contain A-Z a-z 0-9 @ . - _ "
         End If
         If (Not blnFNameValidated) Then
-            strErrorMessage = strErrorMessage & vbCrLf & "First Name is optional. Can only contain spaces and A-Z a-z 0-9 @ . - _ ( )"
+            strErrorMessage = strErrorMessage & vbCrLf & "First Name is optional. Only contains spaces and A-Z a-z 0-9 @ . - _ ( )"
         End If
         If (Not blnLNameValidated) Then
-            strErrorMessage = strErrorMessage & vbCrLf & "Last Name is optional. Can only contain spaces and A-Z a-z 0-9 @ . - _ ( )"
+            strErrorMessage = strErrorMessage & vbCrLf & "Last Name is optional. Only contains spaces and A-Z a-z 0-9 @ . - _ ( )"
         End If
         If (Not blnEmailValidated) Then
             strErrorMessage = strErrorMessage & vbCrLf & "Email must be 5-50 characters and contain @ and . characters"
         End If
         If (Not blnPhoneValidated) Then
-            strErrorMessage = strErrorMessage & vbCrLf & "Phone Number is optional. Can only contain spaces and A-Z a-z 0-9 @ . - _ ( )"
+            strErrorMessage = strErrorMessage & vbCrLf & "Phone Number is optional. Only contains spaces and A-Z a-z 0-9 @ . - _ ( )"
         End If
         If (Not blnAddressValidated) Then
-            strErrorMessage = strErrorMessage & vbCrLf & "Address is optional. Can only contain spaces and A-Z a-z 0-9 @ . - _ ( )"
+            strErrorMessage = strErrorMessage & vbCrLf & "Address is optional. Onlys contain spaces and A-Z a-z 0-9 @ . - _ ( )"
         End If
         If (Not strPassword.Equals(strConfirmPassword)) Then
             strErrorMessage = strErrorMessage & vbCrLf & "Password and Confirm Password fields do not match"
@@ -112,15 +112,13 @@
         Const cstrEmailField As String = "ACC_EMAIL"
         Const cstrUsernameField As String = "ACC_USERNAME"
         Const cintMissingRecordID As Integer = -1
-        Dim blnUsernameExists As Boolean = False
-        Dim blnEmailExists As Boolean = False
+        Dim intExistingUsernameRecordID As Integer = SQLGetRecordID(DatabaseTables.ACCOUNT, cstrUsernameField, strUsername)
+        Dim intExistingEmailRecordID As Integer = SQLGetRecordID(DatabaseTables.ACCOUNT, cstrEmailField, strEmail)
 
-        If (Not SQLGetRecordID(DatabaseTables.ACCOUNT, cstrUsernameField, strUsername).Equals(cintMissingRecordID)) Then
-            blnUsernameExists = True
+        If (Not intExistingUsernameRecordID.Equals(cintMissingRecordID)) Then
             strErrorMessage = strErrorMessage & vbCrLf & "Username already exists in the database"
         End If
-        If (Not SQLGetRecordID(DatabaseTables.ACCOUNT, cstrEmailField, strEmail).Equals(cintMissingRecordID)) Then
-            blnEmailExists = True
+        If (Not intExistingEmailRecordID.Equals(cintMissingRecordID)) Then
             strErrorMessage = strErrorMessage & vbCrLf & "Email already exists in the database"
         End If
 

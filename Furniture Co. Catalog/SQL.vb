@@ -262,7 +262,7 @@ Module SQL
 
     End Function
 
-    Public Sub SQLChangeField(ByVal intTable As Integer, ByVal intPrimaryKeyID As Integer, ByVal strField As String, ByVal strFieldNewValue As String)
+    Public Sub SQLSetFieldInfo(ByVal intTable As Integer, ByVal intPrimaryKeyID As Integer, ByVal strField As String, ByVal strFieldNewValue As String)
         Dim intErrorID As Integer = -1
         Dim intRecordID As Integer = intErrorID
 

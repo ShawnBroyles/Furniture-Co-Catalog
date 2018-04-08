@@ -43,30 +43,30 @@ Partial Class frmAccount
         Me.mnuPrint = New System.Windows.Forms.ToolStripMenuItem()
         Me.pfPrintForm = New Microsoft.VisualBasic.PowerPacks.Printing.PrintForm(Me.components)
         Me.grpAccountInfo = New System.Windows.Forms.GroupBox()
-        Me.lblAccountID = New System.Windows.Forms.Label()
-        Me.txtUsername = New System.Windows.Forms.TextBox()
-        Me.txtFirstName = New System.Windows.Forms.TextBox()
-        Me.txtLastName = New System.Windows.Forms.TextBox()
-        Me.txtEmail = New System.Windows.Forms.TextBox()
-        Me.txtPhone = New System.Windows.Forms.TextBox()
-        Me.txtAddress = New System.Windows.Forms.TextBox()
-        Me.lblMoneyOutput = New System.Windows.Forms.Label()
-        Me.lblUsername = New System.Windows.Forms.Label()
-        Me.lblFirstName = New System.Windows.Forms.Label()
-        Me.lblLastName = New System.Windows.Forms.Label()
-        Me.lblEmail = New System.Windows.Forms.Label()
-        Me.lblPhone = New System.Windows.Forms.Label()
-        Me.lblAddress = New System.Windows.Forms.Label()
-        Me.lblMoney = New System.Windows.Forms.Label()
-        Me.lblCreationDate = New System.Windows.Forms.Label()
-        Me.lblTitle = New System.Windows.Forms.Label()
-        Me.lblCreationDateOutput = New System.Windows.Forms.Label()
+        Me.lblAccountIDOutput = New System.Windows.Forms.Label()
+        Me.btnSave = New System.Windows.Forms.Button()
+        Me.btnReset = New System.Windows.Forms.Button()
+        Me.btnChangeInfo = New System.Windows.Forms.Button()
         Me.lblAccountStatusOutput = New System.Windows.Forms.Label()
         Me.lblAccountStatus = New System.Windows.Forms.Label()
-        Me.btnChangeInfo = New System.Windows.Forms.Button()
-        Me.btnReset = New System.Windows.Forms.Button()
-        Me.btnSave = New System.Windows.Forms.Button()
-        Me.lblAccountIDOutput = New System.Windows.Forms.Label()
+        Me.lblCreationDateOutput = New System.Windows.Forms.Label()
+        Me.lblCreationDate = New System.Windows.Forms.Label()
+        Me.lblMoney = New System.Windows.Forms.Label()
+        Me.lblAddress = New System.Windows.Forms.Label()
+        Me.lblPhone = New System.Windows.Forms.Label()
+        Me.lblEmail = New System.Windows.Forms.Label()
+        Me.lblLastName = New System.Windows.Forms.Label()
+        Me.lblFirstName = New System.Windows.Forms.Label()
+        Me.lblUsername = New System.Windows.Forms.Label()
+        Me.lblMoneyOutput = New System.Windows.Forms.Label()
+        Me.txtAddress = New System.Windows.Forms.TextBox()
+        Me.txtPhoneNumber = New System.Windows.Forms.TextBox()
+        Me.txtEmail = New System.Windows.Forms.TextBox()
+        Me.txtLastName = New System.Windows.Forms.TextBox()
+        Me.txtFirstName = New System.Windows.Forms.TextBox()
+        Me.txtUsername = New System.Windows.Forms.TextBox()
+        Me.lblAccountID = New System.Windows.Forms.Label()
+        Me.lblTitle = New System.Windows.Forms.Label()
         Me.mnuMenuStrip.SuspendLayout()
         Me.grpAccountInfo.SuspendLayout()
         Me.SuspendLayout()
@@ -206,7 +206,7 @@ Partial Class frmAccount
         Me.grpAccountInfo.Controls.Add(Me.lblUsername)
         Me.grpAccountInfo.Controls.Add(Me.lblMoneyOutput)
         Me.grpAccountInfo.Controls.Add(Me.txtAddress)
-        Me.grpAccountInfo.Controls.Add(Me.txtPhone)
+        Me.grpAccountInfo.Controls.Add(Me.txtPhoneNumber)
         Me.grpAccountInfo.Controls.Add(Me.txtEmail)
         Me.grpAccountInfo.Controls.Add(Me.txtLastName)
         Me.grpAccountInfo.Controls.Add(Me.txtFirstName)
@@ -219,167 +219,42 @@ Partial Class frmAccount
         Me.grpAccountInfo.TabStop = False
         Me.grpAccountInfo.Text = "Account Info"
         '
-        'lblAccountID
+        'lblAccountIDOutput
         '
-        Me.lblAccountID.AutoSize = True
-        Me.lblAccountID.Location = New System.Drawing.Point(21, 27)
-        Me.lblAccountID.Name = "lblAccountID"
-        Me.lblAccountID.Size = New System.Drawing.Size(64, 13)
-        Me.lblAccountID.TabIndex = 3
-        Me.lblAccountID.Text = "Account ID:"
+        Me.lblAccountIDOutput.AutoSize = True
+        Me.lblAccountIDOutput.Location = New System.Drawing.Point(110, 27)
+        Me.lblAccountIDOutput.Name = "lblAccountIDOutput"
+        Me.lblAccountIDOutput.Size = New System.Drawing.Size(0, 13)
+        Me.lblAccountIDOutput.TabIndex = 27
         '
-        'txtUsername
+        'btnSave
         '
-        Me.txtUsername.Enabled = False
-        Me.txtUsername.Location = New System.Drawing.Point(113, 61)
-        Me.txtUsername.MaxLength = 16
-        Me.txtUsername.Name = "txtUsername"
-        Me.txtUsername.Size = New System.Drawing.Size(100, 20)
-        Me.txtUsername.TabIndex = 4
+        Me.btnSave.Enabled = False
+        Me.btnSave.Location = New System.Drawing.Point(129, 400)
+        Me.btnSave.Name = "btnSave"
+        Me.btnSave.Size = New System.Drawing.Size(75, 23)
+        Me.btnSave.TabIndex = 8
+        Me.btnSave.Text = "&Save"
+        Me.btnSave.UseVisualStyleBackColor = True
         '
-        'txtFirstName
+        'btnReset
         '
-        Me.txtFirstName.Enabled = False
-        Me.txtFirstName.Location = New System.Drawing.Point(113, 98)
-        Me.txtFirstName.MaxLength = 20
-        Me.txtFirstName.Name = "txtFirstName"
-        Me.txtFirstName.Size = New System.Drawing.Size(100, 20)
-        Me.txtFirstName.TabIndex = 6
+        Me.btnReset.Enabled = False
+        Me.btnReset.Location = New System.Drawing.Point(234, 400)
+        Me.btnReset.Name = "btnReset"
+        Me.btnReset.Size = New System.Drawing.Size(75, 23)
+        Me.btnReset.TabIndex = 9
+        Me.btnReset.Text = "&Reset"
+        Me.btnReset.UseVisualStyleBackColor = True
         '
-        'txtLastName
+        'btnChangeInfo
         '
-        Me.txtLastName.Enabled = False
-        Me.txtLastName.Location = New System.Drawing.Point(113, 135)
-        Me.txtLastName.MaxLength = 20
-        Me.txtLastName.Name = "txtLastName"
-        Me.txtLastName.Size = New System.Drawing.Size(100, 20)
-        Me.txtLastName.TabIndex = 7
-        '
-        'txtEmail
-        '
-        Me.txtEmail.Enabled = False
-        Me.txtEmail.Location = New System.Drawing.Point(113, 172)
-        Me.txtEmail.MaxLength = 50
-        Me.txtEmail.Name = "txtEmail"
-        Me.txtEmail.Size = New System.Drawing.Size(200, 20)
-        Me.txtEmail.TabIndex = 8
-        '
-        'txtPhone
-        '
-        Me.txtPhone.Enabled = False
-        Me.txtPhone.Location = New System.Drawing.Point(113, 209)
-        Me.txtPhone.MaxLength = 20
-        Me.txtPhone.Name = "txtPhone"
-        Me.txtPhone.Size = New System.Drawing.Size(100, 20)
-        Me.txtPhone.TabIndex = 9
-        '
-        'txtAddress
-        '
-        Me.txtAddress.Enabled = False
-        Me.txtAddress.Location = New System.Drawing.Point(113, 246)
-        Me.txtAddress.MaxLength = 80
-        Me.txtAddress.Name = "txtAddress"
-        Me.txtAddress.Size = New System.Drawing.Size(200, 20)
-        Me.txtAddress.TabIndex = 10
-        '
-        'lblMoneyOutput
-        '
-        Me.lblMoneyOutput.AutoSize = True
-        Me.lblMoneyOutput.Location = New System.Drawing.Point(110, 286)
-        Me.lblMoneyOutput.Name = "lblMoneyOutput"
-        Me.lblMoneyOutput.Size = New System.Drawing.Size(0, 13)
-        Me.lblMoneyOutput.TabIndex = 11
-        '
-        'lblUsername
-        '
-        Me.lblUsername.AutoSize = True
-        Me.lblUsername.Location = New System.Drawing.Point(21, 64)
-        Me.lblUsername.Name = "lblUsername"
-        Me.lblUsername.Size = New System.Drawing.Size(58, 13)
-        Me.lblUsername.TabIndex = 12
-        Me.lblUsername.Text = "Username:"
-        '
-        'lblFirstName
-        '
-        Me.lblFirstName.AutoSize = True
-        Me.lblFirstName.Location = New System.Drawing.Point(21, 101)
-        Me.lblFirstName.Name = "lblFirstName"
-        Me.lblFirstName.Size = New System.Drawing.Size(60, 13)
-        Me.lblFirstName.TabIndex = 14
-        Me.lblFirstName.Text = "First Name:"
-        '
-        'lblLastName
-        '
-        Me.lblLastName.AutoSize = True
-        Me.lblLastName.Location = New System.Drawing.Point(21, 138)
-        Me.lblLastName.Name = "lblLastName"
-        Me.lblLastName.Size = New System.Drawing.Size(61, 13)
-        Me.lblLastName.TabIndex = 15
-        Me.lblLastName.Text = "Last Name:"
-        '
-        'lblEmail
-        '
-        Me.lblEmail.AutoSize = True
-        Me.lblEmail.Location = New System.Drawing.Point(21, 175)
-        Me.lblEmail.Name = "lblEmail"
-        Me.lblEmail.Size = New System.Drawing.Size(35, 13)
-        Me.lblEmail.TabIndex = 16
-        Me.lblEmail.Text = "Email:"
-        '
-        'lblPhone
-        '
-        Me.lblPhone.AutoSize = True
-        Me.lblPhone.Location = New System.Drawing.Point(21, 212)
-        Me.lblPhone.Name = "lblPhone"
-        Me.lblPhone.Size = New System.Drawing.Size(41, 13)
-        Me.lblPhone.TabIndex = 17
-        Me.lblPhone.Text = "Phone:"
-        '
-        'lblAddress
-        '
-        Me.lblAddress.AutoSize = True
-        Me.lblAddress.Location = New System.Drawing.Point(21, 249)
-        Me.lblAddress.Name = "lblAddress"
-        Me.lblAddress.Size = New System.Drawing.Size(48, 13)
-        Me.lblAddress.TabIndex = 18
-        Me.lblAddress.Text = "Address:"
-        '
-        'lblMoney
-        '
-        Me.lblMoney.AutoSize = True
-        Me.lblMoney.Location = New System.Drawing.Point(21, 286)
-        Me.lblMoney.Name = "lblMoney"
-        Me.lblMoney.Size = New System.Drawing.Size(42, 13)
-        Me.lblMoney.TabIndex = 19
-        Me.lblMoney.Text = "Money:"
-        '
-        'lblCreationDate
-        '
-        Me.lblCreationDate.AutoSize = True
-        Me.lblCreationDate.Location = New System.Drawing.Point(21, 323)
-        Me.lblCreationDate.Name = "lblCreationDate"
-        Me.lblCreationDate.Size = New System.Drawing.Size(75, 13)
-        Me.lblCreationDate.TabIndex = 20
-        Me.lblCreationDate.Text = "Creation Date:"
-        '
-        'lblTitle
-        '
-        Me.lblTitle.AutoSize = True
-        Me.lblTitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTitle.Location = New System.Drawing.Point(178, 37)
-        Me.lblTitle.Name = "lblTitle"
-        Me.lblTitle.Size = New System.Drawing.Size(90, 25)
-        Me.lblTitle.TabIndex = 4
-        Me.lblTitle.Text = "Account"
-        Me.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'lblCreationDateOutput
-        '
-        Me.lblCreationDateOutput.AutoSize = True
-        Me.lblCreationDateOutput.Location = New System.Drawing.Point(110, 323)
-        Me.lblCreationDateOutput.Name = "lblCreationDateOutput"
-        Me.lblCreationDateOutput.Size = New System.Drawing.Size(0, 13)
-        Me.lblCreationDateOutput.TabIndex = 21
+        Me.btnChangeInfo.Location = New System.Drawing.Point(24, 400)
+        Me.btnChangeInfo.Name = "btnChangeInfo"
+        Me.btnChangeInfo.Size = New System.Drawing.Size(75, 23)
+        Me.btnChangeInfo.TabIndex = 7
+        Me.btnChangeInfo.Text = "Ch&ange Info"
+        Me.btnChangeInfo.UseVisualStyleBackColor = True
         '
         'lblAccountStatusOutput
         '
@@ -398,42 +273,167 @@ Partial Class frmAccount
         Me.lblAccountStatus.TabIndex = 22
         Me.lblAccountStatus.Text = "Account Status:"
         '
-        'btnChangeInfo
+        'lblCreationDateOutput
         '
-        Me.btnChangeInfo.Location = New System.Drawing.Point(24, 400)
-        Me.btnChangeInfo.Name = "btnChangeInfo"
-        Me.btnChangeInfo.Size = New System.Drawing.Size(75, 23)
-        Me.btnChangeInfo.TabIndex = 24
-        Me.btnChangeInfo.Text = "Ch&ange Info"
-        Me.btnChangeInfo.UseVisualStyleBackColor = True
+        Me.lblCreationDateOutput.AutoSize = True
+        Me.lblCreationDateOutput.Location = New System.Drawing.Point(110, 323)
+        Me.lblCreationDateOutput.Name = "lblCreationDateOutput"
+        Me.lblCreationDateOutput.Size = New System.Drawing.Size(0, 13)
+        Me.lblCreationDateOutput.TabIndex = 21
         '
-        'btnReset
+        'lblCreationDate
         '
-        Me.btnReset.Enabled = False
-        Me.btnReset.Location = New System.Drawing.Point(234, 400)
-        Me.btnReset.Name = "btnReset"
-        Me.btnReset.Size = New System.Drawing.Size(75, 23)
-        Me.btnReset.TabIndex = 25
-        Me.btnReset.Text = "&Reset"
-        Me.btnReset.UseVisualStyleBackColor = True
+        Me.lblCreationDate.AutoSize = True
+        Me.lblCreationDate.Location = New System.Drawing.Point(21, 323)
+        Me.lblCreationDate.Name = "lblCreationDate"
+        Me.lblCreationDate.Size = New System.Drawing.Size(75, 13)
+        Me.lblCreationDate.TabIndex = 20
+        Me.lblCreationDate.Text = "Creation Date:"
         '
-        'btnSave
+        'lblMoney
         '
-        Me.btnSave.Enabled = False
-        Me.btnSave.Location = New System.Drawing.Point(129, 400)
-        Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(75, 23)
-        Me.btnSave.TabIndex = 26
-        Me.btnSave.Text = "&Save"
-        Me.btnSave.UseVisualStyleBackColor = True
+        Me.lblMoney.AutoSize = True
+        Me.lblMoney.Location = New System.Drawing.Point(21, 286)
+        Me.lblMoney.Name = "lblMoney"
+        Me.lblMoney.Size = New System.Drawing.Size(42, 13)
+        Me.lblMoney.TabIndex = 19
+        Me.lblMoney.Text = "Money:"
         '
-        'lblAccountIDOutput
+        'lblAddress
         '
-        Me.lblAccountIDOutput.AutoSize = True
-        Me.lblAccountIDOutput.Location = New System.Drawing.Point(110, 27)
-        Me.lblAccountIDOutput.Name = "lblAccountIDOutput"
-        Me.lblAccountIDOutput.Size = New System.Drawing.Size(0, 13)
-        Me.lblAccountIDOutput.TabIndex = 27
+        Me.lblAddress.AutoSize = True
+        Me.lblAddress.Location = New System.Drawing.Point(21, 249)
+        Me.lblAddress.Name = "lblAddress"
+        Me.lblAddress.Size = New System.Drawing.Size(48, 13)
+        Me.lblAddress.TabIndex = 18
+        Me.lblAddress.Text = "Address:"
+        '
+        'lblPhone
+        '
+        Me.lblPhone.AutoSize = True
+        Me.lblPhone.Location = New System.Drawing.Point(21, 212)
+        Me.lblPhone.Name = "lblPhone"
+        Me.lblPhone.Size = New System.Drawing.Size(41, 13)
+        Me.lblPhone.TabIndex = 17
+        Me.lblPhone.Text = "Phone:"
+        '
+        'lblEmail
+        '
+        Me.lblEmail.AutoSize = True
+        Me.lblEmail.Location = New System.Drawing.Point(21, 175)
+        Me.lblEmail.Name = "lblEmail"
+        Me.lblEmail.Size = New System.Drawing.Size(35, 13)
+        Me.lblEmail.TabIndex = 16
+        Me.lblEmail.Text = "Email:"
+        '
+        'lblLastName
+        '
+        Me.lblLastName.AutoSize = True
+        Me.lblLastName.Location = New System.Drawing.Point(21, 138)
+        Me.lblLastName.Name = "lblLastName"
+        Me.lblLastName.Size = New System.Drawing.Size(61, 13)
+        Me.lblLastName.TabIndex = 15
+        Me.lblLastName.Text = "Last Name:"
+        '
+        'lblFirstName
+        '
+        Me.lblFirstName.AutoSize = True
+        Me.lblFirstName.Location = New System.Drawing.Point(21, 101)
+        Me.lblFirstName.Name = "lblFirstName"
+        Me.lblFirstName.Size = New System.Drawing.Size(60, 13)
+        Me.lblFirstName.TabIndex = 14
+        Me.lblFirstName.Text = "First Name:"
+        '
+        'lblUsername
+        '
+        Me.lblUsername.AutoSize = True
+        Me.lblUsername.Location = New System.Drawing.Point(21, 64)
+        Me.lblUsername.Name = "lblUsername"
+        Me.lblUsername.Size = New System.Drawing.Size(58, 13)
+        Me.lblUsername.TabIndex = 12
+        Me.lblUsername.Text = "Username:"
+        '
+        'lblMoneyOutput
+        '
+        Me.lblMoneyOutput.AutoSize = True
+        Me.lblMoneyOutput.Location = New System.Drawing.Point(110, 286)
+        Me.lblMoneyOutput.Name = "lblMoneyOutput"
+        Me.lblMoneyOutput.Size = New System.Drawing.Size(0, 13)
+        Me.lblMoneyOutput.TabIndex = 11
+        '
+        'txtAddress
+        '
+        Me.txtAddress.Enabled = False
+        Me.txtAddress.Location = New System.Drawing.Point(113, 246)
+        Me.txtAddress.MaxLength = 80
+        Me.txtAddress.Name = "txtAddress"
+        Me.txtAddress.Size = New System.Drawing.Size(200, 20)
+        Me.txtAddress.TabIndex = 6
+        '
+        'txtPhoneNumber
+        '
+        Me.txtPhoneNumber.Enabled = False
+        Me.txtPhoneNumber.Location = New System.Drawing.Point(113, 209)
+        Me.txtPhoneNumber.MaxLength = 20
+        Me.txtPhoneNumber.Name = "txtPhoneNumber"
+        Me.txtPhoneNumber.Size = New System.Drawing.Size(100, 20)
+        Me.txtPhoneNumber.TabIndex = 5
+        '
+        'txtEmail
+        '
+        Me.txtEmail.Enabled = False
+        Me.txtEmail.Location = New System.Drawing.Point(113, 172)
+        Me.txtEmail.MaxLength = 50
+        Me.txtEmail.Name = "txtEmail"
+        Me.txtEmail.Size = New System.Drawing.Size(200, 20)
+        Me.txtEmail.TabIndex = 4
+        '
+        'txtLastName
+        '
+        Me.txtLastName.Enabled = False
+        Me.txtLastName.Location = New System.Drawing.Point(113, 135)
+        Me.txtLastName.MaxLength = 20
+        Me.txtLastName.Name = "txtLastName"
+        Me.txtLastName.Size = New System.Drawing.Size(120, 20)
+        Me.txtLastName.TabIndex = 3
+        '
+        'txtFirstName
+        '
+        Me.txtFirstName.Enabled = False
+        Me.txtFirstName.Location = New System.Drawing.Point(113, 98)
+        Me.txtFirstName.MaxLength = 20
+        Me.txtFirstName.Name = "txtFirstName"
+        Me.txtFirstName.Size = New System.Drawing.Size(120, 20)
+        Me.txtFirstName.TabIndex = 2
+        '
+        'txtUsername
+        '
+        Me.txtUsername.Enabled = False
+        Me.txtUsername.Location = New System.Drawing.Point(113, 61)
+        Me.txtUsername.MaxLength = 16
+        Me.txtUsername.Name = "txtUsername"
+        Me.txtUsername.Size = New System.Drawing.Size(100, 20)
+        Me.txtUsername.TabIndex = 1
+        '
+        'lblAccountID
+        '
+        Me.lblAccountID.AutoSize = True
+        Me.lblAccountID.Location = New System.Drawing.Point(21, 27)
+        Me.lblAccountID.Name = "lblAccountID"
+        Me.lblAccountID.Size = New System.Drawing.Size(64, 13)
+        Me.lblAccountID.TabIndex = 3
+        Me.lblAccountID.Text = "Account ID:"
+        '
+        'lblTitle
+        '
+        Me.lblTitle.AutoSize = True
+        Me.lblTitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTitle.Location = New System.Drawing.Point(178, 37)
+        Me.lblTitle.Name = "lblTitle"
+        Me.lblTitle.Size = New System.Drawing.Size(90, 25)
+        Me.lblTitle.TabIndex = 4
+        Me.lblTitle.Text = "Account"
+        Me.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'frmAccount
         '
@@ -484,7 +484,7 @@ Partial Class frmAccount
     Friend WithEvents lblUsername As Label
     Friend WithEvents lblMoneyOutput As Label
     Friend WithEvents txtAddress As TextBox
-    Friend WithEvents txtPhone As TextBox
+    Friend WithEvents txtPhoneNumber As TextBox
     Friend WithEvents txtEmail As TextBox
     Friend WithEvents txtLastName As TextBox
     Friend WithEvents txtFirstName As TextBox

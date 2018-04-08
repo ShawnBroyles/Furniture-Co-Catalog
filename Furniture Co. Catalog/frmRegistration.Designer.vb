@@ -289,7 +289,7 @@ Partial Class frmRegistration
         Me.btnClear.Location = New System.Drawing.Point(164, 277)
         Me.btnClear.Name = "btnClear"
         Me.btnClear.Size = New System.Drawing.Size(75, 23)
-        Me.btnClear.TabIndex = 17
+        Me.btnClear.TabIndex = 10
         Me.btnClear.Text = "&Clear"
         Me.btnClear.UseVisualStyleBackColor = True
         '
@@ -298,7 +298,7 @@ Partial Class frmRegistration
         Me.btnSubmit.Location = New System.Drawing.Point(65, 277)
         Me.btnSubmit.Name = "btnSubmit"
         Me.btnSubmit.Size = New System.Drawing.Size(75, 23)
-        Me.btnSubmit.TabIndex = 16
+        Me.btnSubmit.TabIndex = 9
         Me.btnSubmit.Text = "&Submit"
         Me.btnSubmit.UseVisualStyleBackColor = True
         '
@@ -308,7 +308,7 @@ Partial Class frmRegistration
         Me.txtAddress.MaxLength = 80
         Me.txtAddress.Name = "txtAddress"
         Me.txtAddress.Size = New System.Drawing.Size(200, 20)
-        Me.txtAddress.TabIndex = 15
+        Me.txtAddress.TabIndex = 8
         '
         'txtPhoneNumber
         '
@@ -316,7 +316,7 @@ Partial Class frmRegistration
         Me.txtPhoneNumber.MaxLength = 20
         Me.txtPhoneNumber.Name = "txtPhoneNumber"
         Me.txtPhoneNumber.Size = New System.Drawing.Size(122, 20)
-        Me.txtPhoneNumber.TabIndex = 14
+        Me.txtPhoneNumber.TabIndex = 7
         '
         'txtEmail
         '
@@ -324,7 +324,7 @@ Partial Class frmRegistration
         Me.txtEmail.MaxLength = 50
         Me.txtEmail.Name = "txtEmail"
         Me.txtEmail.Size = New System.Drawing.Size(200, 20)
-        Me.txtEmail.TabIndex = 13
+        Me.txtEmail.TabIndex = 6
         '
         'txtLastName
         '
@@ -332,7 +332,7 @@ Partial Class frmRegistration
         Me.txtLastName.MaxLength = 20
         Me.txtLastName.Name = "txtLastName"
         Me.txtLastName.Size = New System.Drawing.Size(120, 20)
-        Me.txtLastName.TabIndex = 12
+        Me.txtLastName.TabIndex = 5
         '
         'txtFirstName
         '
@@ -340,7 +340,7 @@ Partial Class frmRegistration
         Me.txtFirstName.MaxLength = 20
         Me.txtFirstName.Name = "txtFirstName"
         Me.txtFirstName.Size = New System.Drawing.Size(120, 20)
-        Me.txtFirstName.TabIndex = 11
+        Me.txtFirstName.TabIndex = 4
         '
         'txtConfirmPassword
         '
@@ -349,7 +349,7 @@ Partial Class frmRegistration
         Me.txtConfirmPassword.Name = "txtConfirmPassword"
         Me.txtConfirmPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtConfirmPassword.Size = New System.Drawing.Size(100, 20)
-        Me.txtConfirmPassword.TabIndex = 10
+        Me.txtConfirmPassword.TabIndex = 3
         '
         'txtPassword
         '
@@ -358,7 +358,7 @@ Partial Class frmRegistration
         Me.txtPassword.Name = "txtPassword"
         Me.txtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtPassword.Size = New System.Drawing.Size(100, 20)
-        Me.txtPassword.TabIndex = 9
+        Me.txtPassword.TabIndex = 2
         '
         'txtUsername
         '
@@ -366,7 +366,7 @@ Partial Class frmRegistration
         Me.txtUsername.MaxLength = 16
         Me.txtUsername.Name = "txtUsername"
         Me.txtUsername.Size = New System.Drawing.Size(100, 20)
-        Me.txtUsername.TabIndex = 8
+        Me.txtUsername.TabIndex = 1
         '
         'lblAddress
         '
