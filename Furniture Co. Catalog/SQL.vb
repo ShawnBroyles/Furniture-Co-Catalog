@@ -24,6 +24,7 @@ Module SQL
 
     Const _cstrDatabaseName As String = "Database.db"
     Const _cstrConnection As String = "Data Source=" & _cstrDatabaseName
+    Const _cstrCaseInsensitive As String = " COLLATE NOCASE"
 
     Public Sub SQLInitializeDatabase()
         Dim strSQLCreateDatabase As String = "CREATE TABLE IF NOT EXISTS ACCOUNT (
@@ -142,14 +143,21 @@ Module SQL
         Return blnReturn
     End Function
 
-    Function SQLGetFieldInfo(ByVal intTable As Integer, ByVal intPrimaryKeyID As Integer, ByVal strField As String) As String
+    Function SQLGetFieldInfo(ByVal intTable As Integer, ByVal intPrimaryKeyID As Integer, ByVal strField As String, Optional ByVal blnCaseSensitive As Boolean = False) As String
 
         Const cstrError As String = "Error - Unable to get field info from the database."
 
-        Dim strReturn As String = ""
+        Dim strReturn As String = _cstrEmpty
 
-        Dim strTable As String = ""
-        Dim strPrimaryKey As String = ""
+        Dim strTable As String = _cstrEmpty
+        Dim strPrimaryKey As String = _cstrEmpty
+        Dim strCaseSensitivity As String = _cstrEmpty
+
+        If (blnCaseSensitive) Then
+            ' SQL queries are case sensitive by default
+        Else
+            strCaseSensitivity = _cstrCaseInsensitive
+        End If
 
         Select Case intTable
             Case DatabaseTables.ACCOUNT
@@ -168,9 +176,9 @@ Module SQL
             strReturn = cstrError
         Else
 
-            Dim strFieldInfo As String = ""
+            Dim strFieldInfo As String = _cstrEmpty
 
-            Dim SQLstr As String = "SELECT * FROM " & strTable & " WHERE " & strPrimaryKey & "=" & intPrimaryKeyID.ToString() & ";"
+            Dim SQLstr As String = "SELECT * FROM " & strTable & " WHERE " & strPrimaryKey & "=" & intPrimaryKeyID.ToString() & strCaseSensitivity & ";"
 
             Dim SQLConn As New SQLiteConnection(_cstrConnection)
             Dim SQLcmd As New SQLiteCommand(SQLConn)
@@ -208,13 +216,20 @@ Module SQL
 
     End Function
 
-    Function SQLGetRecordID(ByVal intTable As Integer, ByVal strField As String, ByVal strFieldValue As String) As Integer
+    Function SQLGetRecordID(ByVal intTable As Integer, ByVal strField As String, ByVal strFieldValue As String, Optional ByVal blnCaseSensitive As Boolean = False) As Integer
 
         Dim intErrorID As Integer = -1
         Dim intRecordID As Integer = intErrorID
 
-        Dim strTable As String = ""
-        Dim strPrimaryKey As String = ""
+        Dim strTable As String = _cstrEmpty
+        Dim strPrimaryKey As String = _cstrEmpty
+        Dim strCaseSensitivity As String = _cstrEmpty
+
+        If (blnCaseSensitive) Then
+            ' SQL queries are case sensitive by default
+        Else
+            strCaseSensitivity = _cstrCaseInsensitive
+        End If
 
         Select Case intTable
             Case DatabaseTables.ACCOUNT
@@ -232,7 +247,7 @@ Module SQL
             Console.WriteLine("Error: Table not found from intTable")
         Else
 
-            Dim SQLstr As String = "SELECT * FROM " & strTable & " WHERE " & strField & "='" & strFieldValue & "';"
+            Dim SQLstr As String = "SELECT * FROM " & strTable & " WHERE " & strField & "='" & strFieldValue & "'" & strCaseSensitivity & ";"
 
             Dim SQLConn As New SQLiteConnection(_cstrConnection)
             Dim SQLcmd As New SQLiteCommand(SQLConn)
@@ -266,12 +281,19 @@ Module SQL
 
     End Function
 
-    Public Sub SQLSetFieldInfo(ByVal intTable As Integer, ByVal intPrimaryKeyID As Integer, ByVal strField As String, ByVal strFieldNewValue As String)
+    Public Sub SQLSetFieldInfo(ByVal intTable As Integer, ByVal intPrimaryKeyID As Integer, ByVal strField As String, ByVal strFieldNewValue As String, Optional ByVal blnCaseSensitive As Boolean = False)
         Dim intErrorID As Integer = -1
         Dim intRecordID As Integer = intErrorID
 
-        Dim strTable As String = ""
-        Dim strPrimaryKey As String = ""
+        Dim strTable As String = _cstrEmpty
+        Dim strPrimaryKey As String = _cstrEmpty
+        Dim strCaseSensitivity As String = _cstrEmpty
+
+        If (blnCaseSensitive) Then
+            ' SQL queries are case sensitive by default
+        Else
+            strCaseSensitivity = _cstrCaseInsensitive
+        End If
 
         Select Case intTable
             Case DatabaseTables.ACCOUNT
@@ -290,7 +312,7 @@ Module SQL
         Else
             Dim SQLstr As String = "UPDATE " & strTable & "
             SET " & strField & " = '" & strFieldNewValue & "'
-            WHERE " & strPrimaryKey & " = " & intPrimaryKeyID & ";"
+            WHERE " & strPrimaryKey & " = " & intPrimaryKeyID & strCaseSensitivity & ";"
 
             Dim SQLConn As New SQLiteConnection(_cstrConnection)
             Dim SQLcmd As New SQLiteCommand(SQLConn)

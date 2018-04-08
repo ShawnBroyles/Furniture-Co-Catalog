@@ -117,6 +117,7 @@ Public Class frmLogin
 
         Dim blnSignedIn As Boolean = False
         Dim blnAttemptSignIn As Boolean = False
+        Dim blnPasswordCaseSensitive As Boolean = True
 
         If (strErrorMessage.Equals(cstrBaseErrorMessage)) Then
             Try
@@ -125,7 +126,7 @@ Public Class frmLogin
                 'SQLCreateAccount(strUsername, strPassword, strFName, strLName, strEmail, strPhone, strAddress)
                 Dim intUsernameRecordID As Integer = SQLGetRecordID(DatabaseTables.ACCOUNT, strLoginField, strUsername)
                 If (Not intUsernameRecordID.Equals(cintMissingRecordID)) Then
-                    If (SQLGetFieldInfo(DatabaseTables.ACCOUNT, intUsernameRecordID, cstrPasswordField).Equals(strPassword)) Then
+                    If (SQLGetFieldInfo(DatabaseTables.ACCOUNT, intUsernameRecordID, cstrPasswordField, blnPasswordCaseSensitive).Equals(strPassword)) Then
                         _CurrentUser.SignIn(intUsernameRecordID)
                         blnSignedIn = True
                         MsgBox(cstrSuccessMessage, , cstrSuccessTitle)
