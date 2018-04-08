@@ -74,6 +74,7 @@ Public Class frmWelcome
         LoadFormDefaults(Me)
         SQLInitializeDatabase()
         AddHandler _CurrentUser.UserUpdated, AddressOf UpdateSignedIn
+        ' Console.WriteLine("_Products has " & _Products.Count() & " items.")
     End Sub
 
     Private Sub btnRegister_Click(sender As Object, e As EventArgs) Handles btnRegister.Click

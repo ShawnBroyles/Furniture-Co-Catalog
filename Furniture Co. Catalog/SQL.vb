@@ -50,15 +50,15 @@ Module SQL
         PAY_ID              INTEGER PRIMARY KEY,
         ACC_ID              INTEGER,
         PAY_DATE            DATE DEFAULT CURRENT_TIMESTAMP,
-        PAY_PRICE           REAL DEFAULT 0.00,
+        PAY_PRICE           TEXT DEFAULT '0.00',
         FOREIGN KEY (ACC_ID) REFERENCES ACCOUNT (ACC_ID)
         );
         CREATE TABLE IF NOT EXISTS PRODUCT (
         PROD_ID             INTEGER PRIMARY KEY,
         PROD_NAME           TEXT DEFAULT '',
-        PROD_PRICE          REAL DEFAULT 0.00,
+        PROD_PRICE          TEXT DEFAULT '0.00',
         PROD_STOCK          INTEGER DEFAULT 0,
-        PROD_FEE            REAL DEFAULT 0.00,
+        PROD_FEE            TEXT DEFAULT '0.00',
         PROD_CATEGORY       TEXT DEFAULT '',
         PROD_DESCRIPTION    TEXT DEFAULT ''
         );"

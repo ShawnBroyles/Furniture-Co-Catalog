@@ -37,7 +37,7 @@ Module Main
             frmCurrentForm.Location = New Point(Convert.ToInt32(xCoordinate), Convert.ToInt32(yCoordinate))
         Catch ex As Exception
             ' Writing the error to the output
-            Console.WriteLine(ex.Message)
+            Console.WriteLine("Position Form Error = " & ex.Message)
         End Try
     End Sub
 
@@ -77,30 +77,46 @@ Module Main
         Dim strMessage As String = "Unable to navigate to the displayed form."
         Dim cstrTitle As String = "Error"
 
+        ' Navigating
+        If (frmCurrentForm.Equals(frmWelcome) And Not frmChosenForm.Equals(frmWelcome)) Then
+            If NavigatePrerequisite(blnSignedOutRequired, blnSignedInRequired, blnPasswordRequired) Then
+                frmChosenForm.ShowDialog()
+            End If
+        ElseIf (Not frmCurrentForm.Equals(frmWelcome) And frmChosenForm.Equals(frmWelcome)) Then
+            If NavigatePrerequisite(blnSignedOutRequired, blnSignedInRequired, blnPasswordRequired) Then
+                frmCurrentForm.Dispose()
+            End If
+        ElseIf (Not frmChosenForm.Equals(frmCurrentForm)) Then
+            If NavigatePrerequisite(blnSignedOutRequired, blnSignedInRequired, blnPasswordRequired) Then
+                frmCurrentForm.Dispose()
+                frmChosenForm.ShowDialog()
+            End If
+        Else
+            MsgBox(strMessage, , cstrTitle)
+        End If
+    End Sub
+
+    Function NavigatePrerequisite(ByVal blnSignedOutRequired As Boolean, ByVal blnSignedInRequired As Boolean, ByVal blnPasswordRequired As Boolean) As Boolean
+        Dim blnNavigate As Boolean = True
+        Dim strMessage As String = ""
+        Dim cstrTitle As String = "Error"
         If (blnSignedInRequired And _CurrentUser.SignedIn.Equals(False)) Then
+            blnNavigate = False
             strMessage = "You must be signed in to navigate to this form."
             MsgBox(strMessage, , cstrTitle)
         ElseIf (blnSignedOutRequired And _CurrentUser.SignedIn.Equals(True)) Then
+            blnNavigate = False
             strMessage = "You must be signed out to navigate to this form."
             MsgBox(strMessage, , cstrTitle)
         ElseIf (blnPasswordRequired AndAlso ConfirmPasswordPopup().Equals(False)) Then
+            blnNavigate = False
             strMessage = "Invalid Password."
             MsgBox(strMessage, , cstrTitle)
-        Else
-            ' Navigating
-            If (frmCurrentForm.Equals(frmWelcome) And Not frmChosenForm.Equals(frmWelcome)) Then
-                frmChosenForm.ShowDialog()
-            ElseIf (Not frmCurrentForm.Equals(frmWelcome) And frmChosenForm.Equals(frmWelcome)) Then
-                frmCurrentForm.Dispose()
-            ElseIf (Not frmChosenForm.Equals(frmCurrentForm)) Then
-                frmCurrentForm.Dispose()
-                frmChosenForm.ShowDialog()
-            Else
-                strMessage = "Unable to navigate to the displayed form."
-                MsgBox(strMessage, , cstrTitle)
-            End If
         End If
-    End Sub
+
+        Return blnNavigate
+
+    End Function
 
     Public Sub ReloadForm(ByVal frmCurrentForm As Form)
         ' stub
@@ -111,6 +127,7 @@ Module Main
         If (_CurrentUser.SignedIn) Then
             Dim strUserSigningOut As String = _CurrentUser.Username
             _CurrentUser.SignOut()
+            MsgBox("You are now signed out.", , "Sign Out Success")
         Else
             MsgBox("You are not signed in.", , "Sign Out Error")
         End If
@@ -206,7 +223,6 @@ Module Main
         frmCurrentForm.BackColor = My.Settings.BackColor
 
         PositionFormOnLoad(frmCurrentForm)
-        Console.WriteLine("_Products has " & _Products.Count() & " items.")
     End Sub
 
     ' Array of ShoppingCartItems
@@ -235,7 +251,12 @@ Module Main
         Dim strCategory As String = _cstrEmpty
         Dim strDescription As String = _cstrEmpty
         Dim itmProduct As Item = New Item(intID, strName, decPrice, intStock, decFee, strCategory, strDescription)
-        AddToProducts(itmProduct)
+        Try
+            AddToProducts(itmProduct)
+        Catch ex As Exception
+            Console.WriteLine(ex.Message)
+            Console.WriteLine("Unable to add product to the products array")
+        End Try
         ' loop
     End Sub
 
