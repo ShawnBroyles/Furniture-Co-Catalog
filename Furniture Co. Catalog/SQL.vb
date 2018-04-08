@@ -31,8 +31,8 @@ Module SQL
         ACC_EMAIL           TEXT UNIQUE DEFAULT '',
         ACC_PHONE           TEXT DEFAULT '',
         ACC_ADDRESS         TEXT DEFAULT '',
-        ACC_MONEY           REAL DEFAULT 0.00,
-        ACC_CREATION_DATE   DATE DEFAULT CURRENT_TIMESTAMP,
+        ACC_MONEY           TEXT DEFAULT '0.00',
+        ACC_CREATION_DATE   DATE DEFAULT (datetime('now','localtime')),
         ACC_STATUS          TEXT DEFAULT 'Good'
         );
         CREATE TABLE IF NOT EXISTS PAYMENT (
@@ -74,7 +74,7 @@ Module SQL
             Dim strFieldValue As String = "Guest"
             Dim intGuestRecordID As Integer = SQLGetRecordID(DatabaseTables.ACCOUNT, strField, strFieldValue)
             If (intGuestRecordID.Equals(intErrorID)) Then
-                SQLCreateAccount("Guest", "", "Guest_FName", "Guest_LName", "Guest@example.com", "+1 (234) 567-8901", "123 North Main St.")
+                SQLCreateAccount("Guest", "pass", "Guest_FName", "Guest_LName", "Guest@example.com", "+1 (234) 567-8901", "123 North Main St.")
                 Console.WriteLine("Guest account created.")
             Else
                 Console.WriteLine("Guest account already exists.")
@@ -261,5 +261,48 @@ Module SQL
         Return intRecordID
 
     End Function
+
+    Public Sub SQLChangeField(ByVal intTable As Integer, ByVal intPrimaryKeyID As Integer, ByVal strField As String, ByVal strFieldNewValue As String)
+        Dim intErrorID As Integer = -1
+        Dim intRecordID As Integer = intErrorID
+
+        Dim strTable As String = ""
+        Dim strPrimaryKey As String = ""
+
+        Select Case intTable
+            Case DatabaseTables.ACCOUNT
+                strTable = "ACCOUNT"
+                strPrimaryKey = "ACC_ID"
+            Case DatabaseTables.PAYMENT
+                strTable = "PAYMENT"
+                strPrimaryKey = "PAY_ID"
+            Case DatabaseTables.PRODUCT
+                strTable = "PRODUCT"
+                strPrimaryKey = "PROD_ID"
+        End Select
+
+        If (String.IsNullOrWhiteSpace(strTable)) Then
+            Console.WriteLine("Error: Table not found from intTable")
+        Else
+            Dim SQLstr As String = "UPDATE " & strTable & "
+            SET " & strField & " = '" & strFieldNewValue & "'
+            WHERE " & strPrimaryKey & " = " & intPrimaryKeyID & ";"
+
+            Dim SQLConn As New SQLiteConnection(_cstrConnection)
+            Dim SQLcmd As New SQLiteCommand(SQLConn)
+            Dim SQLdr As SQLiteDataReader
+            SQLConn.Open()
+
+            SQLcmd.Connection = SQLConn
+            SQLcmd.CommandText = SQLstr
+            SQLdr = SQLcmd.ExecuteReader()
+
+            ' Close the connection
+            SQLdr.Close()
+            SQLConn.Close()
+
+        End If
+
+    End Sub
 
 End Module

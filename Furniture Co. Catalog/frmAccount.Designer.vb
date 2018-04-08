@@ -261,7 +261,7 @@ Partial Class frmAccount
         Me.txtEmail.Location = New System.Drawing.Point(113, 172)
         Me.txtEmail.MaxLength = 50
         Me.txtEmail.Name = "txtEmail"
-        Me.txtEmail.Size = New System.Drawing.Size(150, 20)
+        Me.txtEmail.Size = New System.Drawing.Size(200, 20)
         Me.txtEmail.TabIndex = 8
         '
         'txtPhone

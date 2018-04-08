@@ -307,7 +307,7 @@ Partial Class frmRegistration
         Me.txtAddress.Location = New System.Drawing.Point(119, 240)
         Me.txtAddress.MaxLength = 80
         Me.txtAddress.Name = "txtAddress"
-        Me.txtAddress.Size = New System.Drawing.Size(235, 20)
+        Me.txtAddress.Size = New System.Drawing.Size(200, 20)
         Me.txtAddress.TabIndex = 15
         '
         'txtPhoneNumber
@@ -323,7 +323,7 @@ Partial Class frmRegistration
         Me.txtEmail.Location = New System.Drawing.Point(119, 178)
         Me.txtEmail.MaxLength = 50
         Me.txtEmail.Name = "txtEmail"
-        Me.txtEmail.Size = New System.Drawing.Size(235, 20)
+        Me.txtEmail.Size = New System.Drawing.Size(200, 20)
         Me.txtEmail.TabIndex = 13
         '
         'txtLastName
@@ -331,7 +331,7 @@ Partial Class frmRegistration
         Me.txtLastName.Location = New System.Drawing.Point(119, 147)
         Me.txtLastName.MaxLength = 20
         Me.txtLastName.Name = "txtLastName"
-        Me.txtLastName.Size = New System.Drawing.Size(122, 20)
+        Me.txtLastName.Size = New System.Drawing.Size(120, 20)
         Me.txtLastName.TabIndex = 12
         '
         'txtFirstName
@@ -339,7 +339,7 @@ Partial Class frmRegistration
         Me.txtFirstName.Location = New System.Drawing.Point(119, 116)
         Me.txtFirstName.MaxLength = 20
         Me.txtFirstName.Name = "txtFirstName"
-        Me.txtFirstName.Size = New System.Drawing.Size(122, 20)
+        Me.txtFirstName.Size = New System.Drawing.Size(120, 20)
         Me.txtFirstName.TabIndex = 11
         '
         'txtConfirmPassword

@@ -288,7 +288,7 @@ Partial Class frmLogin
         Me.txtUsername.Location = New System.Drawing.Point(128, 29)
         Me.txtUsername.MaxLength = 50
         Me.txtUsername.Name = "txtUsername"
-        Me.txtUsername.Size = New System.Drawing.Size(202, 20)
+        Me.txtUsername.Size = New System.Drawing.Size(200, 20)
         Me.txtUsername.TabIndex = 2
         '
         'lblPassword
