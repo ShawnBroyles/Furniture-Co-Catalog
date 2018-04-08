@@ -23,6 +23,14 @@ Module Main
         NULL
     End Enum
 
+    Enum ProductCategory
+        CHAIR
+        TABLE
+        DESK
+        COUCH
+        CARPET
+    End Enum
+
     Public Const _cintZero As Integer = 0
     Public Const _cdecZero As Decimal = 0.00D
     Public Const _cstrEmpty As String = ""
@@ -34,6 +42,10 @@ Module Main
             Dim yCoordinate As Double
             xCoordinate = Screen.PrimaryScreen.WorkingArea.Width / 2 - frmCurrentForm.Size.Width / 2
             yCoordinate = Screen.PrimaryScreen.WorkingArea.Height / 2 - frmCurrentForm.Size.Height / 1.5
+            ' Making sure the entire title bar of the window is shown
+            If (yCoordinate < _cintZero) Then
+                yCoordinate = _cintZero
+            End If
             frmCurrentForm.Location = New Point(Convert.ToInt32(xCoordinate), Convert.ToInt32(yCoordinate))
         Catch ex As Exception
             ' Writing the error to the output
@@ -127,9 +139,20 @@ Module Main
         If (_CurrentUser.SignedIn) Then
             Dim strUserSigningOut As String = _CurrentUser.Username
             _CurrentUser.SignOut()
+            ClearShoppingCart()
             MsgBox("You are now signed out.", , "Sign Out Success")
         Else
             MsgBox("You are not signed in.", , "Sign Out Error")
+        End If
+    End Sub
+
+    Public Sub ClearShoppingCart(Optional ByVal blnConfirmIntention As Boolean = False)
+        If (_ShoppingCart.Count > _cintZero) Then
+            If (blnConfirmIntention AndAlso MessageBox.Show("Are you sure you want to empty the shopping cart?", "Empty Shopping Cart?", MessageBoxButtons.YesNo).Equals(DialogResult.Yes)) Then
+                _ShoppingCart = New List(Of ShoppingCartItem)()
+            Else
+                _ShoppingCart = New List(Of ShoppingCartItem)()
+            End If
         End If
     End Sub
 
@@ -137,16 +160,6 @@ Module Main
         ' Hard-coded guest sign-in (no SQL validation)
         _CurrentUser.SignIn(SQLGetRecordID(DatabaseTables.ACCOUNT, "ACC_USERNAME", "Guest"))
     End Sub
-
-    Public Function GetSignedInUsername() As String
-        Dim strUsername As String
-        If (_CurrentUser.SignedIn) Then
-            strUsername = _CurrentUser.Username
-        Else
-            strUsername = "N/A"
-        End If
-        Return strUsername
-    End Function
 
     Function ConfirmPasswordPopup() As Boolean
         Dim blnConfirmed As Boolean = False
@@ -226,38 +239,37 @@ Module Main
     End Sub
 
     ' Array of ShoppingCartItems
-    Public _ShoppingCart As ShoppingCartItem()
+    Public _ShoppingCart As New List(Of ShoppingCartItem)()
 
     Public Sub AddToShoppingCart(ByRef sciNewItem As ShoppingCartItem)
-        Array.Resize(_ShoppingCart, _ShoppingCart.Length + 1)
-        _ShoppingCart(_ShoppingCart.Length - 1) = sciNewItem
+        _ShoppingCart.Add(sciNewItem)
     End Sub
 
     ' Array of Items
-    Public _Products As Item()
+    Public _Products As New List(Of Item)()
 
     Public Sub AddToProducts(ByRef itmNewItem As Item)
-        Array.Resize(_Products, _Products.Length + 1)
-        _Products(_Products.Length - 1) = itmNewItem
+        _Products.Add(itmNewItem)
     End Sub
 
-    Public Sub UpdateProducts() ' stub
-        ' for each record
-        Dim intID As Integer = _cintZero
-        Dim strName As String = _cstrEmpty
-        Dim decPrice As Decimal = _cdecZero
-        Dim intStock As Integer = _cintZero
-        Dim decFee As Decimal = _cdecZero
-        Dim strCategory As String = _cstrEmpty
-        Dim strDescription As String = _cstrEmpty
-        Dim itmProduct As Item = New Item(intID, strName, decPrice, intStock, decFee, strCategory, strDescription)
+    Public Sub GetProducts()
         Try
-            AddToProducts(itmProduct)
+
         Catch ex As Exception
             Console.WriteLine(ex.Message)
-            Console.WriteLine("Unable to add product to the products array")
+            Console.WriteLine("Unable to retrieve products from the database.")
         End Try
-        ' loop
+    End Sub
+
+    Public Sub UpdateProducts()
+        Try
+            _Products.ForEach(Sub(itmItem)
+                                  itmItem.Update()
+                              End Sub)
+        Catch ex As Exception
+            Console.WriteLine(ex.Message)
+            Console.WriteLine("Unable to update products list.")
+        End Try
     End Sub
 
     Public Class Item
@@ -287,6 +299,17 @@ Module Main
             Fee = decFee
             Category = strCategory
             Description = strDescription
+        End Sub
+
+        Public Sub Update()
+            Dim intRecordID As Integer = ID
+            Name = SQLGetFieldInfo(DatabaseTables.PRODUCT, intRecordID, "PROD_NAME")
+            Price = Convert.ToDecimal(SQLGetFieldInfo(DatabaseTables.PRODUCT, intRecordID, "PROD_PRICE"))
+            Stock = Convert.ToInt32(SQLGetFieldInfo(DatabaseTables.PRODUCT, intRecordID, "PROD_STOCK"))
+            Fee = Convert.ToDecimal(SQLGetFieldInfo(DatabaseTables.PRODUCT, intRecordID, "PROD_FEE"))
+            Category = SQLGetFieldInfo(DatabaseTables.PRODUCT, intRecordID, "PROD_CATEGORY")
+            Description = SQLGetFieldInfo(DatabaseTables.PRODUCT, intRecordID, "PROD_DESCRIPTION")
+            Console.WriteLine("Product " & Name & " was updated.")
         End Sub
 
     End Class

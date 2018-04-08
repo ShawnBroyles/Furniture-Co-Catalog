@@ -74,7 +74,7 @@ Public Class frmWelcome
         LoadFormDefaults(Me)
         SQLInitializeDatabase()
         AddHandler _CurrentUser.UserUpdated, AddressOf UpdateSignedIn
-        ' Console.WriteLine("_Products has " & _Products.Count() & " items.")
+        Console.WriteLine("_Products has " & _Products.Count() & " items.")
     End Sub
 
     Private Sub btnRegister_Click(sender As Object, e As EventArgs) Handles btnRegister.Click
@@ -95,19 +95,21 @@ Public Class frmWelcome
 
     Private Sub UpdateSignedIn()
         Const cstrSignedInFormat As String = "Currently Signed In: {0}"
-        Dim strSignedInUsername As String = GetSignedInUsername()
+        Dim strSignedInUsername As String
         If (_CurrentUser.SignedIn) Then
             lblCurrentlySignedIn.ForeColor = Color.ForestGreen
             btnRegister.Enabled = False
             btnSignIn.Enabled = False
             btnSignInAsGuest.Enabled = False
             btnSignOut.Enabled = True
+            strSignedInUsername = _CurrentUser.Username
         Else
             lblCurrentlySignedIn.ForeColor = Color.PaleVioletRed
             btnRegister.Enabled = True
             btnSignIn.Enabled = True
             btnSignInAsGuest.Enabled = True
             btnSignOut.Enabled = False
+            strSignedInUsername = "N/A"
         End If
         lblCurrentlySignedIn.Text = String.Format(cstrSignedInFormat, strSignedInUsername)
     End Sub

@@ -29,7 +29,8 @@ Module SQL
     Public Sub SQLInitializeDatabase()
         SQLCreateDatabaseIfNotExists()
         SQLCreateGuestIfNotExists()
-        UpdateProducts()
+        SQLCreateSampleProductsIfNotExists()
+        SQLGetProducts()
     End Sub
 
     Public Sub SQLCreateDatabaseIfNotExists()
@@ -55,7 +56,7 @@ Module SQL
         );
         CREATE TABLE IF NOT EXISTS PRODUCT (
         PROD_ID             INTEGER PRIMARY KEY,
-        PROD_NAME           TEXT DEFAULT '',
+        PROD_NAME           TEXT DEFAULT '' UNIQUE,
         PROD_PRICE          TEXT DEFAULT '0.00',
         PROD_STOCK          INTEGER DEFAULT 0,
         PROD_FEE            TEXT DEFAULT '0.00',
@@ -80,14 +81,103 @@ Module SQL
 
     End Sub
 
+    Function Exists(ByVal intRecordID As Integer) As Boolean
+        Dim blnExists As Boolean
+        Dim intErrorID As Integer = -1
+
+        If (intRecordID.Equals(intErrorID)) Then
+            blnExists = False
+        Else
+            blnExists = True
+        End If
+
+        Return blnExists
+
+    End Function
+
+    Public Sub SQLCreateSampleProductsIfNotExists()
+        ' Creating new records in the PRODUCT table for sample products if they don't already exist
+        Try
+            Dim intCounter As Integer = _cintZero
+
+            ' Hard-coded sample products
+            CreateSampleProduct(intCounter, "Pine Chair", 72D, 1, 4.5D, "Chair", "Our pine chairs are created from the finest pine wood.")
+            CreateSampleProduct(intCounter, "Maple Chair", 80D, 7, 5D, "Chair", "The maple chair is a household favorite!")
+            CreateSampleProduct(intCounter, "Oak Chair", 83.33D, 22, 4.55D, "Chair", "Oak never goes out of style!")
+            CreateSampleProduct(intCounter, "Pine Table", 141.5D, 3, 11.2D, "Table", "This pine table is extremely sturdy.")
+            CreateSampleProduct(intCounter, "Maple Table", 148.73D, 0, 13.1D, "Table", "Tables made out of maple look good.")
+            CreateSampleProduct(intCounter, "Oak Table", 162D, 4, 17.05D, "Table", "Our oak tables are always well-built!")
+            CreateSampleProduct(intCounter, "Pine Desk", 138.6D, 2, 11.1D, "Desk", "The pine desk.")
+            CreateSampleProduct(intCounter, "Maple Desk", 145D, 5, 12.7D, "Desk", "Maple desks are reliable.")
+            CreateSampleProduct(intCounter, "Oak Desk", 160.9D, 11, 13D, "Desk", "This oak desk is smooth.")
+            CreateSampleProduct(intCounter, "Leather Couch", 341.5D, 1, 51.28D, "Couch", "This leather couch is water-resistant!")
+            CreateSampleProduct(intCounter, "Silk Couch", 343.73D, 1, 53.62D, "Couch", "The silk couch is easy to clean.")
+            CreateSampleProduct(intCounter, "Wool Couch", 362.99D, 9, 77.2D, "Couch", "Our wool couches are comfortable.")
+            CreateSampleProduct(intCounter, "Linen Carpet", 421.22D, 2, 54D, "Carpet", "Linen carpets are very popular.")
+            CreateSampleProduct(intCounter, "Silk Carpet", 440D, 5, 55.99D, "Carpet", "This silk carpet can withstand some wear and tear.")
+            CreateSampleProduct(intCounter, "Wool Carpet", 442.99D, 8, 78.37D, "Carpet", "Our wool carpets are stain-resistant.")
+
+            If (intCounter.Equals(_cintZero)) Then
+                Console.WriteLine("Sample products already exist in the database.")
+            Else
+                Console.WriteLine("Created " & intCounter.ToString() & " sample products in the database.")
+            End If
+
+        Catch ex As Exception
+            Console.WriteLine(ex.Message)
+            Console.WriteLine("Unknown error occurred when trying to create sample products.")
+        End Try
+    End Sub
+
+    Private Sub CreateSampleProduct(ByRef intCounter As Integer,
+                                    ByVal strName As String,
+                                    ByVal decPrice As Decimal,
+                                    ByVal intStock As Integer,
+                                    ByVal decFee As Decimal,
+                                    ByVal strCategory As String,
+                                    ByVal strDescription As String)
+        Dim strField As String = "PROD_NAME"
+        Dim strFieldValue As String = strName
+        If (Not Exists(SQLGetRecordID(DatabaseTables.PRODUCT, strField, strFieldValue))) Then
+            SQLCreateProduct(strName, decPrice, intStock, decFee, strCategory, strDescription)
+            intCounter += 1
+        End If
+
+    End Sub
+
+    Public Sub SQLCreateProduct(ByVal intName As String,
+                                ByVal decPrice As Decimal,
+                                ByVal intStock As Integer,
+                                ByVal decFee As Decimal,
+                                ByVal strCategory As String,
+                                ByVal strDescription As String)
+
+        Dim strSQLCreateProductRecord As String = "INSERT INTO PRODUCT (PROD_NAME, PROD_PRICE, PROD_STOCK, PROD_FEE, PROD_CATEGORY, PROD_DESCRIPTION)
+        VALUES('" & intName & "', '" & decPrice & "', " & intStock & ", '" & decFee & "', '" & strCategory & "', '" & strDescription & "');"
+
+        ' Creating the connection
+        Dim connection As String = "Data Source=" & _cstrDatabaseName
+        Dim SQLConn As New SQLiteConnection(connection)
+        Dim SQLcmd As New SQLiteCommand(SQLConn)
+        SQLConn.Open()
+
+        SQLcmd.Connection = SQLConn
+
+        ' Executing the SQL statement to create a new record in the ACCOUNT table
+        SQLcmd.CommandText = strSQLCreateProductRecord
+        SQLcmd.ExecuteNonQuery()
+
+        ' Close the connection
+        SQLConn.Close()
+    End Sub
+
     Public Sub SQLCreateGuestIfNotExists()
         ' Creating a new record in the ACCOUNT table for Guest if it doesn't already exist
         Try
-            Dim intErrorID As Integer = -1
             Dim strField As String = "ACC_USERNAME"
             Dim strFieldValue As String = "Guest"
             Dim intGuestRecordID As Integer = SQLGetRecordID(DatabaseTables.ACCOUNT, strField, strFieldValue)
-            If (intGuestRecordID.Equals(intErrorID)) Then
+            If (Not Exists(intGuestRecordID)) Then
                 SQLCreateAccount("Guest", "password", "Guest_FName", "Guest_LName", "Guest@example.com", "+1 (234) 567-8901", "123 North Main St.")
                 Console.WriteLine("Guest account created.")
             Else
@@ -337,6 +427,48 @@ Module SQL
             SQLConn.Close()
 
         End If
+
+    End Sub
+
+    Public Sub SQLGetProducts()
+        ' Reading products from the database, creating Items, and adding the Items
+        ' to the _Products list
+        Dim SQLstr As String = "SELECT * FROM PRODUCT;"
+
+        Dim SQLConn As New SQLiteConnection(_cstrConnection)
+        Dim SQLcmd As New SQLiteCommand(SQLConn)
+        Dim SQLdr As SQLiteDataReader
+        SQLConn.Open()
+
+        SQLcmd.Connection = SQLConn
+        SQLcmd.CommandText = SQLstr
+        SQLdr = SQLcmd.ExecuteReader()
+
+        ' Loop through all records returned
+        While SQLdr.Read()
+            Try
+                Dim itmNewItem As Item = New Item() With {
+                    .ID = Convert.ToInt32(SQLdr.GetValue(SQLdr.GetOrdinal("PROD_ID")).ToString()),
+                    .Name = SQLdr.GetValue(SQLdr.GetOrdinal("PROD_NAME")).ToString(),
+                    .Price = Convert.ToDecimal(SQLdr.GetValue(SQLdr.GetOrdinal("PROD_PRICE")).ToString()),
+                    .Stock = Convert.ToInt32(SQLdr.GetValue(SQLdr.GetOrdinal("PROD_STOCK")).ToString()),
+                    .Fee = Convert.ToDecimal(SQLdr.GetValue(SQLdr.GetOrdinal("PROD_FEE")).ToString()),
+                    .Category = SQLdr.GetValue(SQLdr.GetOrdinal("PROD_CATEGORY")).ToString(),
+                    .Description = SQLdr.GetValue(SQLdr.GetOrdinal("PROD_DESCRIPTION")).ToString()
+                }
+                AddToProducts(itmNewItem)
+            Catch ex As IndexOutOfRangeException
+                Console.WriteLine(ex.Message)
+                Console.WriteLine("Invalid column name.")
+            Catch ex As InvalidCastException
+                Console.WriteLine(ex.Message)
+                Console.WriteLine("Invalid cast when executing a SQLiteDataReader method.")
+            End Try
+        End While
+
+        ' Close the connection
+        SQLdr.Close()
+        SQLConn.Close()
 
     End Sub
 
