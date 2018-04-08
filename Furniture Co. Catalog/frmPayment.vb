@@ -1,4 +1,8 @@
-﻿Public Class frmPayment
+﻿' Developed by Shawn Broyles
+' The Payment form is used to make purchases with money from 
+' a user 's account.
+
+Public Class frmPayment
 
     Const _cintForm As Integer = Forms.PAYMENT
 

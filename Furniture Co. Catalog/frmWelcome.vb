@@ -1,10 +1,7 @@
-﻿' Program:  Furniture Co. Catalog
-' Version:  0.4
-' Author:   Shawn Broyles
-' Date:     TBD
-' Purpose:  This application provides a user-friendly experience for
-'           purchasing items when they are not in stock at a business
-'           location.
+﻿' Developed by Shawn Broyles
+' The Welcome form is the application's main form and it's used for
+' letting customers know they're welcomed to use the application. 
+' Also, it gives options for signing in.
 
 Public Class frmWelcome
 

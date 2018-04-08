@@ -1,4 +1,8 @@
-﻿Public Class frmAccount
+﻿' Developed by Shawn Broyles
+' The Account form provides options for changing the user's
+' account information.
+
+Public Class frmAccount
 
     Const _cintForm As Integer = Forms.ACCOUNT
 

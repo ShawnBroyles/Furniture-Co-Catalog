@@ -1,4 +1,8 @@
-﻿Option Strict On
+﻿' Developed by Shawn Broyles
+' The SQL module contains all of the methods that directly
+' access and manipulate data in the database.
+
+Option Strict On
 
 Imports System.Data.SQLite
 

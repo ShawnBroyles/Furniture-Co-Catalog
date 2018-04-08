@@ -1,4 +1,7 @@
-﻿Public Class frmCatalog
+﻿' Developed by Shawn Broyles
+' The Catalog form is used for browsing the catalog. 
+
+Public Class frmCatalog
 
     Const _cintForm As Integer = Forms.CATALOG
 

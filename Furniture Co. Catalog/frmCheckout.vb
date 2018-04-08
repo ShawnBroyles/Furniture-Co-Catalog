@@ -1,4 +1,9 @@
-﻿Public Class frmCheckout
+﻿' Developed by Shawn Broyles
+' The Checkout form displays a list of items in the user's shopping
+' cart. There are options for removing items and changing the
+' quantities of items.
+
+Public Class frmCheckout
 
     Const _cintForm As Integer = Forms.CHECKOUT
 

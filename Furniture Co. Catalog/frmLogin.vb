@@ -1,4 +1,7 @@
-﻿Public Class frmLogin
+﻿' Developed by Shawn Broyles
+' The Login form is used for logging into existing accounts.
+
+Public Class frmLogin
 
     Const _cintForm As Integer = Forms.LOGIN
 

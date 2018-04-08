@@ -1,4 +1,15 @@
-﻿Module Main
+﻿' Program:  Furniture Co. Catalog
+' Version:  0.5
+' Author:   Shawn Broyles
+' Date:     TBD
+' Purpose:  This application provides a user-friendly experience for
+'           purchasing items when they are not in stock at a business
+'           location.
+
+' The Main module contains public methods that are used by other forms
+' in the application.
+
+Module Main
     ' Enumeration for the forms in the application
     Enum Forms
         WELCOME

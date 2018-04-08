@@ -1,4 +1,9 @@
-﻿Public Class frmItem
+﻿' Developed by Shawn Broyles
+' The Item form displays information about a specific item in the
+' catalog with the option to add the item with a specified quantitiy
+' to the shopping cart.
+
+Public Class frmItem
 
     Const _cintForm As Integer = Forms.ITEM
 

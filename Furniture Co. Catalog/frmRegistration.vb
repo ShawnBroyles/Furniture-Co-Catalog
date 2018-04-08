@@ -1,4 +1,7 @@
-﻿Public Class frmRegistration
+﻿' Developed by Shawn Broyles
+' The Registration form is used by customers to create accounts.
+
+Public Class frmRegistration
     Const _cintForm As Integer = Forms.REGISTRATION
 
     Private Sub mnuWelcome_Click(sender As Object, e As EventArgs) Handles mnuWelcome.Click
