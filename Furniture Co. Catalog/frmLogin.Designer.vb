@@ -221,7 +221,7 @@ Partial Class frmLogin
         Me.rbEmail.Location = New System.Drawing.Point(128, 122)
         Me.rbEmail.Name = "rbEmail"
         Me.rbEmail.Size = New System.Drawing.Size(50, 17)
-        Me.rbEmail.TabIndex = 4
+        Me.rbEmail.TabIndex = 24
         Me.rbEmail.Text = "Email"
         Me.rbEmail.UseVisualStyleBackColor = True
         '
@@ -241,7 +241,7 @@ Partial Class frmLogin
         Me.rbUsername.Location = New System.Drawing.Point(128, 99)
         Me.rbUsername.Name = "rbUsername"
         Me.rbUsername.Size = New System.Drawing.Size(73, 17)
-        Me.rbUsername.TabIndex = 3
+        Me.rbUsername.TabIndex = 23
         Me.rbUsername.TabStop = True
         Me.rbUsername.Text = "Username"
         Me.rbUsername.UseVisualStyleBackColor = True
@@ -252,7 +252,7 @@ Partial Class frmLogin
         Me.rbAccountID.Location = New System.Drawing.Point(128, 145)
         Me.rbAccountID.Name = "rbAccountID"
         Me.rbAccountID.Size = New System.Drawing.Size(79, 17)
-        Me.rbAccountID.TabIndex = 5
+        Me.rbAccountID.TabIndex = 25
         Me.rbAccountID.Text = "Account ID"
         Me.rbAccountID.UseVisualStyleBackColor = True
         '
@@ -261,7 +261,7 @@ Partial Class frmLogin
         Me.btnClear.Location = New System.Drawing.Point(197, 177)
         Me.btnClear.Name = "btnClear"
         Me.btnClear.Size = New System.Drawing.Size(75, 23)
-        Me.btnClear.TabIndex = 7
+        Me.btnClear.TabIndex = 27
         Me.btnClear.Text = "&Clear"
         Me.btnClear.UseVisualStyleBackColor = True
         '
@@ -270,7 +270,7 @@ Partial Class frmLogin
         Me.btnSubmit.Location = New System.Drawing.Point(90, 177)
         Me.btnSubmit.Name = "btnSubmit"
         Me.btnSubmit.Size = New System.Drawing.Size(75, 23)
-        Me.btnSubmit.TabIndex = 6
+        Me.btnSubmit.TabIndex = 26
         Me.btnSubmit.Text = "&Submit"
         Me.btnSubmit.UseVisualStyleBackColor = True
         '
@@ -281,7 +281,7 @@ Partial Class frmLogin
         Me.txtPassword.Name = "txtPassword"
         Me.txtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtPassword.Size = New System.Drawing.Size(100, 20)
-        Me.txtPassword.TabIndex = 2
+        Me.txtPassword.TabIndex = 22
         '
         'txtUsername
         '
@@ -289,7 +289,7 @@ Partial Class frmLogin
         Me.txtUsername.MaxLength = 50
         Me.txtUsername.Name = "txtUsername"
         Me.txtUsername.Size = New System.Drawing.Size(200, 20)
-        Me.txtUsername.TabIndex = 1
+        Me.txtUsername.TabIndex = 21
         '
         'lblPassword
         '

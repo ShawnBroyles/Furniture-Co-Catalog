@@ -24,6 +24,7 @@ Module Main
     End Enum
 
     Enum ProductCategory
+        ALL
         CHAIR
         TABLE
         DESK
@@ -35,8 +36,11 @@ Module Main
     Public Const _cdecZero As Decimal = 0.00D
     Public Const _cstrEmpty As String = ""
 
-    Public Sub PositionFormOnLoad(ByVal frmCurrentForm As Form)
-        ' Positioning the form that was passed to this subroutine
+    Public Sub PositionForm(ByVal frmCurrentForm As Form)
+        ' Setting the form's size back to its default
+        frmCurrentForm.Size = frmCurrentForm.RestoreBounds.Size
+
+        ' Positioning the form 
         Try
             Dim xCoordinate As Double
             Dim yCoordinate As Double
@@ -131,8 +135,7 @@ Module Main
     End Function
 
     Public Sub ReloadForm(ByVal frmCurrentForm As Form)
-        ' stub
-        MsgBox("Reloading the form isn't implemented yet.")
+        PositionForm(frmCurrentForm)
     End Sub
 
     Public Sub SignOut()
@@ -235,7 +238,7 @@ Module Main
         frmCurrentForm.ForeColor = My.Settings.ForeColor
         frmCurrentForm.BackColor = My.Settings.BackColor
 
-        PositionFormOnLoad(frmCurrentForm)
+        PositionForm(frmCurrentForm)
     End Sub
 
     ' Array of ShoppingCartItems
@@ -252,14 +255,71 @@ Module Main
         _Products.Add(itmNewItem)
     End Sub
 
-    Public Sub GetProducts()
+    Function GetProduct(ByVal intID As Integer) As Item
+        Dim itmSpecificItem As Item
+        Dim blnGotItem As Boolean = False
         Try
-
+            _Products.ForEach(Sub(itmItem)
+                                  If (itmItem.ID.Equals(intID)) Then
+                                      itmSpecificItem = itmItem
+                                      blnGotItem = True
+                                  End If
+                              End Sub)
         Catch ex As Exception
+            MsgBox("An unknown error has occurred when trying to get product information.", , "Error")
+            Console.WriteLine("Failed at getting product information for ID: " & intID.ToString())
             Console.WriteLine(ex.Message)
-            Console.WriteLine("Unable to retrieve products from the database.")
         End Try
-    End Sub
+
+        If (Not blnGotItem) Then
+            itmSpecificItem = New Item()
+        End If
+
+        Return itmSpecificItem
+
+    End Function
+
+    Function GetProduct(ByVal strName As String) As Item
+        Dim itmSpecificItem As Item
+        Dim blnGotItem As Boolean = False
+        Try
+            _Products.ForEach(Sub(itmItem)
+                                  If (itmItem.Name.Equals(strName)) Then
+                                      itmSpecificItem = itmItem
+                                      blnGotItem = True
+                                  End If
+                              End Sub)
+        Catch ex As Exception
+            MsgBox("An unknown error has occurred when trying to get product information.", , "Error")
+            Console.WriteLine("Failed at getting product information for Name: " & strName.ToString())
+            Console.WriteLine(ex.Message)
+        End Try
+
+        If (Not blnGotItem) Then
+            itmSpecificItem = New Item()
+        End If
+
+        Return itmSpecificItem
+
+    End Function
+
+    Function GetProductCategory(ByRef itmItem As Item) As Integer
+        Dim intCategory As Integer
+        If (itmItem.Category.Equals("Chair")) Then
+            intCategory = ProductCategory.CHAIR
+        ElseIf (itmItem.Category.Equals("Table")) Then
+            intCategory = ProductCategory.TABLE
+        ElseIf (itmItem.Category.Equals("Desk")) Then
+            intCategory = ProductCategory.DESK
+        ElseIf (itmItem.Category.Equals("Couch")) Then
+            intCategory = ProductCategory.COUCH
+        ElseIf (itmItem.Category.Equals("Carpet")) Then
+            intCategory = ProductCategory.CARPET
+        Else
+            intCategory = ProductCategory.ALL
+        End If
+        Return intCategory
+    End Function
 
     Public Sub UpdateProducts()
         Try

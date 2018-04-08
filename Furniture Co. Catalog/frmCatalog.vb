@@ -39,6 +39,7 @@ Public Class frmCatalog
 
     Private Sub mnuReload_Click(sender As Object, e As EventArgs) Handles mnuReload.Click
         ReloadForm(Me)
+        ResetForm()
     End Sub
 
     Private Sub mnuSignOut_Click(sender As Object, e As EventArgs) Handles mnuSignOut.Click
@@ -59,5 +60,44 @@ Public Class frmCatalog
 
     Private Sub frmCatalog_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadFormDefaults(Me)
+        ResetForm()
+    End Sub
+
+    Private Sub ResetForm()
+        txtSearchQuery.Clear()
+        rbCategoryAll.Select()
+        GetResults()
+    End Sub
+
+    Private Sub GetResults()
+        lstProducts.Items.Clear()
+        _Products.ForEach(Sub(itmItem)
+                              If (GetSelectedCategory().Equals(ProductCategory.ALL) Or
+                                  GetSelectedCategory().Equals(GetProductCategory(itmItem))) Then
+                                  lstProducts.Items.Add(itmItem.Name & " - " & itmItem.Price.ToString("C2"))
+                              End If
+                          End Sub)
+    End Sub
+
+    Function GetSelectedCategory() As Integer
+        Dim intCategory As Integer
+        If (rbCategoryChair.Checked) Then
+            intCategory = ProductCategory.CHAIR
+        ElseIf (rbCategoryTable.Checked) Then
+            intCategory = ProductCategory.TABLE
+        ElseIf (rbCategoryDesk.Checked) Then
+            intCategory = ProductCategory.DESK
+        ElseIf (rbCategoryCouch.Checked) Then
+            intCategory = ProductCategory.COUCH
+        ElseIf (rbCategoryCarpet.Checked) Then
+            intCategory = ProductCategory.CARPET
+        Else
+            intCategory = ProductCategory.ALL
+        End If
+        Return intCategory
+    End Function
+
+    Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
+        GetResults()
     End Sub
 End Class

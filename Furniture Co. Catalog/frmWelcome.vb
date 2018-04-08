@@ -87,6 +87,7 @@ Public Class frmWelcome
 
     Private Sub btnSignInAsGuest_Click(sender As Object, e As EventArgs) Handles btnSignInAsGuest.Click
         SignInAsGuest()
+        Navigate(Forms.CATALOG, Me)
     End Sub
 
     Private Sub btnSignOut_Click(sender As Object, e As EventArgs) Handles btnSignOut.Click

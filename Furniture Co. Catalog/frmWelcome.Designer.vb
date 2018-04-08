@@ -207,11 +207,11 @@ Partial Class frmWelcome
         '
         Me.lblInfo.AutoSize = True
         Me.lblInfo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblInfo.Location = New System.Drawing.Point(108, 168)
+        Me.lblInfo.Location = New System.Drawing.Point(109, 168)
         Me.lblInfo.Name = "lblInfo"
-        Me.lblInfo.Size = New System.Drawing.Size(331, 20)
+        Me.lblInfo.Size = New System.Drawing.Size(328, 20)
         Me.lblInfo.TabIndex = 4
-        Me.lblInfo.Text = "To get started, Choose a method of logging in"
+        Me.lblInfo.Text = "To get started, choose a method of logging in"
         '
         'btnSignIn
         '

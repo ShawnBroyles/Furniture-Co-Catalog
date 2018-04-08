@@ -40,6 +40,7 @@ Public Class frmLogin
     Private Sub mnuReload_Click(sender As Object, e As EventArgs) Handles mnuReload.Click
         ClearForm()
         txtUsername.Focus()
+        ReloadForm(Me)
     End Sub
 
     Private Sub mnuSignOut_Click(sender As Object, e As EventArgs) Handles mnuSignOut.Click
@@ -123,7 +124,6 @@ Public Class frmLogin
             Try
                 blnAttemptSignIn = True
                 strErrorMessage = "Logging in failed for the following reason(s):"
-                'SQLCreateAccount(strUsername, strPassword, strFName, strLName, strEmail, strPhone, strAddress)
                 Dim intUsernameRecordID As Integer = SQLGetRecordID(DatabaseTables.ACCOUNT, strLoginField, strUsername)
                 If (Not intUsernameRecordID.Equals(cintMissingRecordID)) Then
                     If (SQLGetFieldInfo(DatabaseTables.ACCOUNT, intUsernameRecordID, cstrPasswordField, blnPasswordCaseSensitive).Equals(strPassword)) Then
@@ -131,7 +131,7 @@ Public Class frmLogin
                         blnSignedIn = True
                         MsgBox(cstrSuccessMessage, , cstrSuccessTitle)
                         ClearForm()
-                        Close()
+                        Navigate(Forms.CATALOG, Me)
                     Else
                         strErrorMessage = strErrorMessage & vbCrLf & "Invalid Password"
                     End If

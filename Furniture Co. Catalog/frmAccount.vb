@@ -39,11 +39,13 @@ Public Class frmAccount
     End Sub
 
     Private Sub mnuReload_Click(sender As Object, e As EventArgs) Handles mnuReload.Click
+        ReloadForm(Me)
         ResetForm()
     End Sub
 
     Private Sub mnuSignOut_Click(sender As Object, e As EventArgs) Handles mnuSignOut.Click
         SignOut()
+        ResetForm()
     End Sub
 
     Private Sub mnuExit_Click(sender As Object, e As EventArgs) Handles mnuExit.Click

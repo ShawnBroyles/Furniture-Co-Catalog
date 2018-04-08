@@ -131,7 +131,7 @@ Public Class frmRegistration
                 _CurrentUser.SignIn(SQLGetRecordID(DatabaseTables.ACCOUNT, cstrUsernameField, strUsername))
                 MsgBox(cstrSuccessMessage, , cstrSuccessTitle)
                 ClearForm()
-                Close()
+                Navigate(Forms.CATALOG, Me)
             Catch ex As Exception
                 Console.WriteLine(ex.Message)
                 MsgBox(cstrUnknownErrorMessage, , cstrErrorTitle)
