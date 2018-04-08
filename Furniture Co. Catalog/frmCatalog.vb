@@ -74,7 +74,9 @@ Public Class frmCatalog
         _Products.ForEach(Sub(itmItem)
                               If (GetSelectedCategory().Equals(ProductCategory.ALL) Or
                                   GetSelectedCategory().Equals(GetProductCategory(itmItem))) Then
-                                  lstProducts.Items.Add(itmItem.Name & " - " & itmItem.Price.ToString("C2"))
+                                  If (cbShowItemsOutOfStock.Checked Or Not CheckOutOfStock(itmItem)) Then
+                                      lstProducts.Items.Add(itmItem.Name & " - " & itmItem.Price.ToString("C2"))
+                                  End If
                               End If
                           End Sub)
     End Sub

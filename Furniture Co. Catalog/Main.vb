@@ -1,5 +1,5 @@
 ﻿' Program:  Furniture Co. Catalog
-' Version:  0.5
+' Version:  0.6
 ' Author:   Shawn Broyles
 ' Date:     TBD
 ' Purpose:  This application provides a user-friendly experience for
@@ -319,6 +319,12 @@ Module Main
             intCategory = ProductCategory.ALL
         End If
         Return intCategory
+    End Function
+
+    Function CheckOutOfStock(ByRef itmItem As Item) As Boolean
+        Dim blnItemOutOfStock As Boolean
+        blnItemOutOfStock = itmItem.Stock.Equals(_cintZero)
+        Return blnItemOutOfStock
     End Function
 
     Public Sub UpdateProducts()

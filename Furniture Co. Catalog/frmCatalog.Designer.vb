@@ -45,20 +45,22 @@ Partial Class frmCatalog
         Me.lblTitle = New System.Windows.Forms.Label()
         Me.lblSubTitle = New System.Windows.Forms.Label()
         Me.grpCatalog = New System.Windows.Forms.GroupBox()
-        Me.lblSearchQuery = New System.Windows.Forms.Label()
-        Me.txtSearchQuery = New System.Windows.Forms.TextBox()
-        Me.btnSearch = New System.Windows.Forms.Button()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.rbCategoryAll = New System.Windows.Forms.RadioButton()
-        Me.rbCategoryTable = New System.Windows.Forms.RadioButton()
-        Me.rbCategoryDesk = New System.Windows.Forms.RadioButton()
+        Me.grpSearchResults = New System.Windows.Forms.GroupBox()
+        Me.cbShowItemsOutOfStock = New System.Windows.Forms.CheckBox()
+        Me.btnMoreDetails = New System.Windows.Forms.Button()
+        Me.lblMatchingProducts = New System.Windows.Forms.Label()
+        Me.lstProducts = New System.Windows.Forms.ListBox()
         Me.rbCategoryChair = New System.Windows.Forms.RadioButton()
         Me.rbCategoryCarpet = New System.Windows.Forms.RadioButton()
         Me.rbCategoryCouch = New System.Windows.Forms.RadioButton()
-        Me.lstProducts = New System.Windows.Forms.ListBox()
-        Me.grpSearchResults = New System.Windows.Forms.GroupBox()
-        Me.lblMatchingProducts = New System.Windows.Forms.Label()
-        Me.btnMoreDetails = New System.Windows.Forms.Button()
+        Me.rbCategoryDesk = New System.Windows.Forms.RadioButton()
+        Me.rbCategoryTable = New System.Windows.Forms.RadioButton()
+        Me.rbCategoryAll = New System.Windows.Forms.RadioButton()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.btnSearch = New System.Windows.Forms.Button()
+        Me.txtSearchQuery = New System.Windows.Forms.TextBox()
+        Me.lblSearchQuery = New System.Windows.Forms.Label()
+        Me.lblOther = New System.Windows.Forms.Label()
         Me.mnuMenuStrip.SuspendLayout()
         Me.grpCatalog.SuspendLayout()
         Me.grpSearchResults.SuspendLayout()
@@ -203,6 +205,8 @@ Partial Class frmCatalog
         '
         'grpCatalog
         '
+        Me.grpCatalog.Controls.Add(Me.lblOther)
+        Me.grpCatalog.Controls.Add(Me.cbShowItemsOutOfStock)
         Me.grpCatalog.Controls.Add(Me.grpSearchResults)
         Me.grpCatalog.Controls.Add(Me.rbCategoryChair)
         Me.grpCatalog.Controls.Add(Me.rbCategoryCarpet)
@@ -216,78 +220,60 @@ Partial Class frmCatalog
         Me.grpCatalog.Controls.Add(Me.lblSearchQuery)
         Me.grpCatalog.Location = New System.Drawing.Point(45, 126)
         Me.grpCatalog.Name = "grpCatalog"
-        Me.grpCatalog.Size = New System.Drawing.Size(532, 374)
+        Me.grpCatalog.Size = New System.Drawing.Size(532, 397)
         Me.grpCatalog.TabIndex = 6
         Me.grpCatalog.TabStop = False
         Me.grpCatalog.Text = "Browsing the Catalog"
         '
-        'lblSearchQuery
+        'grpSearchResults
         '
-        Me.lblSearchQuery.AutoSize = True
-        Me.lblSearchQuery.Location = New System.Drawing.Point(34, 30)
-        Me.lblSearchQuery.Name = "lblSearchQuery"
-        Me.lblSearchQuery.Size = New System.Drawing.Size(75, 13)
-        Me.lblSearchQuery.TabIndex = 0
-        Me.lblSearchQuery.Text = "Search Query:"
+        Me.grpSearchResults.Controls.Add(Me.btnMoreDetails)
+        Me.grpSearchResults.Controls.Add(Me.lblMatchingProducts)
+        Me.grpSearchResults.Controls.Add(Me.lstProducts)
+        Me.grpSearchResults.Location = New System.Drawing.Point(119, 126)
+        Me.grpSearchResults.Name = "grpSearchResults"
+        Me.grpSearchResults.Size = New System.Drawing.Size(295, 250)
+        Me.grpSearchResults.TabIndex = 10
+        Me.grpSearchResults.TabStop = False
+        Me.grpSearchResults.Text = "Search Results"
         '
-        'txtSearchQuery
+        'cbShowItemsOutOfStock
         '
-        Me.txtSearchQuery.Enabled = False
-        Me.txtSearchQuery.Location = New System.Drawing.Point(115, 27)
-        Me.txtSearchQuery.MaxLength = 200
-        Me.txtSearchQuery.Name = "txtSearchQuery"
-        Me.txtSearchQuery.Size = New System.Drawing.Size(300, 20)
-        Me.txtSearchQuery.TabIndex = 1
+        Me.cbShowItemsOutOfStock.AutoSize = True
+        Me.cbShowItemsOutOfStock.Checked = True
+        Me.cbShowItemsOutOfStock.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.cbShowItemsOutOfStock.Location = New System.Drawing.Point(115, 90)
+        Me.cbShowItemsOutOfStock.Name = "cbShowItemsOutOfStock"
+        Me.cbShowItemsOutOfStock.Size = New System.Drawing.Size(139, 17)
+        Me.cbShowItemsOutOfStock.TabIndex = 12
+        Me.cbShowItemsOutOfStock.Text = "Show &items out of stock"
+        Me.cbShowItemsOutOfStock.UseVisualStyleBackColor = True
         '
-        'btnSearch
+        'btnMoreDetails
         '
-        Me.btnSearch.Location = New System.Drawing.Point(424, 25)
-        Me.btnSearch.Name = "btnSearch"
-        Me.btnSearch.Size = New System.Drawing.Size(75, 23)
-        Me.btnSearch.TabIndex = 2
-        Me.btnSearch.Text = "&Search"
-        Me.btnSearch.UseVisualStyleBackColor = True
+        Me.btnMoreDetails.Location = New System.Drawing.Point(110, 209)
+        Me.btnMoreDetails.Name = "btnMoreDetails"
+        Me.btnMoreDetails.Size = New System.Drawing.Size(75, 23)
+        Me.btnMoreDetails.TabIndex = 11
+        Me.btnMoreDetails.Text = "&More Details"
+        Me.btnMoreDetails.UseVisualStyleBackColor = True
         '
-        'Label1
+        'lblMatchingProducts
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(34, 60)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(52, 13)
-        Me.Label1.TabIndex = 3
-        Me.Label1.Text = "Category:"
+        Me.lblMatchingProducts.AutoSize = True
+        Me.lblMatchingProducts.Location = New System.Drawing.Point(55, 27)
+        Me.lblMatchingProducts.Name = "lblMatchingProducts"
+        Me.lblMatchingProducts.Size = New System.Drawing.Size(96, 13)
+        Me.lblMatchingProducts.TabIndex = 10
+        Me.lblMatchingProducts.Text = "Matching Products"
         '
-        'rbCategoryAll
+        'lstProducts
         '
-        Me.rbCategoryAll.AutoSize = True
-        Me.rbCategoryAll.Checked = True
-        Me.rbCategoryAll.Location = New System.Drawing.Point(115, 58)
-        Me.rbCategoryAll.Name = "rbCategoryAll"
-        Me.rbCategoryAll.Size = New System.Drawing.Size(36, 17)
-        Me.rbCategoryAll.TabIndex = 3
-        Me.rbCategoryAll.TabStop = True
-        Me.rbCategoryAll.Text = "&All"
-        Me.rbCategoryAll.UseVisualStyleBackColor = True
-        '
-        'rbCategoryTable
-        '
-        Me.rbCategoryTable.AutoSize = True
-        Me.rbCategoryTable.Location = New System.Drawing.Point(234, 58)
-        Me.rbCategoryTable.Name = "rbCategoryTable"
-        Me.rbCategoryTable.Size = New System.Drawing.Size(52, 17)
-        Me.rbCategoryTable.TabIndex = 5
-        Me.rbCategoryTable.Text = "&Table"
-        Me.rbCategoryTable.UseVisualStyleBackColor = True
-        '
-        'rbCategoryDesk
-        '
-        Me.rbCategoryDesk.AutoSize = True
-        Me.rbCategoryDesk.Location = New System.Drawing.Point(303, 58)
-        Me.rbCategoryDesk.Name = "rbCategoryDesk"
-        Me.rbCategoryDesk.Size = New System.Drawing.Size(50, 17)
-        Me.rbCategoryDesk.TabIndex = 6
-        Me.rbCategoryDesk.Text = "&Desk"
-        Me.rbCategoryDesk.UseVisualStyleBackColor = True
+        Me.lstProducts.FormattingEnabled = True
+        Me.lstProducts.Location = New System.Drawing.Point(58, 43)
+        Me.lstProducts.Name = "lstProducts"
+        Me.lstProducts.Size = New System.Drawing.Size(182, 160)
+        Me.lstProducts.TabIndex = 9
         '
         'rbCategoryChair
         '
@@ -319,49 +305,88 @@ Partial Class frmCatalog
         Me.rbCategoryCouch.Text = "C&ouch"
         Me.rbCategoryCouch.UseVisualStyleBackColor = True
         '
-        'lstProducts
+        'rbCategoryDesk
         '
-        Me.lstProducts.FormattingEnabled = True
-        Me.lstProducts.Location = New System.Drawing.Point(58, 45)
-        Me.lstProducts.Name = "lstProducts"
-        Me.lstProducts.Size = New System.Drawing.Size(182, 160)
-        Me.lstProducts.TabIndex = 9
+        Me.rbCategoryDesk.AutoSize = True
+        Me.rbCategoryDesk.Location = New System.Drawing.Point(303, 58)
+        Me.rbCategoryDesk.Name = "rbCategoryDesk"
+        Me.rbCategoryDesk.Size = New System.Drawing.Size(50, 17)
+        Me.rbCategoryDesk.TabIndex = 6
+        Me.rbCategoryDesk.Text = "&Desk"
+        Me.rbCategoryDesk.UseVisualStyleBackColor = True
         '
-        'grpSearchResults
+        'rbCategoryTable
         '
-        Me.grpSearchResults.Controls.Add(Me.btnMoreDetails)
-        Me.grpSearchResults.Controls.Add(Me.lblMatchingProducts)
-        Me.grpSearchResults.Controls.Add(Me.lstProducts)
-        Me.grpSearchResults.Location = New System.Drawing.Point(119, 92)
-        Me.grpSearchResults.Name = "grpSearchResults"
-        Me.grpSearchResults.Size = New System.Drawing.Size(295, 258)
-        Me.grpSearchResults.TabIndex = 10
-        Me.grpSearchResults.TabStop = False
-        Me.grpSearchResults.Text = "Search Results"
+        Me.rbCategoryTable.AutoSize = True
+        Me.rbCategoryTable.Location = New System.Drawing.Point(234, 58)
+        Me.rbCategoryTable.Name = "rbCategoryTable"
+        Me.rbCategoryTable.Size = New System.Drawing.Size(52, 17)
+        Me.rbCategoryTable.TabIndex = 5
+        Me.rbCategoryTable.Text = "&Table"
+        Me.rbCategoryTable.UseVisualStyleBackColor = True
         '
-        'lblMatchingProducts
+        'rbCategoryAll
         '
-        Me.lblMatchingProducts.AutoSize = True
-        Me.lblMatchingProducts.Location = New System.Drawing.Point(55, 29)
-        Me.lblMatchingProducts.Name = "lblMatchingProducts"
-        Me.lblMatchingProducts.Size = New System.Drawing.Size(96, 13)
-        Me.lblMatchingProducts.TabIndex = 10
-        Me.lblMatchingProducts.Text = "Matching Products"
+        Me.rbCategoryAll.AutoSize = True
+        Me.rbCategoryAll.Checked = True
+        Me.rbCategoryAll.Location = New System.Drawing.Point(115, 58)
+        Me.rbCategoryAll.Name = "rbCategoryAll"
+        Me.rbCategoryAll.Size = New System.Drawing.Size(36, 17)
+        Me.rbCategoryAll.TabIndex = 3
+        Me.rbCategoryAll.TabStop = True
+        Me.rbCategoryAll.Text = "&All"
+        Me.rbCategoryAll.UseVisualStyleBackColor = True
         '
-        'btnMoreDetails
+        'Label1
         '
-        Me.btnMoreDetails.Location = New System.Drawing.Point(110, 211)
-        Me.btnMoreDetails.Name = "btnMoreDetails"
-        Me.btnMoreDetails.Size = New System.Drawing.Size(75, 23)
-        Me.btnMoreDetails.TabIndex = 11
-        Me.btnMoreDetails.Text = "&More Details"
-        Me.btnMoreDetails.UseVisualStyleBackColor = True
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(34, 60)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(52, 13)
+        Me.Label1.TabIndex = 3
+        Me.Label1.Text = "Category:"
+        '
+        'btnSearch
+        '
+        Me.btnSearch.Location = New System.Drawing.Point(424, 25)
+        Me.btnSearch.Name = "btnSearch"
+        Me.btnSearch.Size = New System.Drawing.Size(75, 23)
+        Me.btnSearch.TabIndex = 2
+        Me.btnSearch.Text = "&Search"
+        Me.btnSearch.UseVisualStyleBackColor = True
+        '
+        'txtSearchQuery
+        '
+        Me.txtSearchQuery.Enabled = False
+        Me.txtSearchQuery.Location = New System.Drawing.Point(115, 27)
+        Me.txtSearchQuery.MaxLength = 200
+        Me.txtSearchQuery.Name = "txtSearchQuery"
+        Me.txtSearchQuery.Size = New System.Drawing.Size(300, 20)
+        Me.txtSearchQuery.TabIndex = 1
+        '
+        'lblSearchQuery
+        '
+        Me.lblSearchQuery.AutoSize = True
+        Me.lblSearchQuery.Location = New System.Drawing.Point(34, 30)
+        Me.lblSearchQuery.Name = "lblSearchQuery"
+        Me.lblSearchQuery.Size = New System.Drawing.Size(75, 13)
+        Me.lblSearchQuery.TabIndex = 0
+        Me.lblSearchQuery.Text = "Search Query:"
+        '
+        'lblOther
+        '
+        Me.lblOther.AutoSize = True
+        Me.lblOther.Location = New System.Drawing.Point(34, 91)
+        Me.lblOther.Name = "lblOther"
+        Me.lblOther.Size = New System.Drawing.Size(36, 13)
+        Me.lblOther.TabIndex = 13
+        Me.lblOther.Text = "Other:"
         '
         'frmCatalog
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(623, 512)
+        Me.ClientSize = New System.Drawing.Size(623, 539)
         Me.Controls.Add(Me.grpCatalog)
         Me.Controls.Add(Me.lblSubTitle)
         Me.Controls.Add(Me.lblTitle)
@@ -414,4 +439,6 @@ Partial Class frmCatalog
     Friend WithEvents grpSearchResults As GroupBox
     Friend WithEvents btnMoreDetails As Button
     Friend WithEvents lblMatchingProducts As Label
+    Friend WithEvents cbShowItemsOutOfStock As CheckBox
+    Friend WithEvents lblOther As Label
 End Class
