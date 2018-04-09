@@ -1,7 +1,6 @@
 ﻿' Developed by Shawn Broyles
 ' The Checkout form displays a list of items in the user's shopping
-' cart. There are options for removing items and changing the
-' quantities of items.
+' cart. There are options for removing items and making purchases.
 
 Public Class frmCheckout
 
@@ -120,8 +119,8 @@ Public Class frmCheckout
     End Sub
 
     Private Sub btnRemoveAll_Click(sender As Object, e As EventArgs) Handles btnRemoveAll.Click
-        If (MessageBox.Show("Are you sure you want to remove all of the selected item?", "Remove All?", MessageBoxButtons.YesNo).Equals(DialogResult.Yes) And
-            lstShoppingCart.SelectedItems.Count > _cintZero) Then
+        If (lstShoppingCart.SelectedItems.Count > _cintZero AndAlso
+        MessageBox.Show("Are you sure you want to remove all of the selected item?", "Remove All?", MessageBoxButtons.YesNo).Equals(DialogResult.Yes)) Then
             GetSelectedItem(lstShoppingCart, _ShoppingCartResults)
             GetProduct(_CurrentItem.ID)
             _CurrentItem.GetShoppingCartItem().Quantity = _cintZero

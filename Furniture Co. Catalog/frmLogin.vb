@@ -39,7 +39,6 @@ Public Class frmLogin
 
     Private Sub mnuReload_Click(sender As Object, e As EventArgs) Handles mnuReload.Click
         ClearForm()
-        txtUsername.Focus()
         ReloadForm(Me)
     End Sub
 
@@ -61,7 +60,7 @@ Public Class frmLogin
 
     Private Sub frmLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadFormDefaults(Me)
-        txtUsername.Focus()
+        ClearForm()
     End Sub
 
     Private Sub btnSubmit_Click(sender As Object, e As EventArgs) Handles btnSubmit.Click
@@ -156,11 +155,11 @@ Public Class frmLogin
         txtUsername.Clear()
         txtPassword.Clear()
         rbUsername.Select()
+        txtUsername.Focus()
     End Sub
 
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
         ' Clearing textboxes and setting the focus to txtUsername
         ClearForm()
-        txtUsername.Focus()
     End Sub
 End Class

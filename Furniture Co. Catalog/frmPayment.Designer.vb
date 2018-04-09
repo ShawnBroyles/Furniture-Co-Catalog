@@ -42,7 +42,12 @@ Partial Class frmPayment
         Me.mnuAbout = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnuPrint = New System.Windows.Forms.ToolStripMenuItem()
         Me.pfPrintForm = New Microsoft.VisualBasic.PowerPacks.Printing.PrintForm(Me.components)
+        Me.lblSubTitle = New System.Windows.Forms.Label()
+        Me.lblTitle = New System.Windows.Forms.Label()
+        Me.grpPaymentOptions = New System.Windows.Forms.GroupBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.mnuMenuStrip.SuspendLayout()
+        Me.grpPaymentOptions.SuspendLayout()
         Me.SuspendLayout()
         '
         'mnuMenuStrip
@@ -50,7 +55,7 @@ Partial Class frmPayment
         Me.mnuMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuNavigate, Me.mnuEdit, Me.mnuHelp})
         Me.mnuMenuStrip.Location = New System.Drawing.Point(0, 0)
         Me.mnuMenuStrip.Name = "mnuMenuStrip"
-        Me.mnuMenuStrip.Size = New System.Drawing.Size(284, 24)
+        Me.mnuMenuStrip.Size = New System.Drawing.Size(389, 24)
         Me.mnuMenuStrip.TabIndex = 1
         Me.mnuMenuStrip.Text = "MenuStrip1"
         '
@@ -161,16 +166,60 @@ Partial Class frmPayment
         Me.pfPrintForm.PrinterSettings = CType(resources.GetObject("pfPrintForm.PrinterSettings"), System.Drawing.Printing.PrinterSettings)
         Me.pfPrintForm.PrintFileName = "Furniture Co. Catalog"
         '
+        'lblSubTitle
+        '
+        Me.lblSubTitle.AutoSize = True
+        Me.lblSubTitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSubTitle.Location = New System.Drawing.Point(46, 78)
+        Me.lblSubTitle.Name = "lblSubTitle"
+        Me.lblSubTitle.Size = New System.Drawing.Size(296, 20)
+        Me.lblSubTitle.TabIndex = 6
+        Me.lblSubTitle.Text = "Exchange real money for account money"
+        '
+        'lblTitle
+        '
+        Me.lblTitle.AutoSize = True
+        Me.lblTitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTitle.Location = New System.Drawing.Point(146, 43)
+        Me.lblTitle.Name = "lblTitle"
+        Me.lblTitle.Size = New System.Drawing.Size(96, 25)
+        Me.lblTitle.TabIndex = 5
+        Me.lblTitle.Text = "Payment"
+        Me.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'grpPaymentOptions
+        '
+        Me.grpPaymentOptions.Controls.Add(Me.Button1)
+        Me.grpPaymentOptions.Location = New System.Drawing.Point(67, 120)
+        Me.grpPaymentOptions.Name = "grpPaymentOptions"
+        Me.grpPaymentOptions.Size = New System.Drawing.Size(255, 175)
+        Me.grpPaymentOptions.TabIndex = 7
+        Me.grpPaymentOptions.TabStop = False
+        Me.grpPaymentOptions.Text = "Payment Options"
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(62, 32)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(131, 23)
+        Me.Button1.TabIndex = 1
+        Me.Button1.Text = "&Add money to account"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'frmPayment
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(284, 262)
+        Me.ClientSize = New System.Drawing.Size(389, 321)
+        Me.Controls.Add(Me.grpPaymentOptions)
+        Me.Controls.Add(Me.lblSubTitle)
+        Me.Controls.Add(Me.lblTitle)
         Me.Controls.Add(Me.mnuMenuStrip)
         Me.Name = "frmPayment"
         Me.Text = "Payment"
         Me.mnuMenuStrip.ResumeLayout(False)
         Me.mnuMenuStrip.PerformLayout()
+        Me.grpPaymentOptions.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -194,4 +243,8 @@ Partial Class frmPayment
     Friend WithEvents mnuAbout As ToolStripMenuItem
     Friend WithEvents mnuPrint As ToolStripMenuItem
     Friend WithEvents pfPrintForm As PowerPacks.Printing.PrintForm
+    Friend WithEvents lblSubTitle As Label
+    Friend WithEvents lblTitle As Label
+    Friend WithEvents grpPaymentOptions As GroupBox
+    Friend WithEvents Button1 As Button
 End Class

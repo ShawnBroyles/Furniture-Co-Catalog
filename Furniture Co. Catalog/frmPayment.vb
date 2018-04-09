@@ -1,6 +1,5 @@
 ﻿' Developed by Shawn Broyles
-' The Payment form is used to make purchases with money from 
-' a user 's account.
+' The Payment form is used for exchanging real money for account money.
 
 Public Class frmPayment
 
@@ -60,5 +59,9 @@ Public Class frmPayment
 
     Private Sub frmPayment_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadFormDefaults(Me)
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        MsgBox("Feature not yet implemented yet." & vbCrLf & "Contact a database administrator for more information.", , "Error")
     End Sub
 End Class

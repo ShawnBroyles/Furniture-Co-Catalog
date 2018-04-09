@@ -366,7 +366,6 @@ Partial Class frmCatalog
         '
         'txtSearchQuery
         '
-        Me.txtSearchQuery.Enabled = False
         Me.txtSearchQuery.Location = New System.Drawing.Point(115, 27)
         Me.txtSearchQuery.MaxLength = 200
         Me.txtSearchQuery.Name = "txtSearchQuery"

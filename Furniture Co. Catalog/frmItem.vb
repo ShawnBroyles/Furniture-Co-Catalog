@@ -41,6 +41,7 @@ Public Class frmItem
 
     Private Sub mnuReload_Click(sender As Object, e As EventArgs) Handles mnuReload.Click
         ReloadForm(Me)
+        ResetForm()
     End Sub
 
     Private Sub mnuSignOut_Click(sender As Object, e As EventArgs) Handles mnuSignOut.Click
@@ -74,7 +75,6 @@ Public Class frmItem
         lblFeeOutput.Text = _CurrentItem.Fee.ToString("C2")
         lblCategoryOutput.Text = _CurrentItem.Category
         lblDescriptionOutput.Text = _CurrentItem.Description
-
     End Sub
 
     Private Sub btnRefresh_Click(sender As Object, e As EventArgs) Handles btnRefresh.Click

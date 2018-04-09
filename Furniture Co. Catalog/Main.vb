@@ -1,5 +1,5 @@
 ﻿' Program:  Furniture Co. Catalog
-' Version:  0.7
+' Version:  1.0
 ' Author:   Shawn Broyles
 ' Date:     4/9/2018
 ' Purpose:  This application provides a user-friendly experience for
@@ -253,8 +253,7 @@ Module Main
                                 "a form that has more details for it."
             Case Forms.CHECKOUT
                 strMessageEnd = "The Checkout form displays a list of items in the user's shopping" & vbCrLf &
-                                "cart. There are options for removing items and changing the" & vbCrLf &
-                                "quantities of items."
+                                "cart. There are options for removing items and making purchases."
             Case Forms.ACCOUNT
                 strMessageEnd = "The Account form provides options for changing the user's" & vbCrLf &
                                 "account information."
@@ -263,7 +262,7 @@ Module Main
                                 "catalog with the option to add the item with a specified quantitiy" & vbCrLf &
                                 "to the shopping cart."
             Case Forms.PAYMENT
-                strMessageEnd = "Use the Payment form to make a purchase with money from your account."
+                strMessageEnd = "Use the Payment form to exchange real money for account money."
         End Select
         Const cstrMessage As String = "Program Name: Furniture Co. Catalog" & vbCrLf &
                                       "Developed By: Shawn Broyles" & vbCrLf &
@@ -375,6 +374,22 @@ Module Main
             Console.WriteLine("Unable to update products list.")
         End Try
     End Sub
+
+    Function GetMatch(ByRef itmItem As Item, ByVal strSearchQuery As String) As Boolean
+        Dim blnMatched As Boolean = False
+        If (System.Text.RegularExpressions.Regex.IsMatch(itmItem.ID.ToString(), strSearchQuery) OrElse
+            System.Text.RegularExpressions.Regex.IsMatch(itmItem.Name, strSearchQuery) OrElse
+            System.Text.RegularExpressions.Regex.IsMatch(itmItem.Price.ToString(), strSearchQuery) OrElse
+            System.Text.RegularExpressions.Regex.IsMatch(itmItem.Price.ToString("C2"), strSearchQuery) OrElse
+            System.Text.RegularExpressions.Regex.IsMatch(itmItem.Stock.ToString(), strSearchQuery) OrElse
+            System.Text.RegularExpressions.Regex.IsMatch(itmItem.Fee.ToString(), strSearchQuery) OrElse
+            System.Text.RegularExpressions.Regex.IsMatch(itmItem.Fee.ToString("C2"), strSearchQuery) OrElse
+            System.Text.RegularExpressions.Regex.IsMatch(itmItem.Category, strSearchQuery) OrElse
+            System.Text.RegularExpressions.Regex.IsMatch(itmItem.Description, strSearchQuery)) Then
+            blnMatched = True
+        End If
+        Return blnMatched
+    End Function
 
     Public Class Item
         Public Property ID As Integer

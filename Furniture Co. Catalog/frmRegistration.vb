@@ -37,8 +37,8 @@ Public Class frmRegistration
     End Sub
 
     Private Sub mnuReload_Click(sender As Object, e As EventArgs) Handles mnuReload.Click
+        ReloadForm(Me)
         ClearForm()
-        txtUsername.Focus()
     End Sub
 
     Private Sub mnuSignOut_Click(sender As Object, e As EventArgs) Handles mnuSignOut.Click
@@ -151,6 +151,7 @@ Public Class frmRegistration
         txtEmail.Clear()
         txtPhoneNumber.Clear()
         txtAddress.Clear()
+        txtUsername.Focus()
     End Sub
 
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click

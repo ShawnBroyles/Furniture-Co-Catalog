@@ -76,10 +76,12 @@ Public Class frmCatalog
                               If (GetSelectedCategory().Equals(ProductCategory.ALL) Or
                                   GetSelectedCategory().Equals(GetProductCategory(itmItem))) Then
                                   If (cbShowItemsOutOfStock.Checked Or Not CheckOutOfStock(itmItem)) Then
-                                      lstProducts.Items.Add(itmItem.Name & " - " & itmItem.Price.ToString("C2"))
-                                      _ProductResults.Add(itmItem)
+                                      If (GetMatch(itmItem, txtSearchQuery.Text)) Then
+                                          lstProducts.Items.Add(itmItem.Name & " - " & itmItem.Price.ToString("C2"))
+                                          _ProductResults.Add(itmItem)
+                                      End If
                                   End If
-                              End If
+                                  End If
                           End Sub)
     End Sub
 

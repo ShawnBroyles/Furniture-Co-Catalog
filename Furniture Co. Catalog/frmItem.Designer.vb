@@ -362,14 +362,14 @@ Partial Class frmItem
         Me.updAmountInCart.Location = New System.Drawing.Point(233, 403)
         Me.updAmountInCart.Name = "updAmountInCart"
         Me.updAmountInCart.Size = New System.Drawing.Size(51, 20)
-        Me.updAmountInCart.TabIndex = 15
+        Me.updAmountInCart.TabIndex = 1
         '
         'btnRefresh
         '
         Me.btnRefresh.Location = New System.Drawing.Point(158, 433)
         Me.btnRefresh.Name = "btnRefresh"
         Me.btnRefresh.Size = New System.Drawing.Size(75, 23)
-        Me.btnRefresh.TabIndex = 16
+        Me.btnRefresh.TabIndex = 2
         Me.btnRefresh.Text = "&Refresh"
         Me.btnRefresh.UseVisualStyleBackColor = True
         '

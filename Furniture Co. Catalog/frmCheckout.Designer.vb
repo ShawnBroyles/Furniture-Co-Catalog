@@ -45,15 +45,15 @@ Partial Class frmCheckout
         Me.lblSubTitle = New System.Windows.Forms.Label()
         Me.lblTitle = New System.Windows.Forms.Label()
         Me.grpShoppingCart = New System.Windows.Forms.GroupBox()
-        Me.lstShoppingCart = New System.Windows.Forms.ListBox()
-        Me.lblCalculation = New System.Windows.Forms.Label()
-        Me.lblFullPriceOutput = New System.Windows.Forms.Label()
-        Me.btnRefresh = New System.Windows.Forms.Button()
-        Me.btnRemoveOne = New System.Windows.Forms.Button()
-        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.btnRemoveAll = New System.Windows.Forms.Button()
-        Me.btnMakePurchase = New System.Windows.Forms.Button()
         Me.btnPaymentOptions = New System.Windows.Forms.Button()
+        Me.btnMakePurchase = New System.Windows.Forms.Button()
+        Me.btnRemoveAll = New System.Windows.Forms.Button()
+        Me.btnRemoveOne = New System.Windows.Forms.Button()
+        Me.btnRefresh = New System.Windows.Forms.Button()
+        Me.lblFullPriceOutput = New System.Windows.Forms.Label()
+        Me.lblCalculation = New System.Windows.Forms.Label()
+        Me.lstShoppingCart = New System.Windows.Forms.ListBox()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.mnuMenuStrip.SuspendLayout()
         Me.grpShoppingCart.SuspendLayout()
         Me.SuspendLayout()
@@ -212,22 +212,56 @@ Partial Class frmCheckout
         Me.grpShoppingCart.TabStop = False
         Me.grpShoppingCart.Text = "Shopping Cart"
         '
-        'lstShoppingCart
+        'btnPaymentOptions
         '
-        Me.lstShoppingCart.FormattingEnabled = True
-        Me.lstShoppingCart.Location = New System.Drawing.Point(36, 52)
-        Me.lstShoppingCart.Name = "lstShoppingCart"
-        Me.lstShoppingCart.Size = New System.Drawing.Size(361, 147)
-        Me.lstShoppingCart.TabIndex = 0
+        Me.btnPaymentOptions.Enabled = False
+        Me.btnPaymentOptions.Location = New System.Drawing.Point(226, 299)
+        Me.btnPaymentOptions.Name = "btnPaymentOptions"
+        Me.btnPaymentOptions.Size = New System.Drawing.Size(97, 23)
+        Me.btnPaymentOptions.TabIndex = 5
+        Me.btnPaymentOptions.Text = "&Payment Options"
+        Me.ToolTip1.SetToolTip(Me.btnPaymentOptions, "Navigate to the Payment form")
+        Me.btnPaymentOptions.UseVisualStyleBackColor = True
         '
-        'lblCalculation
+        'btnMakePurchase
         '
-        Me.lblCalculation.AutoSize = True
-        Me.lblCalculation.Location = New System.Drawing.Point(33, 36)
-        Me.lblCalculation.Name = "lblCalculation"
-        Me.lblCalculation.Size = New System.Drawing.Size(208, 13)
-        Me.lblCalculation.TabIndex = 1
-        Me.lblCalculation.Text = "Item = Total Price (Quantity * (Price + Fee))"
+        Me.btnMakePurchase.Location = New System.Drawing.Point(110, 299)
+        Me.btnMakePurchase.Name = "btnMakePurchase"
+        Me.btnMakePurchase.Size = New System.Drawing.Size(97, 23)
+        Me.btnMakePurchase.TabIndex = 4
+        Me.btnMakePurchase.Text = "&Make Purchase"
+        Me.ToolTip1.SetToolTip(Me.btnMakePurchase, "Purchase all of the items in the shopping cart")
+        Me.btnMakePurchase.UseVisualStyleBackColor = True
+        '
+        'btnRemoveAll
+        '
+        Me.btnRemoveAll.Location = New System.Drawing.Point(300, 217)
+        Me.btnRemoveAll.Name = "btnRemoveAll"
+        Me.btnRemoveAll.Size = New System.Drawing.Size(97, 23)
+        Me.btnRemoveAll.TabIndex = 3
+        Me.btnRemoveAll.Text = "Remove &All"
+        Me.ToolTip1.SetToolTip(Me.btnRemoveAll, "Remove all items of one type from your shopping cart")
+        Me.btnRemoveAll.UseVisualStyleBackColor = True
+        '
+        'btnRemoveOne
+        '
+        Me.btnRemoveOne.Location = New System.Drawing.Point(168, 217)
+        Me.btnRemoveOne.Name = "btnRemoveOne"
+        Me.btnRemoveOne.Size = New System.Drawing.Size(97, 23)
+        Me.btnRemoveOne.TabIndex = 2
+        Me.btnRemoveOne.Text = "Remove &One"
+        Me.ToolTip1.SetToolTip(Me.btnRemoveOne, "Remove one item from your shopping cart")
+        Me.btnRemoveOne.UseVisualStyleBackColor = True
+        '
+        'btnRefresh
+        '
+        Me.btnRefresh.Location = New System.Drawing.Point(36, 217)
+        Me.btnRefresh.Name = "btnRefresh"
+        Me.btnRefresh.Size = New System.Drawing.Size(97, 23)
+        Me.btnRefresh.TabIndex = 1
+        Me.btnRefresh.Text = "&Refresh"
+        Me.ToolTip1.SetToolTip(Me.btnRefresh, "Refresh all of the data on the form")
+        Me.btnRefresh.UseVisualStyleBackColor = True
         '
         'lblFullPriceOutput
         '
@@ -238,56 +272,22 @@ Partial Class frmCheckout
         Me.lblFullPriceOutput.Text = "Price of all shopping cart items combined: $?.??"
         Me.lblFullPriceOutput.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
-        'btnRefresh
+        'lblCalculation
         '
-        Me.btnRefresh.Location = New System.Drawing.Point(36, 217)
-        Me.btnRefresh.Name = "btnRefresh"
-        Me.btnRefresh.Size = New System.Drawing.Size(97, 23)
-        Me.btnRefresh.TabIndex = 3
-        Me.btnRefresh.Text = "&Refresh"
-        Me.ToolTip1.SetToolTip(Me.btnRefresh, "Refresh all of the data on the form")
-        Me.btnRefresh.UseVisualStyleBackColor = True
+        Me.lblCalculation.AutoSize = True
+        Me.lblCalculation.Location = New System.Drawing.Point(33, 36)
+        Me.lblCalculation.Name = "lblCalculation"
+        Me.lblCalculation.Size = New System.Drawing.Size(208, 13)
+        Me.lblCalculation.TabIndex = 1
+        Me.lblCalculation.Text = "Item = Total Price (Quantity * (Price + Fee))"
         '
-        'btnRemoveOne
+        'lstShoppingCart
         '
-        Me.btnRemoveOne.Location = New System.Drawing.Point(168, 217)
-        Me.btnRemoveOne.Name = "btnRemoveOne"
-        Me.btnRemoveOne.Size = New System.Drawing.Size(97, 23)
-        Me.btnRemoveOne.TabIndex = 4
-        Me.btnRemoveOne.Text = "Remove &One"
-        Me.ToolTip1.SetToolTip(Me.btnRemoveOne, "Remove one item from your shopping cart")
-        Me.btnRemoveOne.UseVisualStyleBackColor = True
-        '
-        'btnRemoveAll
-        '
-        Me.btnRemoveAll.Location = New System.Drawing.Point(300, 217)
-        Me.btnRemoveAll.Name = "btnRemoveAll"
-        Me.btnRemoveAll.Size = New System.Drawing.Size(97, 23)
-        Me.btnRemoveAll.TabIndex = 5
-        Me.btnRemoveAll.Text = "Remove &All"
-        Me.ToolTip1.SetToolTip(Me.btnRemoveAll, "Remove all items of one type from your shopping cart")
-        Me.btnRemoveAll.UseVisualStyleBackColor = True
-        '
-        'btnMakePurchase
-        '
-        Me.btnMakePurchase.Location = New System.Drawing.Point(110, 299)
-        Me.btnMakePurchase.Name = "btnMakePurchase"
-        Me.btnMakePurchase.Size = New System.Drawing.Size(97, 23)
-        Me.btnMakePurchase.TabIndex = 6
-        Me.btnMakePurchase.Text = "&Make Purchase"
-        Me.ToolTip1.SetToolTip(Me.btnMakePurchase, "Purchase all of the items in the shopping cart")
-        Me.btnMakePurchase.UseVisualStyleBackColor = True
-        '
-        'btnPaymentOptions
-        '
-        Me.btnPaymentOptions.Enabled = False
-        Me.btnPaymentOptions.Location = New System.Drawing.Point(226, 299)
-        Me.btnPaymentOptions.Name = "btnPaymentOptions"
-        Me.btnPaymentOptions.Size = New System.Drawing.Size(97, 23)
-        Me.btnPaymentOptions.TabIndex = 7
-        Me.btnPaymentOptions.Text = "&Payment Options"
-        Me.ToolTip1.SetToolTip(Me.btnPaymentOptions, "Navigate to the Payment form")
-        Me.btnPaymentOptions.UseVisualStyleBackColor = True
+        Me.lstShoppingCart.FormattingEnabled = True
+        Me.lstShoppingCart.Location = New System.Drawing.Point(36, 52)
+        Me.lstShoppingCart.Name = "lstShoppingCart"
+        Me.lstShoppingCart.Size = New System.Drawing.Size(361, 147)
+        Me.lstShoppingCart.TabIndex = 0
         '
         'frmCheckout
         '
