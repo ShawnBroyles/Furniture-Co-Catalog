@@ -123,12 +123,12 @@ Public Class frmAccount
             Dim strPhone As String = txtPhoneNumber.Text
             Dim strAddress As String = txtAddress.Text
 
-            Dim blnUsernameValidated As Boolean = SQLValidateUserData(strUsername, SQLValidate.USERNAME)
-            Dim blnFNameValidated As Boolean = SQLValidateUserData(strFName, SQLValidate.OTHER_EMPTY)
-            Dim blnLNameValidated As Boolean = SQLValidateUserData(strLName, SQLValidate.OTHER_EMPTY)
-            Dim blnEmailValidated As Boolean = SQLValidateUserData(strEmail, SQLValidate.EMAIL)
-            Dim blnPhoneValidated As Boolean = SQLValidateUserData(strPhone, SQLValidate.OTHER_EMPTY)
-            Dim blnAddressValidated As Boolean = SQLValidateUserData(strAddress, SQLValidate.OTHER_EMPTY)
+            Dim blnUsernameValidated As Boolean = RegexValidateUserData(strUsername, RegexValidate.USERNAME)
+            Dim blnFNameValidated As Boolean = RegexValidateUserData(strFName, RegexValidate.OTHER_EMPTY)
+            Dim blnLNameValidated As Boolean = RegexValidateUserData(strLName, RegexValidate.OTHER_EMPTY)
+            Dim blnEmailValidated As Boolean = RegexValidateUserData(strEmail, RegexValidate.EMAIL)
+            Dim blnPhoneValidated As Boolean = RegexValidateUserData(strPhone, RegexValidate.OTHER_EMPTY)
+            Dim blnAddressValidated As Boolean = RegexValidateUserData(strAddress, RegexValidate.OTHER_EMPTY)
 
             If (Not blnUsernameValidated) Then
                 strErrorMessage = strErrorMessage & vbCrLf & "Username must be 4-16 characters, start with a letter, and only contain A-Z a-z 0-9"

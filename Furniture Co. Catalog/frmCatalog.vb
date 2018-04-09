@@ -71,11 +71,13 @@ Public Class frmCatalog
 
     Private Sub GetResults()
         lstProducts.Items.Clear()
+        _ProductResults.Clear()
         _Products.ForEach(Sub(itmItem)
                               If (GetSelectedCategory().Equals(ProductCategory.ALL) Or
                                   GetSelectedCategory().Equals(GetProductCategory(itmItem))) Then
                                   If (cbShowItemsOutOfStock.Checked Or Not CheckOutOfStock(itmItem)) Then
                                       lstProducts.Items.Add(itmItem.Name & " - " & itmItem.Price.ToString("C2"))
+                                      _ProductResults.Add(itmItem)
                                   End If
                               End If
                           End Sub)
@@ -101,5 +103,10 @@ Public Class frmCatalog
 
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
         GetResults()
+    End Sub
+
+    Private Sub btnMoreDetails_Click(sender As Object, e As EventArgs) Handles btnMoreDetails.Click
+        GetSelectedItem(lstProducts)
+        Navigate(Forms.ITEM, Me)
     End Sub
 End Class

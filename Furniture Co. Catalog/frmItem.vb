@@ -61,5 +61,28 @@ Public Class frmItem
 
     Private Sub frmItem_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadFormDefaults(Me)
+        ResetForm()
+    End Sub
+
+    Private Sub ResetForm()
+        updAmountInCart.Maximum = _CurrentItem.Stock
+        updAmountInCart.Value = _CurrentItem.GetShoppingCartItem().Quantity
+        Console.WriteLine(_CurrentItem.GetShoppingCartItem().Quantity)
+        lblProductIDOutput.Text = _CurrentItem.ID.ToString()
+        lblNameOutput.Text = _CurrentItem.Name
+        lblPriceOutput.Text = _CurrentItem.Price.ToString("C2")
+        lblStockOutput.Text = _CurrentItem.Stock.ToString()
+        lblFeeOutput.Text = _CurrentItem.Fee.ToString("C2")
+        lblCategoryOutput.Text = _CurrentItem.Category
+        lblDescriptionOutput.Text = _CurrentItem.Description
+
+    End Sub
+
+    Private Sub btnRefresh_Click(sender As Object, e As EventArgs) Handles btnRefresh.Click
+        ResetForm()
+    End Sub
+
+    Private Sub updAmountInCart_ValueChanged(sender As Object, e As EventArgs) Handles updAmountInCart.ValueChanged
+        _CurrentItem.GetShoppingCartItem().Quantity = updAmountInCart.Value
     End Sub
 End Class

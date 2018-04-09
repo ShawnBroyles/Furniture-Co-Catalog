@@ -36,6 +36,17 @@ Module Main
     Public Const _cdecZero As Decimal = 0.00D
     Public Const _cstrEmpty As String = ""
 
+    ' The currently logged in user
+    Public _CurrentUser As User = New User()
+    ' Array of ShoppingCartItems
+    Public _ShoppingCart As New List(Of ShoppingCartItem)()
+    ' List of Items from the database
+    Public _Products As New List(Of Item)()
+    ' List of Items from the search results on the Category form
+    Public _ProductResults As New List(Of Item)()
+    ' Current Item displayed on the Item form
+    Public _CurrentItem As New Item()
+
     Public Sub PositionForm(ByVal frmCurrentForm As Form)
         ' Setting the form's size back to its default
         frmCurrentForm.Size = frmCurrentForm.RestoreBounds.Size
@@ -57,11 +68,12 @@ Module Main
         End Try
     End Sub
 
-    Public Sub Navigate(ByVal intForm As Integer, ByVal frmCurrentForm As Form, Optional ByVal intItem As Integer = _cintZero)
+    Public Sub Navigate(ByVal intForm As Integer, ByVal frmCurrentForm As Form)
         Dim frmChosenForm As Form
         Dim blnSignedOutRequired As Boolean = False
         Dim blnSignedInRequired As Boolean = False
         Dim blnPasswordRequired As Boolean = False
+        Dim blnItemRequired As Boolean = False
         Select Case intForm
             Case Forms.REGISTRATION
                 frmChosenForm = frmRegistration
@@ -81,6 +93,7 @@ Module Main
                 blnPasswordRequired = True
             Case Forms.ITEM
                 frmChosenForm = frmItem
+                blnItemRequired = True
                 blnSignedInRequired = True
             Case Forms.PAYMENT
                 frmChosenForm = frmPayment
@@ -95,15 +108,15 @@ Module Main
 
         ' Navigating
         If (frmCurrentForm.Equals(frmWelcome) And Not frmChosenForm.Equals(frmWelcome)) Then
-            If NavigatePrerequisite(blnSignedOutRequired, blnSignedInRequired, blnPasswordRequired) Then
+            If NavigatePrerequisite(blnSignedOutRequired, blnSignedInRequired, blnPasswordRequired, blnItemRequired) Then
                 frmChosenForm.ShowDialog()
             End If
         ElseIf (Not frmCurrentForm.Equals(frmWelcome) And frmChosenForm.Equals(frmWelcome)) Then
-            If NavigatePrerequisite(blnSignedOutRequired, blnSignedInRequired, blnPasswordRequired) Then
+            If NavigatePrerequisite(blnSignedOutRequired, blnSignedInRequired, blnPasswordRequired, blnItemRequired) Then
                 frmCurrentForm.Dispose()
             End If
         ElseIf (Not frmChosenForm.Equals(frmCurrentForm)) Then
-            If NavigatePrerequisite(blnSignedOutRequired, blnSignedInRequired, blnPasswordRequired) Then
+            If NavigatePrerequisite(blnSignedOutRequired, blnSignedInRequired, blnPasswordRequired, blnItemRequired) Then
                 frmCurrentForm.Dispose()
                 frmChosenForm.ShowDialog()
             End If
@@ -112,22 +125,29 @@ Module Main
         End If
     End Sub
 
-    Function NavigatePrerequisite(ByVal blnSignedOutRequired As Boolean, ByVal blnSignedInRequired As Boolean, ByVal blnPasswordRequired As Boolean) As Boolean
+    Function NavigatePrerequisite(ByVal blnSignedOutRequired As Boolean, ByVal blnSignedInRequired As Boolean, ByVal blnPasswordRequired As Boolean, ByVal blnItemRequired As Boolean) As Boolean
         Dim blnNavigate As Boolean = True
         Dim strMessage As String = ""
         Dim cstrTitle As String = "Error"
-        If (blnSignedInRequired And _CurrentUser.SignedIn.Equals(False)) Then
-            blnNavigate = False
-            strMessage = "You must be signed in to navigate to this form."
-            MsgBox(strMessage, , cstrTitle)
-        ElseIf (blnSignedOutRequired And _CurrentUser.SignedIn.Equals(True)) Then
-            blnNavigate = False
-            strMessage = "You must be signed out to navigate to this form."
-            MsgBox(strMessage, , cstrTitle)
-        ElseIf (blnPasswordRequired AndAlso ConfirmPasswordPopup().Equals(False)) Then
-            blnNavigate = False
-            strMessage = "Invalid Password."
-            MsgBox(strMessage, , cstrTitle)
+        If (blnItemRequired AndAlso _CurrentItem.ID.Equals(_cintZero)) Then
+            AskForItem()
+        End If
+        If (Not blnItemRequired Or _CurrentItem.ID.Equals(_cintZero)) Then
+            Console.WriteLine(blnItemRequired)
+            Console.WriteLine(_CurrentItem.ID.Equals(_cintZero))
+            If (blnSignedInRequired And _CurrentUser.SignedIn.Equals(False)) Then
+                blnNavigate = False
+                strMessage = "You must be signed in to navigate to this form."
+                MsgBox(strMessage, , cstrTitle)
+            ElseIf (blnSignedOutRequired And _CurrentUser.SignedIn.Equals(True)) Then
+                blnNavigate = False
+                strMessage = "You must be signed out to navigate to this form."
+                MsgBox(strMessage, , cstrTitle)
+            ElseIf (blnPasswordRequired AndAlso ConfirmPasswordPopup().Equals(False)) Then
+                blnNavigate = False
+                strMessage = "Invalid Password."
+                MsgBox(strMessage, , cstrTitle)
+            End If
         End If
 
         Return blnNavigate
@@ -143,18 +163,31 @@ Module Main
             Dim strUserSigningOut As String = _CurrentUser.Username
             _CurrentUser.SignOut()
             ClearShoppingCart()
+            _CurrentItem = New Item()
             MsgBox("You are now signed out.", , "Sign Out Success")
         Else
             MsgBox("You are not signed in.", , "Sign Out Error")
         End If
     End Sub
 
+    Public Sub CreateShoppingCart()
+        Dim sciItem As ShoppingCartItem
+        _Products.ForEach(Sub(itmItem)
+                              sciItem = New ShoppingCartItem(itmItem, _cintZero)
+                              _ShoppingCart.Add(sciItem)
+                          End Sub)
+    End Sub
+
     Public Sub ClearShoppingCart(Optional ByVal blnConfirmIntention As Boolean = False)
         If (_ShoppingCart.Count > _cintZero) Then
             If (blnConfirmIntention AndAlso MessageBox.Show("Are you sure you want to empty the shopping cart?", "Empty Shopping Cart?", MessageBoxButtons.YesNo).Equals(DialogResult.Yes)) Then
-                _ShoppingCart = New List(Of ShoppingCartItem)()
+                _ShoppingCart.ForEach(Sub(sciItem)
+                                          sciItem.Quantity = _cintZero
+                                      End Sub)
             Else
-                _ShoppingCart = New List(Of ShoppingCartItem)()
+                _ShoppingCart.ForEach(Sub(sciItem)
+                                          sciItem.Quantity = _cintZero
+                                      End Sub)
             End If
         End If
     End Sub
@@ -163,6 +196,23 @@ Module Main
         ' Hard-coded guest sign-in (no SQL validation)
         _CurrentUser.SignIn(SQLGetRecordID(DatabaseTables.ACCOUNT, "ACC_USERNAME", "Guest"))
     End Sub
+
+    Function AskForItem() As Boolean
+        Dim blnValidItem As Boolean = False
+        Dim strProduct As String
+        strProduct = InputBox("Enter the name or ID of a product.", "Unknown Item")
+        If (RegexValidateUserData(strProduct, RegexValidate.ID)) Then
+            GetProduct(Convert.ToInt32(strProduct))
+        Else
+            GetProduct(strProduct)
+        End If
+        If (_CurrentItem.ID.Equals(_cintZero)) Then
+            MsgBox("Item not found.", , "Error")
+        Else
+            blnValidItem = True
+        End If
+        Return blnValidItem
+    End Function
 
     Function ConfirmPasswordPopup() As Boolean
         Dim blnConfirmed As Boolean = False
@@ -241,28 +291,30 @@ Module Main
         PositionForm(frmCurrentForm)
     End Sub
 
-    ' Array of ShoppingCartItems
-    Public _ShoppingCart As New List(Of ShoppingCartItem)()
-
     Public Sub AddToShoppingCart(ByRef sciNewItem As ShoppingCartItem)
         _ShoppingCart.Add(sciNewItem)
     End Sub
-
-    ' Array of Items
-    Public _Products As New List(Of Item)()
 
     Public Sub AddToProducts(ByRef itmNewItem As Item)
         _Products.Add(itmNewItem)
     End Sub
 
-    Function GetProduct(ByVal intID As Integer) As Item
-        Dim itmSpecificItem As Item
-        Dim blnGotItem As Boolean = False
+    Public Sub GetSelectedItem(ByRef lstProducts As ListBox)
+        Try
+            If (Not String.IsNullOrWhiteSpace(lstProducts.SelectedItem)) Then
+                _CurrentItem = _ProductResults(lstProducts.SelectedIndex())
+            End If
+        Catch ex As Exception
+            Console.WriteLine("Error occurred when attempting to get the current item from the selected item.")
+            Console.WriteLine(ex.Message)
+        End Try
+    End Sub
+
+    Public Sub GetProduct(ByVal intID As Integer)
         Try
             _Products.ForEach(Sub(itmItem)
                                   If (itmItem.ID.Equals(intID)) Then
-                                      itmSpecificItem = itmItem
-                                      blnGotItem = True
+                                      _CurrentItem = itmItem
                                   End If
                               End Sub)
         Catch ex As Exception
@@ -271,22 +323,13 @@ Module Main
             Console.WriteLine(ex.Message)
         End Try
 
-        If (Not blnGotItem) Then
-            itmSpecificItem = New Item()
-        End If
+    End Sub
 
-        Return itmSpecificItem
-
-    End Function
-
-    Function GetProduct(ByVal strName As String) As Item
-        Dim itmSpecificItem As Item
-        Dim blnGotItem As Boolean = False
+    Public Sub GetProduct(ByVal strName As String)
         Try
             _Products.ForEach(Sub(itmItem)
                                   If (itmItem.Name.Equals(strName)) Then
-                                      itmSpecificItem = itmItem
-                                      blnGotItem = True
+                                      _CurrentItem = itmItem
                                   End If
                               End Sub)
         Catch ex As Exception
@@ -295,13 +338,7 @@ Module Main
             Console.WriteLine(ex.Message)
         End Try
 
-        If (Not blnGotItem) Then
-            itmSpecificItem = New Item()
-        End If
-
-        Return itmSpecificItem
-
-    End Function
+    End Sub
 
     Function GetProductCategory(ByRef itmItem As Item) As Integer
         Dim intCategory As Integer
@@ -378,24 +415,31 @@ Module Main
             Console.WriteLine("Product " & Name & " was updated.")
         End Sub
 
+        Function GetShoppingCartItem() As ShoppingCartItem
+            Dim sciRelatedItem As New ShoppingCartItem()
+            _ShoppingCart.ForEach(Sub(sciItem)
+                                      If (sciItem.ID.Equals(ID)) Then
+                                          sciRelatedItem = sciItem
+                                      End If
+                                  End Sub)
+            Return sciRelatedItem
+        End Function
     End Class
 
     Public Class ShoppingCartItem
-        Public Property Item As Item
+        Public Property ID As Integer
         Public Property Quantity As Integer
 
         Public Sub New()
-            Item = New Item()
+            ID = _cintZero
             Quantity = _cintZero
         End Sub
 
         Public Sub New(ByRef itmItem As Item, ByVal intQuantity As Integer)
-            Item = itmItem
+            ID = itmItem.ID
             Quantity = intQuantity
         End Sub
     End Class
-
-    Public _CurrentUser As User = New User()
 
     Public Class User
         Public Property ID As Integer

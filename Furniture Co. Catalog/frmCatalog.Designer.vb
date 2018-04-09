@@ -45,8 +45,9 @@ Partial Class frmCatalog
         Me.lblTitle = New System.Windows.Forms.Label()
         Me.lblSubTitle = New System.Windows.Forms.Label()
         Me.grpCatalog = New System.Windows.Forms.GroupBox()
-        Me.grpSearchResults = New System.Windows.Forms.GroupBox()
+        Me.lblOther = New System.Windows.Forms.Label()
         Me.cbShowItemsOutOfStock = New System.Windows.Forms.CheckBox()
+        Me.grpSearchResults = New System.Windows.Forms.GroupBox()
         Me.btnMoreDetails = New System.Windows.Forms.Button()
         Me.lblMatchingProducts = New System.Windows.Forms.Label()
         Me.lstProducts = New System.Windows.Forms.ListBox()
@@ -60,7 +61,6 @@ Partial Class frmCatalog
         Me.btnSearch = New System.Windows.Forms.Button()
         Me.txtSearchQuery = New System.Windows.Forms.TextBox()
         Me.lblSearchQuery = New System.Windows.Forms.Label()
-        Me.lblOther = New System.Windows.Forms.Label()
         Me.mnuMenuStrip.SuspendLayout()
         Me.grpCatalog.SuspendLayout()
         Me.grpSearchResults.SuspendLayout()
@@ -225,17 +225,14 @@ Partial Class frmCatalog
         Me.grpCatalog.TabStop = False
         Me.grpCatalog.Text = "Browsing the Catalog"
         '
-        'grpSearchResults
+        'lblOther
         '
-        Me.grpSearchResults.Controls.Add(Me.btnMoreDetails)
-        Me.grpSearchResults.Controls.Add(Me.lblMatchingProducts)
-        Me.grpSearchResults.Controls.Add(Me.lstProducts)
-        Me.grpSearchResults.Location = New System.Drawing.Point(119, 126)
-        Me.grpSearchResults.Name = "grpSearchResults"
-        Me.grpSearchResults.Size = New System.Drawing.Size(295, 250)
-        Me.grpSearchResults.TabIndex = 10
-        Me.grpSearchResults.TabStop = False
-        Me.grpSearchResults.Text = "Search Results"
+        Me.lblOther.AutoSize = True
+        Me.lblOther.Location = New System.Drawing.Point(34, 91)
+        Me.lblOther.Name = "lblOther"
+        Me.lblOther.Size = New System.Drawing.Size(36, 13)
+        Me.lblOther.TabIndex = 13
+        Me.lblOther.Text = "Other:"
         '
         'cbShowItemsOutOfStock
         '
@@ -248,6 +245,18 @@ Partial Class frmCatalog
         Me.cbShowItemsOutOfStock.TabIndex = 12
         Me.cbShowItemsOutOfStock.Text = "Show &items out of stock"
         Me.cbShowItemsOutOfStock.UseVisualStyleBackColor = True
+        '
+        'grpSearchResults
+        '
+        Me.grpSearchResults.Controls.Add(Me.btnMoreDetails)
+        Me.grpSearchResults.Controls.Add(Me.lblMatchingProducts)
+        Me.grpSearchResults.Controls.Add(Me.lstProducts)
+        Me.grpSearchResults.Location = New System.Drawing.Point(119, 126)
+        Me.grpSearchResults.Name = "grpSearchResults"
+        Me.grpSearchResults.Size = New System.Drawing.Size(295, 250)
+        Me.grpSearchResults.TabIndex = 10
+        Me.grpSearchResults.TabStop = False
+        Me.grpSearchResults.Text = "Search Results"
         '
         'btnMoreDetails
         '
@@ -372,15 +381,6 @@ Partial Class frmCatalog
         Me.lblSearchQuery.Size = New System.Drawing.Size(75, 13)
         Me.lblSearchQuery.TabIndex = 0
         Me.lblSearchQuery.Text = "Search Query:"
-        '
-        'lblOther
-        '
-        Me.lblOther.AutoSize = True
-        Me.lblOther.Location = New System.Drawing.Point(34, 91)
-        Me.lblOther.Name = "lblOther"
-        Me.lblOther.Size = New System.Drawing.Size(36, 13)
-        Me.lblOther.TabIndex = 13
-        Me.lblOther.Text = "Other:"
         '
         'frmCatalog
         '

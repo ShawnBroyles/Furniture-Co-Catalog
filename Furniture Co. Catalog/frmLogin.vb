@@ -88,25 +88,25 @@ Public Class frmLogin
         If (rbEmail.Checked) Then
             strLoginFieldType = "Email"
             strLoginField = cstrEmailField
-            intValidateType = SQLValidate.EMAIL
+            intValidateType = RegexValidate.EMAIL
         ElseIf (rbAccountID.Checked) Then
             strLoginFieldType = "Account ID"
             strLoginField = cstrAccountIDField
-            intValidateType = SQLValidate.ACCOUNT_ID
+            intValidateType = RegexValidate.ID
         Else
             strLoginFieldType = "Username"
             strLoginField = cstrUsernameField
-            intValidateType = SQLValidate.USERNAME
+            intValidateType = RegexValidate.USERNAME
         End If
 
-        Dim blnUsernameValidated As Boolean = SQLValidateUserData(strUsername, intValidateType)
-        Dim blnPasswordValidated As Boolean = SQLValidateUserData(strPassword, SQLValidate.PASSWORD)
+        Dim blnUsernameValidated As Boolean = RegexValidateUserData(strUsername, intValidateType)
+        Dim blnPasswordValidated As Boolean = RegexValidateUserData(strPassword, RegexValidate.PASSWORD)
 
         If (Not blnUsernameValidated) Then
             Select Case intValidateType
-                Case SQLValidate.EMAIL
+                Case RegexValidate.EMAIL
                     strErrorMessage = strErrorMessage & vbCrLf & strLoginFieldType & "s only contain A-Z a-z 0-9 . - _ @"
-                Case SQLValidate.ACCOUNT_ID
+                Case RegexValidate.ID
                     strErrorMessage = strErrorMessage & vbCrLf & strLoginFieldType & "s only contain 0-9"
                 Case Else
                     strErrorMessage = strErrorMessage & vbCrLf & strLoginFieldType & "s start with a letter and only contain A-Z a-z 0-9"
