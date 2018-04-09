@@ -1,7 +1,7 @@
 ﻿' Program:  Furniture Co. Catalog
-' Version:  0.6
+' Version:  0.7
 ' Author:   Shawn Broyles
-' Date:     TBD
+' Date:     4/9/2018
 ' Purpose:  This application provides a user-friendly experience for
 '           purchasing items when they are not in stock at a business
 '           location.
@@ -44,6 +44,8 @@ Module Main
     Public _Products As New List(Of Item)()
     ' List of Items from the search results on the Category form
     Public _ProductResults As New List(Of Item)()
+    ' List of Items in the shopping cart
+    Public _ShoppingCartResults As New List(Of Item)()
     ' Current Item displayed on the Item form
     Public _CurrentItem As New Item()
 
@@ -87,6 +89,7 @@ Module Main
             Case Forms.CHECKOUT
                 frmChosenForm = frmCheckout
                 blnSignedInRequired = True
+                blnPasswordRequired = True
             Case Forms.ACCOUNT
                 frmChosenForm = frmAccount
                 blnSignedInRequired = True
@@ -133,8 +136,6 @@ Module Main
             AskForItem()
         End If
         If (Not blnItemRequired Or _CurrentItem.ID.Equals(_cintZero)) Then
-            Console.WriteLine(blnItemRequired)
-            Console.WriteLine(_CurrentItem.ID.Equals(_cintZero))
             If (blnSignedInRequired And _CurrentUser.SignedIn.Equals(False)) Then
                 blnNavigate = False
                 strMessage = "You must be signed in to navigate to this form."
@@ -299,10 +300,10 @@ Module Main
         _Products.Add(itmNewItem)
     End Sub
 
-    Public Sub GetSelectedItem(ByRef lstProducts As ListBox)
+    Public Sub GetSelectedItem(ByRef lstListBox As ListBox, ByRef Results As List(Of Item))
         Try
-            If (Not String.IsNullOrWhiteSpace(lstProducts.SelectedItem)) Then
-                _CurrentItem = _ProductResults(lstProducts.SelectedIndex())
+            If (Not String.IsNullOrWhiteSpace(lstListBox.SelectedItem)) Then
+                _CurrentItem = Results(lstListBox.SelectedIndex())
             End If
         Catch ex As Exception
             Console.WriteLine("Error occurred when attempting to get the current item from the selected item.")

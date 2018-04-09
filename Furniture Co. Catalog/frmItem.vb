@@ -67,7 +67,6 @@ Public Class frmItem
     Private Sub ResetForm()
         updAmountInCart.Maximum = _CurrentItem.Stock
         updAmountInCart.Value = _CurrentItem.GetShoppingCartItem().Quantity
-        Console.WriteLine(_CurrentItem.GetShoppingCartItem().Quantity)
         lblProductIDOutput.Text = _CurrentItem.ID.ToString()
         lblNameOutput.Text = _CurrentItem.Name
         lblPriceOutput.Text = _CurrentItem.Price.ToString("C2")

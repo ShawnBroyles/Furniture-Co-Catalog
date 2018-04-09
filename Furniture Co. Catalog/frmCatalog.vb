@@ -106,7 +106,7 @@ Public Class frmCatalog
     End Sub
 
     Private Sub btnMoreDetails_Click(sender As Object, e As EventArgs) Handles btnMoreDetails.Click
-        GetSelectedItem(lstProducts)
+        GetSelectedItem(lstProducts, _ProductResults)
         Navigate(Forms.ITEM, Me)
     End Sub
 End Class

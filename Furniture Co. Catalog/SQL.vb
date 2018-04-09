@@ -52,6 +52,7 @@ Module SQL
         PAY_ID              INTEGER PRIMARY KEY,
         ACC_ID              INTEGER,
         PAY_DATE            DATE DEFAULT CURRENT_TIMESTAMP,
+        PAY_QTY             INTEGER,
         PAY_PRICE           TEXT DEFAULT '0.00',
         FOREIGN KEY (ACC_ID) REFERENCES ACCOUNT (ACC_ID)
         );
@@ -146,7 +147,7 @@ Module SQL
 
     End Sub
 
-    Public Sub SQLCreateProduct(ByVal intName As String,
+    Public Sub SQLCreateProduct(ByVal strName As String,
                                 ByVal decPrice As Decimal,
                                 ByVal intStock As Integer,
                                 ByVal decFee As Decimal,
@@ -154,7 +155,7 @@ Module SQL
                                 ByVal strDescription As String)
 
         Dim strSQLCreateProductRecord As String = "INSERT INTO PRODUCT (PROD_NAME, PROD_PRICE, PROD_STOCK, PROD_FEE, PROD_CATEGORY, PROD_DESCRIPTION)
-        VALUES('" & intName & "', '" & decPrice & "', " & intStock & ", '" & decFee & "', '" & strCategory & "', '" & strDescription & "');"
+        VALUES('" & strName & "', '" & decPrice & "', " & intStock & ", '" & decFee & "', '" & strCategory & "', '" & strDescription & "');"
 
         ' Creating the connection
         Dim connection As String = "Data Source=" & _cstrDatabaseName
@@ -166,6 +167,29 @@ Module SQL
 
         ' Executing the SQL statement to create a new record in the ACCOUNT table
         SQLcmd.CommandText = strSQLCreateProductRecord
+        SQLcmd.ExecuteNonQuery()
+
+        ' Close the connection
+        SQLConn.Close()
+    End Sub
+
+    Public Sub SQLCreatePayment(ByVal intAccountID As Integer,
+                                ByVal intQuantity As Integer,
+                                ByVal decPrice As Decimal)
+
+        Dim strSQLCreatePaymentRecord As String = "INSERT INTO PAYMENT (ACC_ID, PAY_QTY, PAY_PRICE)
+        VALUES(" & intAccountID & ", " & intQuantity & ", '" & decPrice & "');"
+
+        ' Creating the connection
+        Dim connection As String = "Data Source=" & _cstrDatabaseName
+        Dim SQLConn As New SQLiteConnection(connection)
+        Dim SQLcmd As New SQLiteCommand(SQLConn)
+        SQLConn.Open()
+
+        SQLcmd.Connection = SQLConn
+
+        ' Executing the SQL statement to create a new record in the ACCOUNT table
+        SQLcmd.CommandText = strSQLCreatePaymentRecord
         SQLcmd.ExecuteNonQuery()
 
         ' Close the connection

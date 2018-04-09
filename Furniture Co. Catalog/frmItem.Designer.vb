@@ -45,13 +45,6 @@ Partial Class frmItem
         Me.lblSubTitle = New System.Windows.Forms.Label()
         Me.lblTitle = New System.Windows.Forms.Label()
         Me.grpProductInformation = New System.Windows.Forms.GroupBox()
-        Me.lblProductID = New System.Windows.Forms.Label()
-        Me.lblName = New System.Windows.Forms.Label()
-        Me.lblPrice = New System.Windows.Forms.Label()
-        Me.lblStock = New System.Windows.Forms.Label()
-        Me.lblFee = New System.Windows.Forms.Label()
-        Me.lblCategory = New System.Windows.Forms.Label()
-        Me.lblDescription = New System.Windows.Forms.Label()
         Me.lblDescriptionOutput = New System.Windows.Forms.Label()
         Me.lblCategoryOutput = New System.Windows.Forms.Label()
         Me.lblFeeOutput = New System.Windows.Forms.Label()
@@ -59,6 +52,13 @@ Partial Class frmItem
         Me.lblPriceOutput = New System.Windows.Forms.Label()
         Me.lblNameOutput = New System.Windows.Forms.Label()
         Me.lblProductIDOutput = New System.Windows.Forms.Label()
+        Me.lblDescription = New System.Windows.Forms.Label()
+        Me.lblCategory = New System.Windows.Forms.Label()
+        Me.lblFee = New System.Windows.Forms.Label()
+        Me.lblStock = New System.Windows.Forms.Label()
+        Me.lblPrice = New System.Windows.Forms.Label()
+        Me.lblName = New System.Windows.Forms.Label()
+        Me.lblProductID = New System.Windows.Forms.Label()
         Me.lblAmountInCart = New System.Windows.Forms.Label()
         Me.updAmountInCart = New System.Windows.Forms.NumericUpDown()
         Me.btnRefresh = New System.Windows.Forms.Button()
@@ -229,69 +229,6 @@ Partial Class frmItem
         Me.grpProductInformation.TabStop = False
         Me.grpProductInformation.Text = "Product Information"
         '
-        'lblProductID
-        '
-        Me.lblProductID.AutoSize = True
-        Me.lblProductID.Location = New System.Drawing.Point(22, 28)
-        Me.lblProductID.Name = "lblProductID"
-        Me.lblProductID.Size = New System.Drawing.Size(61, 13)
-        Me.lblProductID.TabIndex = 0
-        Me.lblProductID.Text = "Product ID:"
-        '
-        'lblName
-        '
-        Me.lblName.AutoSize = True
-        Me.lblName.Location = New System.Drawing.Point(22, 58)
-        Me.lblName.Name = "lblName"
-        Me.lblName.Size = New System.Drawing.Size(38, 13)
-        Me.lblName.TabIndex = 1
-        Me.lblName.Text = "Name:"
-        '
-        'lblPrice
-        '
-        Me.lblPrice.AutoSize = True
-        Me.lblPrice.Location = New System.Drawing.Point(22, 88)
-        Me.lblPrice.Name = "lblPrice"
-        Me.lblPrice.Size = New System.Drawing.Size(34, 13)
-        Me.lblPrice.TabIndex = 2
-        Me.lblPrice.Text = "Price:"
-        '
-        'lblStock
-        '
-        Me.lblStock.AutoSize = True
-        Me.lblStock.Location = New System.Drawing.Point(22, 118)
-        Me.lblStock.Name = "lblStock"
-        Me.lblStock.Size = New System.Drawing.Size(38, 13)
-        Me.lblStock.TabIndex = 3
-        Me.lblStock.Text = "Stock:"
-        '
-        'lblFee
-        '
-        Me.lblFee.AutoSize = True
-        Me.lblFee.Location = New System.Drawing.Point(22, 148)
-        Me.lblFee.Name = "lblFee"
-        Me.lblFee.Size = New System.Drawing.Size(28, 13)
-        Me.lblFee.TabIndex = 4
-        Me.lblFee.Text = "Fee:"
-        '
-        'lblCategory
-        '
-        Me.lblCategory.AutoSize = True
-        Me.lblCategory.Location = New System.Drawing.Point(22, 178)
-        Me.lblCategory.Name = "lblCategory"
-        Me.lblCategory.Size = New System.Drawing.Size(52, 13)
-        Me.lblCategory.TabIndex = 5
-        Me.lblCategory.Text = "Category:"
-        '
-        'lblDescription
-        '
-        Me.lblDescription.AutoSize = True
-        Me.lblDescription.Location = New System.Drawing.Point(22, 208)
-        Me.lblDescription.Name = "lblDescription"
-        Me.lblDescription.Size = New System.Drawing.Size(63, 13)
-        Me.lblDescription.TabIndex = 6
-        Me.lblDescription.Text = "Description:"
-        '
         'lblDescriptionOutput
         '
         Me.lblDescriptionOutput.AutoSize = True
@@ -348,6 +285,69 @@ Partial Class frmItem
         Me.lblProductIDOutput.Size = New System.Drawing.Size(0, 13)
         Me.lblProductIDOutput.TabIndex = 7
         '
+        'lblDescription
+        '
+        Me.lblDescription.AutoSize = True
+        Me.lblDescription.Location = New System.Drawing.Point(22, 208)
+        Me.lblDescription.Name = "lblDescription"
+        Me.lblDescription.Size = New System.Drawing.Size(63, 13)
+        Me.lblDescription.TabIndex = 6
+        Me.lblDescription.Text = "Description:"
+        '
+        'lblCategory
+        '
+        Me.lblCategory.AutoSize = True
+        Me.lblCategory.Location = New System.Drawing.Point(22, 178)
+        Me.lblCategory.Name = "lblCategory"
+        Me.lblCategory.Size = New System.Drawing.Size(52, 13)
+        Me.lblCategory.TabIndex = 5
+        Me.lblCategory.Text = "Category:"
+        '
+        'lblFee
+        '
+        Me.lblFee.AutoSize = True
+        Me.lblFee.Location = New System.Drawing.Point(22, 148)
+        Me.lblFee.Name = "lblFee"
+        Me.lblFee.Size = New System.Drawing.Size(28, 13)
+        Me.lblFee.TabIndex = 4
+        Me.lblFee.Text = "Fee:"
+        '
+        'lblStock
+        '
+        Me.lblStock.AutoSize = True
+        Me.lblStock.Location = New System.Drawing.Point(22, 118)
+        Me.lblStock.Name = "lblStock"
+        Me.lblStock.Size = New System.Drawing.Size(38, 13)
+        Me.lblStock.TabIndex = 3
+        Me.lblStock.Text = "Stock:"
+        '
+        'lblPrice
+        '
+        Me.lblPrice.AutoSize = True
+        Me.lblPrice.Location = New System.Drawing.Point(22, 88)
+        Me.lblPrice.Name = "lblPrice"
+        Me.lblPrice.Size = New System.Drawing.Size(34, 13)
+        Me.lblPrice.TabIndex = 2
+        Me.lblPrice.Text = "Price:"
+        '
+        'lblName
+        '
+        Me.lblName.AutoSize = True
+        Me.lblName.Location = New System.Drawing.Point(22, 58)
+        Me.lblName.Name = "lblName"
+        Me.lblName.Size = New System.Drawing.Size(38, 13)
+        Me.lblName.TabIndex = 1
+        Me.lblName.Text = "Name:"
+        '
+        'lblProductID
+        '
+        Me.lblProductID.AutoSize = True
+        Me.lblProductID.Location = New System.Drawing.Point(22, 28)
+        Me.lblProductID.Name = "lblProductID"
+        Me.lblProductID.Size = New System.Drawing.Size(61, 13)
+        Me.lblProductID.TabIndex = 0
+        Me.lblProductID.Text = "Product ID:"
+        '
         'lblAmountInCart
         '
         Me.lblAmountInCart.AutoSize = True
@@ -366,7 +366,7 @@ Partial Class frmItem
         '
         'btnRefresh
         '
-        Me.btnRefresh.Location = New System.Drawing.Point(88, 433)
+        Me.btnRefresh.Location = New System.Drawing.Point(158, 433)
         Me.btnRefresh.Name = "btnRefresh"
         Me.btnRefresh.Size = New System.Drawing.Size(75, 23)
         Me.btnRefresh.TabIndex = 16
