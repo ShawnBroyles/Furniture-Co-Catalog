@@ -1,0 +1,2934 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Furniture_Co.Catalog
+</name>
+</assembly>
+<members>
+<member name="T:Furniture_Co.Catalog.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:Furniture_Co.Catalog.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:Furniture_Co.Catalog.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="T:Furniture_Co.Catalog.frmAccount">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Account form. </summary>
+
+ <remarks>   This form displays the user's account information and provides options for changing them. </remarks>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="F:Furniture_Co.Catalog.frmAccount._cintForm">
+ <summary>   The constant integer for the current form. </summary>
+</member>
+<member name="M:Furniture_Co.Catalog.frmAccount.mnuWelcome_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Welcome ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for navigating the user to the Welcome form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmAccount.mnuRegistration_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Registration ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for navigating the user to the Registration form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmAccount.mnuLogin_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Login ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for navigating the user to the Login form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmAccount.mnuCatalog_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Catalog ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for navigating the user to the Catalog form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmAccount.mnuCheckout_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Checkout ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for navigating the user to the Checkout form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmAccount.mnuAccount_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Account ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for navigating the user to the Account form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmAccount.mnuItem_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Item ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for navigating the user to the Item form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmAccount.mnuPayment_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Payment ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for navigating the user to the Payment form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmAccount.mnuReload_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Reload ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for reloading the currently displayed form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmAccount.mnuSignOut_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The SignOut ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for signing the user out of his/her account. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmAccount.mnuExit_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Exit ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for terminating the application. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmAccount.mnuAbout_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The About ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for telling the user information about the currently displayed form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmAccount.mnuPrint_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Print ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for creating a print preview popup of the current form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmAccount.frmAccount_Load(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The frmAccount_Load subroutine. </summary>
+
+ <remarks>   This subroutine is used for loading the defaults of this form when it is loaded. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmAccount.ResetForm">
+-------------------------------------------------------------------------------------------------
+ <summary>   The ResetForm subroutine. </summary>
+
+ <remarks>   This subroutine resets all of the data on the form. </remarks>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmAccount.btnChangeInfo_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Change Info button subroutine. </summary>
+
+ <remarks>   This subroutine allows the user to change his/her account information. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmAccount.btnSave_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Save button subroutine. </summary>
+
+ <remarks>   This subroutine commits new data to the database for the user's account. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmAccount.btnReset_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Reset button subroutine. </summary>
+
+ <remarks>   This subroutine resets all of the data on the form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="T:Furniture_Co.Catalog.frmCatalog">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Catalog form. </summary>
+
+ <remarks>   This form is used for browsing the catalog. </remarks>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="F:Furniture_Co.Catalog.frmCatalog._cintForm">
+ <summary>   The constant integer for the current form. </summary>
+</member>
+<member name="M:Furniture_Co.Catalog.frmCatalog.mnuWelcome_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Welcome ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for navigating the user to the Welcome form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmCatalog.mnuRegistration_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Registration ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for navigating the user to the Registration form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmCatalog.mnuLogin_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Login ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for navigating the user to the Login form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmCatalog.mnuCatalog_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Catalog ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for navigating the user to the Catalog form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmCatalog.mnuCheckout_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Checkout ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for navigating the user to the Checkout form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmCatalog.mnuAccount_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Account ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for navigating the user to the Account form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmCatalog.mnuItem_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Item ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for navigating the user to the Item form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmCatalog.mnuPayment_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Payment ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for navigating the user to the Payment form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmCatalog.mnuReload_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Reload ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for reloading the currently displayed form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmCatalog.mnuSignOut_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The SignOut ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for signing the user out of his/her account. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmCatalog.mnuExit_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Exit ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for terminating the application. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmCatalog.mnuAbout_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The About ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for telling the user information about the currently displayed form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmCatalog.mnuPrint_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Print ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for creating a print preview popup of the current form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmCatalog.frmCatalog_Load(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The frmCatalog_Load subroutine. </summary>
+
+ <remarks>   This subroutine is used for loading the defaults of this form when it is loaded. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmCatalog.ResetForm">
+-------------------------------------------------------------------------------------------------
+ <summary>   The ResetForm subroutine. </summary>
+
+ <remarks>   This subroutine resets all of the data on the form. </remarks>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmCatalog.GetResults">
+-------------------------------------------------------------------------------------------------
+ <summary>   The GetResults subroutine. </summary>
+
+ <remarks>   This subroutines retrieves and displays information about items in the catalog. </remarks>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmCatalog.GetSelectedCategory">
+-------------------------------------------------------------------------------------------------
+ <summary>   The GetSelectedCategory subroutine. </summary>
+
+ <remarks>   This subroutine get the category of an item. </remarks>
+
+ <returns>   The category of an item as an integer. </returns>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmCatalog.btnSearch_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Search button subroutine. </summary>
+
+ <remarks>   This subroutine retrieves and displays the results of a search. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmCatalog.btnMoreDetails_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The More details button. </summary>
+
+ <remarks>   This button navigates the user to a form that displays details about the selected item in the catalog. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="T:Furniture_Co.Catalog.frmCheckout">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Checkout form. </summary>
+
+ <remarks>   This form allows a user to purchase items in the shopping cart. </remarks>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="F:Furniture_Co.Catalog.frmCheckout._cintForm">
+ <summary>   The constant integer for the current form. </summary>
+</member>
+<member name="F:Furniture_Co.Catalog.frmCheckout._FullPrice">
+ <summary>   The full price for everything in the shopping cart. </summary>
+</member>
+<member name="F:Furniture_Co.Catalog.frmCheckout._FullItemCount">
+ <summary>   The number of items in the shopping cart. </summary>
+</member>
+<member name="M:Furniture_Co.Catalog.frmCheckout.mnuWelcome_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Welcome ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for navigating the user to the Welcome form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmCheckout.mnuRegistration_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Registration ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for navigating the user to the Registration form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmCheckout.mnuLogin_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Login ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for navigating the user to the Login form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmCheckout.mnuCatalog_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Catalog ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for navigating the user to the Catalog form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmCheckout.mnuCheckout_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Checkout ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for navigating the user to the Checkout form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmCheckout.mnuAccount_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Account ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for navigating the user to the Account form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmCheckout.mnuItem_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Item ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for navigating the user to the Item form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmCheckout.mnuPayment_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Payment ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for navigating the user to the Payment form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmCheckout.mnuReload_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Reload ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for reloading the current form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmCheckout.mnuSignOut_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The SignOut ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for signing out of an account. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmCheckout.mnuExit_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Exit ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for terminating the application. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmCheckout.mnuAbout_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The About ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for creating a popup that tells the user some information about the current form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmCheckout.mnuPrint_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Print ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for creating a print preview of the current form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmCheckout.frmCheckout_Load(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The frmCheckout_Load subroutine. </summary>
+
+ <remarks>   This subroutine is used for loading the defaults of the current form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmCheckout.ResetForm">
+-------------------------------------------------------------------------------------------------
+ <summary>   The ResetForm subroutine. </summary>
+
+ <remarks>   This subroutine is used for resetting the data on the form. </remarks>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmCheckout.GetShoppingCart">
+-------------------------------------------------------------------------------------------------
+ <summary>   The GetShoppingCart subroutine. </summary>
+
+ <remarks>   This subroutine is used for updating the shopping cart. </remarks>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmCheckout.btnRemoveOne_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Remove One button subroutine. </summary>
+
+ <remarks>   This subroutine is used for removing one of the selected item from the shopping cart. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmCheckout.btnRemoveAll_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Remove All button subroutine. </summary>
+
+ <remarks>   This subroutine is used for removing all of the selected item from the shopping cart. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmCheckout.btnMakePurchase_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Make Purchase button subroutine. </summary>
+
+ <remarks>   This subroutine is used for making a purchase. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmCheckout.btnPaymentOptions_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Payment Options button subroutine. </summary>
+
+ <remarks>   This subroutine is used for navigating the user to the Payment form so that he/she can add money to his/her account. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="T:Furniture_Co.Catalog.frmItem">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Item form. </summary>
+
+ <remarks>   This form displays information about a specific product from the catalog and gives the option for adding it to the shopping cart. </remarks>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="F:Furniture_Co.Catalog.frmItem._cintForm">
+ <summary>   The constant integer for the current form. </summary>
+</member>
+<member name="M:Furniture_Co.Catalog.frmItem.mnuWelcome_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Welcome ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for navigating the user to the Welcome form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmItem.mnuRegistration_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Registration ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for navigating the user to the Registration form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmItem.mnuLogin_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Login ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for navigating the user to the Login form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmItem.mnuCatalog_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Catalog ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for navigating the user to the Catalog form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmItem.mnuCheckout_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Checkout ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for navigating the user to the Checkout form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmItem.mnuAccount_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Account ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for navigating the user to the Account form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmItem.mnuItem_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Item ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for navigating the user to the Item form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmItem.mnuPayment_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Payment ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for navigating the user to the Payment form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmItem.mnuReload_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Reload ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for reloading the currently displayed form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmItem.mnuSignOut_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The SignOut ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for signing the user out of his/her account. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmItem.mnuExit_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Exit ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for terminating the application. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmItem.mnuAbout_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The About ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for telling the user information about the currently displayed form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmItem.mnuPrint_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Print ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for creating a print preview popup of the current form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmItem.frmItem_Load(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The frmItem_Load subroutine. </summary>
+
+ <remarks>   This subroutine is used for loading the defaults of this form when it is loaded. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmItem.ResetForm">
+-------------------------------------------------------------------------------------------------
+ <summary>   The ResetForm subroutine. </summary>
+
+ <remarks>   This subroutine resets all of the data on the form. </remarks>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmItem.btnRefresh_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Refresh button subroutine. </summary>
+
+ <remarks>   This subroutine resets all of the data on the form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmItem.updAmountInCart_ValueChanged(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The AmountIntCart NumericUpDown subroutine. </summary>
+
+ <remarks>   This subroutine changes the quantity of an item in the shopping cart when the value of the NumericUpDown object changes. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="T:Furniture_Co.Catalog.frmPayment">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Payment form. </summary>
+
+ <remarks>   This form is used for exchanging real money for account money. </remarks>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="F:Furniture_Co.Catalog.frmPayment._cintForm">
+ <summary>   The constant integer for the current form. </summary>
+</member>
+<member name="M:Furniture_Co.Catalog.frmPayment.mnuWelcome_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Welcome ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for navigating the user to the Welcome form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmPayment.mnuRegistration_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Registration ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for navigating the user to the Registration form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmPayment.mnuLogin_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Login ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for navigating the user to the Login form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmPayment.mnuCatalog_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Catalog ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for navigating the user to the Catalog form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmPayment.mnuCheckout_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Checkout ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for navigating the user to the Checkout form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmPayment.mnuAccount_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Account ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for navigating the user to the Account form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmPayment.mnuItem_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Item ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for navigating the user to the Item form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmPayment.mnuPayment_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Payment ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for navigating the user to the Payment form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmPayment.mnuReload_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Reload ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for reloading the current form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmPayment.mnuSignOut_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The SignOut ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for signing out of an account. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmPayment.mnuExit_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Exit ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for terminating the application. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmPayment.mnuAbout_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The About ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for creating a popup that tells the user some information about the current form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmPayment.mnuPrint_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Print ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for creating a print preview of the current form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmPayment.frmPayment_Load(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The frmPayment_Load subroutine. </summary>
+
+ <remarks>   This subroutine is used for loading the defaults of the current form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmPayment.btnAddMoney_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Add Money button subroutine. </summary>
+
+ <remarks>   This subroutine would be used for exchanging real money for account money, but that feature is not implemented. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="T:Furniture_Co.Catalog.frmRegistration">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Registration form. </summary>
+
+ <remarks>   This form is used by customers to create accounts. </remarks>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="F:Furniture_Co.Catalog.frmRegistration._cintForm">
+ <summary>   The constant integer for the current form. </summary>
+</member>
+<member name="M:Furniture_Co.Catalog.frmRegistration.mnuWelcome_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Welcome ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for navigating the user to the Welcome form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmRegistration.mnuRegistration_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Registration ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for navigating the user to the Registration form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmRegistration.mnuLogin_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Login ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for navigating the user to the Login form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmRegistration.mnuCatalog_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Catalog ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for navigating the user to the Catalog form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmRegistration.mnuCheckout_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Checkout ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for navigating the user to the Checkout form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmRegistration.mnuAccount_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Account ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for navigating the user to the Account form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmRegistration.mnuItem_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Item ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for navigating the user to the Item form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmRegistration.mnuPayment_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Payment ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for navigating the user to the Payment form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmRegistration.mnuReload_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Reload ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for reloading the current form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmRegistration.mnuSignOut_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The SignOut ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for signing out of an account. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmRegistration.mnuExit_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Exit ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for terminating the application. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmRegistration.mnuAbout_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The About ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for creating a popup that tells the user some information about the current form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmRegistration.mnuPrint_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Print ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for creating a print preview of the current form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmRegistration.frmRegistration_Load(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The frmRegistration_Load subroutine. </summary>
+
+ <remarks>   This subroutine is used for loading the defaults of the current form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmRegistration.btnSubmit_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Submit button subroutine. </summary>
+
+ <remarks>   This subroutine is used for creating a new account in the database. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmRegistration.ClearForm">
+-------------------------------------------------------------------------------------------------
+ <summary>   The ClearForm subroutine. </summary>
+
+ <remarks>   This subroutine is used for clearing the form. </remarks>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmRegistration.btnClear_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Clear button subroutine. </summary>
+
+ <remarks>   This subroutine is used for clearing the form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="T:Furniture_Co.Catalog.frmLogin">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Login form. </summary>
+
+ <remarks>   This form is used for logging into existing accounts. </remarks>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="F:Furniture_Co.Catalog.frmLogin._cintForm">
+ <summary>   The constant integer for the current form. </summary>
+</member>
+<member name="M:Furniture_Co.Catalog.frmLogin.mnuWelcome_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Welcome ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for navigating the user to the Welcome form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmLogin.mnuRegistration_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Registration ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for navigating the user to the Registration form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmLogin.mnuLogin_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Login ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for navigating the user to the Login form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmLogin.mnuCatalog_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Catalog ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for navigating the user to the Catalog form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmLogin.mnuCheckout_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Checkout ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for navigating the user to the Checkout form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmLogin.mnuAccount_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Account ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for navigating the user to the Account form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmLogin.mnuItem_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Item ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for navigating the user to the Item form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmLogin.mnuPayment_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Payment ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for navigating the user to the Payment form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmLogin.mnuReload_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Reload ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for reloading the current form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmLogin.mnuSignOut_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The SignOut ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for signing out of an account. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmLogin.mnuExit_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Exit ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for terminating the application. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmLogin.mnuAbout_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The About ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for creating a popup that tells the user some information about the current form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmLogin.mnuPrint_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Print ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for creating a print preview of the current form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmLogin.frmLogin_Load(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The frmLogin_Load subroutine. </summary>
+
+ <remarks>   This subroutine is used for loading the defaults of the current form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmLogin.btnSubmit_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Submit button subroutine. </summary>
+
+ <remarks>   This button is used for submitting the form and logging into an account. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmLogin.ClearForm">
+-------------------------------------------------------------------------------------------------
+ <summary>   The ClearForm subroutine. </summary>
+
+ <remarks>   This subroutine is used for clearing the text on the form. </remarks>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmLogin.btnClear_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Clear button subroutine. </summary>
+
+ <remarks>   This subroutine is used for clearing the text on the form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="T:Furniture_Co.Catalog.frmWelcome">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Welcome form. </summary>
+
+ <remarks>   This form is the application's main form. It's used for letting customers know they're welcome to use the application and it gives options for signing in. </remarks>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="P:Furniture_Co.Catalog.frmWelcome.CreateParams">
+-------------------------------------------------------------------------------------------------
+ <summary>   Gets the required creation parameters when the control handle is created. The ClassStyle property is overridden to disable the Close button. </summary>
+
+ <value>
+ A <see cref="T:System.Windows.Forms.CreateParams" /> that contains the required creation
+ parameters when the handle to the control is created.
+ </value>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="F:Furniture_Co.Catalog.frmWelcome._cintForm">
+ <summary>   The constant integer for the current form. </summary>
+</member>
+<member name="M:Furniture_Co.Catalog.frmWelcome.mnuWelcome_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Welcome ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for navigating the user to the Welcome form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmWelcome.mnuRegistration_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Registration ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for navigating the user to the Registration form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmWelcome.mnuLogin_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Login ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for navigating the user to the Login form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmWelcome.mnuCatalog_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Catalog ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for navigating the user to the Catalog form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmWelcome.mnuCheckout_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Checkout ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for navigating the user to the Checkout form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmWelcome.mnuAccount_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Account ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for navigating the user to the Account form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmWelcome.mnuItem_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Item ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for navigating the user to the Item form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmWelcome.mnuPayment_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Payment ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for navigating the user to the Payment form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmWelcome.mnuReload_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Reload ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for reloading the current form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmWelcome.mnuSignOut_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The SignOut ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for signing out of an account. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmWelcome.mnuExit_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Exit ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for terminating the application. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmWelcome.mnuAbout_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The About ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for creating a popup that tells the user some information about the current form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmWelcome.mnuPrint_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Print ToolStripMenuItem on the MenuStrip. </summary>
+
+ <remarks>   This button is used for creating a print preview of the current form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmWelcome.frmWelcome_Load(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The frmWelcome_Load subroutine. </summary>
+
+ <remarks>   This subroutine is used for loading the defaults of the current form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmWelcome.btnRegister_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Register button subroutine. </summary>
+
+ <remarks>   This subroutine is used for navigating to the Registration form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmWelcome.btnSignIn_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Sign In button subroutine. </summary>
+
+ <remarks>   This subroutine is used for navigating to the Login form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmWelcome.btnSignInAsGuest_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Sign In As Guest button subroutine. </summary>
+
+ <remarks>   This subroutine is used for signing the user into the guest account and navigating to the catalog form. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmWelcome.btnSignOut_Click(System.Object,System.EventArgs)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Sign Out button subroutine. </summary>
+
+ <remarks>   This subroutine is used for signing out of an account. </remarks>
+
+ <param name="sender">
+ Source of the event.
+ </param>
+ <param name="e">
+ Event information.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.frmWelcome.UpdateSignedIn">
+-------------------------------------------------------------------------------------------------
+ <summary>   The UpdateSignedIn subroutine. </summary>
+
+ <remarks>   This subroutine is used for changing objects' properties for when the user signs in and out. </remarks>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="T:Furniture_Co.Catalog.Main.Forms">
+-------------------------------------------------------------------------------------------------
+ <summary>   Values that represent the forms in the application. </summary>
+
+ <remarks>
+ The values are used for determining which form the user is currently at and also which form
+ the user wants to navigate to.
+ </remarks>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="F:Furniture_Co.Catalog.Main.Forms.WELCOME">
+ <summary>   An enum constant representing the Welcome form. </summary>
+</member>
+<member name="F:Furniture_Co.Catalog.Main.Forms.REGISTRATION">
+ <summary>   An enum constant representing the Registration form. </summary>
+</member>
+<member name="F:Furniture_Co.Catalog.Main.Forms.LOGIN">
+ <summary>   An enum constant representing the Login form. </summary>
+</member>
+<member name="F:Furniture_Co.Catalog.Main.Forms.CATALOG">
+ <summary>   An enum constant representing the Catalog form. </summary>
+</member>
+<member name="F:Furniture_Co.Catalog.Main.Forms.CHECKOUT">
+ <summary>   An enum constant representing the Checkout form. </summary>
+</member>
+<member name="F:Furniture_Co.Catalog.Main.Forms.ACCOUNT">
+ <summary>   An enum constant representing the Account form. </summary>
+</member>
+<member name="F:Furniture_Co.Catalog.Main.Forms.ITEM">
+ <summary>   An enum constant representing the Item form. </summary>
+</member>
+<member name="F:Furniture_Co.Catalog.Main.Forms.PAYMENT">
+ <summary>   An enum constant representing the Payment form. </summary>
+</member>
+<member name="F:Furniture_Co.Catalog.Main.Forms.NULL">
+ <summary>   An enum constant representing no form. </summary>
+</member>
+<member name="T:Furniture_Co.Catalog.Main.ProductCategory">
+-------------------------------------------------------------------------------------------------
+ <summary>   Values that represent product categories. </summary>
+
+ <remarks>   The values are used for filtering products listed in the Catalog form. </remarks>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="F:Furniture_Co.Catalog.Main.ProductCategory.ALL">
+ <summary>   An enum constant representing All categories. </summary>
+</member>
+<member name="F:Furniture_Co.Catalog.Main.ProductCategory.CHAIR">
+ <summary>   An enum constant representing the Chair category. </summary>
+</member>
+<member name="F:Furniture_Co.Catalog.Main.ProductCategory.TABLE">
+ <summary>   An enum constant representing the Table category. </summary>
+</member>
+<member name="F:Furniture_Co.Catalog.Main.ProductCategory.DESK">
+ <summary>   An enum constant representing the Desk category. </summary>
+</member>
+<member name="F:Furniture_Co.Catalog.Main.ProductCategory.COUCH">
+ <summary>   An enum constant representing the Couch category. </summary>
+</member>
+<member name="F:Furniture_Co.Catalog.Main.ProductCategory.CARPET">
+ <summary>   An enum constant representing the Carpet category. </summary>
+</member>
+<member name="F:Furniture_Co.Catalog.Main.gcintZero">
+ <summary>   The global constant integer variable for zero. </summary>
+</member>
+<member name="F:Furniture_Co.Catalog.Main.gcdecZero">
+ <summary>   The global constant decimal variable for zero. </summary>
+</member>
+<member name="F:Furniture_Co.Catalog.Main.gcstrEmpty">
+ <summary>   The global constant string variable for empty. </summary>
+</member>
+<member name="F:Furniture_Co.Catalog.Main.gusrCurrentUser">
+ <summary>   The global User for the currently logged in user. </summary>
+</member>
+<member name="F:Furniture_Co.Catalog.Main.glstShoppingCart">
+ <summary>   The global List for the ShoppingCartItems. </summary>
+</member>
+<member name="F:Furniture_Co.Catalog.Main.glstProducts">
+ <summary>   The global List for all Items from the database. </summary>
+</member>
+<member name="F:Furniture_Co.Catalog.Main.glstProductResults">
+ <summary>   The global List of Items from the search results on the Category form. </summary>
+</member>
+<member name="F:Furniture_Co.Catalog.Main.glstShoppingCartResults">
+ <summary>   The global List of Items in the shopping cart. </summary>
+</member>
+<member name="F:Furniture_Co.Catalog.Main.gitmCurrentItem">
+ <summary>   The global Item for the current Item displayed on the Item form. </summary>
+</member>
+<member name="M:Furniture_Co.Catalog.Main.PositionForm(System.Windows.Forms.Form)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The PositionForm subroutine. </summary>
+
+ <remarks>   This subroutine is used for positioning the form on the screen when it is loaded or reset. </remarks>
+
+ <param name="frmCurrentForm">
+ The form that is currently displayed.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.Main.Navigate(System.Int32,System.Windows.Forms.Form)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Navigate subroutine. </summary>
+
+ <remarks>   This subroutine is used for navigating between the forms in the application. </remarks>
+
+ <param name="intForm">
+ The form that the user wants to navigate to.
+ </param>
+ <param name="frmCurrentForm">
+ The currently displayed form.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.Main.NavigatePrerequisite(System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The NavigatePrerequisite function. </summary>
+ <remarks>
+ This function is used to check if the user is required to sign out, sign in, re-enter a
+ password, or choose an Item's details before navigating to a form.
+ </remarks>
+ <param name="blnSignedOutRequired">
+ True if the user has to be signed out.
+ </param>
+ <param name="blnSignedInRequired">
+ True if the user has to be signed in.
+ </param>
+ <param name="blnPasswordRequired">
+ True if the user has to re-enter a password.
+ </param>
+ <param name="blnItemRequired">
+ True if the user has to select an Item for its details to be displayed.
+ </param>
+ <returns>   True if the user meets the prerequisites, false if not. </returns>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.Main.ReloadForm(System.Windows.Forms.Form)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The ReloadForm subroutine. </summary>
+
+ <remarks>   This subroutine reloads the currently displayed form. </remarks>
+
+ <param name="frmCurrentForm">
+ The currently displayed form.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.Main.SignOut">
+-------------------------------------------------------------------------------------------------
+ <summary>   The SignOut subroutine. </summary>
+
+ <remarks>   This subroutine signs the user out of his/her account. </remarks>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.Main.CreateShoppingCart">
+-------------------------------------------------------------------------------------------------
+ <summary>   The CreateShoppingCart subroutine. </summary>
+
+ <remarks>   This subroutine adds products to the shopping cart with zero quantity. </remarks>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.Main.ClearShoppingCart(System.Boolean)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The ClearShoppingCart subroutine. </summary>
+
+ <remarks>   This subroutine empties the shopping cart after the user confirms his/her intention. </remarks>
+
+ <param name="blnConfirmIntention">
+ (Optional) True if the user has to confirm his/her intention to clear the shopping cart.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.Main.SignInAsGuest">
+-------------------------------------------------------------------------------------------------
+ <summary>   The SignInAsGuest subroutine. </summary>
+
+ <remarks>   This subroutine signs the user into the guest account. </remarks>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.Main.AskForItem">
+-------------------------------------------------------------------------------------------------
+ <summary>   The AskForItem function. </summary>
+
+ <remarks>   This function asks the user to enter the name or ID of a product. </remarks>
+
+ <returns>   True if the item is valid, false otherwise. </returns>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.Main.ConfirmPasswordPopup">
+-------------------------------------------------------------------------------------------------
+ <summary>   The ConfirmPasswordPopup function. </summary>
+
+ <remarks>   This function asks the user to re-enter his/her password. </remarks>
+
+ <returns>   True if the entered password is correct, false otherwise. </returns>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.Main.ExitApplication">
+-------------------------------------------------------------------------------------------------
+ <summary>   The ExitApplication subroutine. </summary>
+
+ <remarks>   This subroutine terminates the application after the user confirms his/her intention. </remarks>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.Main.AboutApplication(System.Int32)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The AboutApplication subroutine. </summary>
+
+ <remarks>   This subroutine creates a popup that gives the user some information about the program and the form that is currently displayed. </remarks>
+
+ <param name="intForm">
+ (Optional) The form that the user wants information about.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.Main.PrintForm(System.Object@)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The PrintForm subroutine. </summary>
+
+ <remarks>   This subroutine creates a print preview of the current form. </remarks>
+
+ <param name="pfObject">
+ The PrintForm object that on the currently displayed form.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.Main.LoadFormDefaults(System.Windows.Forms.Form)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The LoadFormDefaults subroutine. </summary>
+
+ <remarks>   This subroutine changes the colors of the form and positions the form when its loaded. </remarks>
+
+ <param name="frmCurrentForm">
+ The currently displayed form.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.Main.AddToShoppingCart(Furniture_Co.Catalog.Main.ShoppingCartItem@)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The AddToShoppingCart subroutine. </summary>
+
+ <remarks>   This subroutine adds a ShoppingCartItem to the shopping cart list. </remarks>
+
+ <param name="sciNewItem">
+ The new ShoppingCartItem.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.Main.AddToProducts(Furniture_Co.Catalog.Main.Item@)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The AddToProducts subroutine. </summary>
+
+ <remarks>   This subroutine adds a product to the products list. </remarks>
+
+ <param name="itmNewItem">
+ The new Item.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.Main.GetSelectedItem(System.Windows.Forms.ListBox@,System.Collections.Generic.List{Furniture_Co.Catalog.Main.Item}@)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The GetSelectedItem subroutine. </summary>
+
+ <remarks>   This subroutine changes the current item to the selected item in the results list on the catalog form. </remarks>
+
+ <param name="lstListBox">
+ The ListBox object on the catalog form.
+ </param>
+ <param name="Results">
+ The search results List from searching on the catalog form.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.Main.GetProduct(System.Int32)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The GetProduct subroutine. </summary>
+
+ <remarks>   This subroutine changes the current item to an Item from the products List based off of its ID. </remarks>
+
+ <param name="intID">
+ The ID of an Item.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.Main.GetProduct(System.String)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The GetProduct subroutine. </summary>
+
+ <remarks>   This subroutine changes the current item to an Item from the products List based off of its ID. </remarks>
+
+ <param name="strName">
+ The Name of an Item.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.Main.GetProductCategory(Furniture_Co.Catalog.Main.Item@)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The GetProductCategory function. </summary>
+
+ <remarks>   This function gets the category of an item. </remarks>
+
+ <param name="itmItem">
+ The Item whose category we want to retrieve.
+ </param>
+
+ <returns>   The category of an item. </returns>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.Main.CheckOutOfStock(Furniture_Co.Catalog.Main.Item@)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The CheckOutOfStock function. </summary>
+
+ <remarks>   This function determines if a product in the catalog is out of stock. </remarks>
+
+ <param name="itmItem">
+ The Item in question.
+ </param>
+
+ <returns>   True if the Item is out of stock, false otherwise. </returns>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.Main.UpdateProducts">
+-------------------------------------------------------------------------------------------------
+ <summary>   The UpdateProducts subroutine. </summary>
+
+ <remarks>   This subroutine reads from the database and updates values in memory. </remarks>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.Main.GetMatch(Furniture_Co.Catalog.Main.Item@,System.String)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The GetMatch function. </summary>
+
+ <remarks>   This function is used for searching for items in the database. </remarks>
+
+ <param name="itmItem">
+ An item in the catalog.
+ </param>
+ <param name="strSearchQuery">
+ The regular expression search query from the catalog form.
+ </param>
+
+ <returns>   True if a property of the Item matches the regular expression, false otherwise. </returns>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="T:Furniture_Co.Catalog.Main.Item">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Item class. </summary>
+
+ <remarks>   This class is used for creating objects for products that the company is selling. </remarks>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="P:Furniture_Co.Catalog.Main.Item.ID">
+-------------------------------------------------------------------------------------------------
+ <summary>   Gets or sets the ID. </summary>
+
+ <value> The unique ID of an Item. </value>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="P:Furniture_Co.Catalog.Main.Item.Name">
+-------------------------------------------------------------------------------------------------
+ <summary>   Gets or sets the Name. </summary>
+
+ <value> The name of an Item. </value>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="P:Furniture_Co.Catalog.Main.Item.Price">
+-------------------------------------------------------------------------------------------------
+ <summary>   Gets or sets the Price. </summary>
+
+ <value> The price of an item. </value>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="P:Furniture_Co.Catalog.Main.Item.Stock">
+-------------------------------------------------------------------------------------------------
+ <summary>   Gets or sets the Stock. </summary>
+
+ <value> The stock of an item. </value>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="P:Furniture_Co.Catalog.Main.Item.Fee">
+-------------------------------------------------------------------------------------------------
+ <summary>   Gets or sets the Fee. </summary>
+
+ <value> The fee of an item. </value>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="P:Furniture_Co.Catalog.Main.Item.Category">
+-------------------------------------------------------------------------------------------------
+ <summary>   Gets or sets the Category. </summary>
+
+ <value> The category of an item. </value>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="P:Furniture_Co.Catalog.Main.Item.Description">
+-------------------------------------------------------------------------------------------------
+ <summary>   Gets or sets the Description. </summary>
+
+ <value> The description of an item. </value>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.Main.Item.#ctor">
+-------------------------------------------------------------------------------------------------
+ <summary>   The default constructor for creating an Item. </summary>
+
+ <remarks>   This constructor sets the properties of an Item to zeros and empty strings. </remarks>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.Main.Item.#ctor(System.Int32,System.String,System.Decimal,System.Int32,System.Decimal,System.String,System.String)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The parameterized constructor for creating an Item. </summary>
+
+ <remarks>   This constructor allows the program to create an Item with properties. </remarks>
+
+ <param name="intID">
+ The unique ID of an Item.
+ </param>
+ <param name="strName">
+ The name of an Item.
+ </param>
+ <param name="decPrice">
+ The price of an Item.
+ </param>
+ <param name="intStock">
+ The stock of an Item.
+ </param>
+ <param name="decFee">
+ The fee of an Item.
+ </param>
+ <param name="strCategory">
+ The category of an Item.
+ </param>
+ <param name="strDescription">
+ The description of an Item.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.Main.Item.Update">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Update subroutine of an Item. </summary>
+
+ <remarks>   This subroutine updates an Item with information from the database. </remarks>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.Main.Item.GetShoppingCartItem">
+-------------------------------------------------------------------------------------------------
+ <summary>   The GetShoppingCartItem function of an Item. </summary>
+
+ <remarks>   This function gets the ShoppingCartItem equivalent of an Item. </remarks>
+
+ <returns>   The ShoppingCartItem equivalent of an Item. </returns>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="T:Furniture_Co.Catalog.Main.ShoppingCartItem">
+-------------------------------------------------------------------------------------------------
+ <summary>   The ShoppingCartItem class. </summary>
+
+ <remarks>   This class is used for creating objects for products in the shopping cart. </remarks>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="P:Furniture_Co.Catalog.Main.ShoppingCartItem.ID">
+-------------------------------------------------------------------------------------------------
+ <summary>   Gets or sets the ID. </summary>
+
+ <value> The unique ID of a ShoppingCartItem. </value>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="P:Furniture_Co.Catalog.Main.ShoppingCartItem.Quantity">
+-------------------------------------------------------------------------------------------------
+ <summary>   Gets or sets the Quantity. </summary>
+
+ <value> The quantity of an Item in the shopping cart. </value>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.Main.ShoppingCartItem.#ctor">
+-------------------------------------------------------------------------------------------------
+ <summary>   The default constructor of ShoppingCartItem. </summary>
+
+ <remarks>   This constructor creates a new ShoppingCartItem with properties set to zero. </remarks>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.Main.ShoppingCartItem.#ctor(Furniture_Co.Catalog.Main.Item@,System.Int32)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The parameterized constructor of ShoppingCartItem. </summary>
+
+ <remarks>   This constructor creates a new ShoppingCartItem with properties set from arguments. </remarks>
+
+ <param name="itmItem">
+ The Item that represents a new ShoppingCartItem.
+ </param>
+ <param name="intQuantity">
+ The quantity of the Item that is being added to the shopping cart.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="T:Furniture_Co.Catalog.Main.User">
+-------------------------------------------------------------------------------------------------
+ <summary>   The User class. </summary>
+
+ <remarks>   This class is used for creating a User object that represents the signed in user. </remarks>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="P:Furniture_Co.Catalog.Main.User.ID">
+-------------------------------------------------------------------------------------------------
+ <summary>   Gets or sets the ID. </summary>
+
+ <value> The unique ID of a User. </value>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="P:Furniture_Co.Catalog.Main.User.Username">
+-------------------------------------------------------------------------------------------------
+ <summary>   Gets or sets the Username. </summary>
+
+ <value> The username of a User. </value>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="P:Furniture_Co.Catalog.Main.User.Password">
+-------------------------------------------------------------------------------------------------
+ <summary>   Gets or sets the Password. </summary>
+
+ <value> The password of a User. </value>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="P:Furniture_Co.Catalog.Main.User.FirstName">
+-------------------------------------------------------------------------------------------------
+ <summary>   Gets or sets the First name. </summary>
+
+ <value> The first name of a User. </value>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="P:Furniture_Co.Catalog.Main.User.LastName">
+-------------------------------------------------------------------------------------------------
+ <summary>   Gets or sets the Last name. </summary>
+
+ <value> The last name of a User. </value>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="P:Furniture_Co.Catalog.Main.User.Email">
+-------------------------------------------------------------------------------------------------
+ <summary>   Gets or sets the Email. </summary>
+
+ <value> The email of a User. </value>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="P:Furniture_Co.Catalog.Main.User.Phone">
+-------------------------------------------------------------------------------------------------
+ <summary>   Gets or sets the Phone. </summary>
+
+ <value> The phone of a User. </value>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="P:Furniture_Co.Catalog.Main.User.Address">
+-------------------------------------------------------------------------------------------------
+ <summary>   Gets or sets the Address. </summary>
+
+ <value> The address of a User. </value>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="P:Furniture_Co.Catalog.Main.User.Money">
+-------------------------------------------------------------------------------------------------
+ <summary>   Gets or sets the Money. </summary>
+
+ <value> The amount of money on a User's account. </value>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="P:Furniture_Co.Catalog.Main.User.CreationDate">
+-------------------------------------------------------------------------------------------------
+ <summary>   Gets or sets the Creation date. </summary>
+
+ <value> The creation date of a User. </value>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="P:Furniture_Co.Catalog.Main.User.Status">
+-------------------------------------------------------------------------------------------------
+ <summary>   Gets or sets the Status. </summary>
+
+ <value> The status of a User's account. </value>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="P:Furniture_Co.Catalog.Main.User.SignedIn">
+-------------------------------------------------------------------------------------------------
+ <summary>   Gets or sets the Signed in property. </summary>
+
+ <value> The signed in property says if a User is signed in or not. </value>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="E:Furniture_Co.Catalog.Main.User.UserUpdated">
+ <summary>   The UserUpdated event of a User. </summary>
+</member>
+<member name="M:Furniture_Co.Catalog.Main.User.#ctor">
+-------------------------------------------------------------------------------------------------
+ <summary>   The default constructor of a User. </summary>
+
+ <remarks>   This constructor sets the properties of a User to zeros and empty strings. </remarks>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.Main.User.SignIn(System.Int32)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The SignIn subroutine of a User. </summary>
+
+ <remarks>   This subroutine changes a User object's properties to that of a user from the database. </remarks>
+
+ <param name="intRecordID">
+ The unique ID of a record in the ACCOUNT table in the database.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.Main.User.SignOut">
+-------------------------------------------------------------------------------------------------
+ <summary>   The SignOut subroutine of a User. </summary>
+
+ <remarks>   This subroutine sets the properties of a User to zeros and empty strings. </remarks>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="T:Furniture_Co.Catalog.SQL.DatabaseTables">
+-------------------------------------------------------------------------------------------------
+ <summary>   Values that represent the tabls in the database. </summary>
+
+ <remarks>   The values are used for determining which table the program wants to read/write to/from when it accesses the database. </remarks>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="F:Furniture_Co.Catalog.SQL.DatabaseTables.ACCOUNT">
+ <summary>   An enum constant representing the ACCOUNT table. </summary>
+</member>
+<member name="F:Furniture_Co.Catalog.SQL.DatabaseTables.PAYMENT">
+ <summary>   An enum constant representing the PAYMENT table. </summary>
+</member>
+<member name="F:Furniture_Co.Catalog.SQL.DatabaseTables.PRODUCT">
+ <summary>   An enum constant representing the PRODUCT table. </summary>
+</member>
+<member name="T:Furniture_Co.Catalog.SQL.RegexValidate">
+-------------------------------------------------------------------------------------------------
+ <summary>   Values that represent the different RegEx validations. </summary>
+
+ <remarks>   The values are used for matching regular expressions to use input. </remarks>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="F:Furniture_Co.Catalog.SQL.RegexValidate.USERNAME">
+ <summary>   An enum constant representing the Username RegEx. </summary>
+</member>
+<member name="F:Furniture_Co.Catalog.SQL.RegexValidate.PASSWORD">
+ <summary>   An enum constant representing the Password RegEx. </summary>
+</member>
+<member name="F:Furniture_Co.Catalog.SQL.RegexValidate.EMAIL">
+ <summary>   An enum constant representing the Email RegEx. </summary>
+</member>
+<member name="F:Furniture_Co.Catalog.SQL.RegexValidate.OTHER_EMPTY">
+ <summary>   An enum constant representing other data with allowing empty RegEx. </summary>
+</member>
+<member name="F:Furniture_Co.Catalog.SQL.RegexValidate.ID">
+ <summary>   An enum constant representing the ID RegEx. </summary>
+</member>
+<member name="F:Furniture_Co.Catalog.SQL._cstrDatabaseName">
+ <summary>   The constant string variable for the name of the database. </summary>
+</member>
+<member name="F:Furniture_Co.Catalog.SQL._cstrConnection">
+ <summary>   The constant string variable for the connection. </summary>
+</member>
+<member name="F:Furniture_Co.Catalog.SQL._cstrCaseInsensitive">
+ <summary>   The constant string for allowing case insensitivity. </summary>
+</member>
+<member name="M:Furniture_Co.Catalog.SQL.SQLInitializeDatabase">
+-------------------------------------------------------------------------------------------------
+ <summary>   The SQLInitializeDatabase subroutine. </summary>
+
+ <remarks>   This subroutine creates the database and sample data if appropriate. </remarks>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.SQL.SQLCreateDatabaseIfNotExists">
+-------------------------------------------------------------------------------------------------
+ <summary>   The SQLCreateDatabaseIfNotExists subroutine. </summary>
+
+ <remarks>   This subroutine creates the database if it doesn't exist. </remarks>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.SQL.Exists(System.Int32)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The Exists function. </summary>
+
+ <remarks>   This function determines if a record with a unique ID exists. </remarks>
+
+ <param name="intRecordID">
+ Unique ID for the record.
+ </param>
+
+ <returns>   True if the record exists, false otherwise. </returns>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.SQL.SQLCreateSampleProductsIfNotExists">
+-------------------------------------------------------------------------------------------------
+ <summary>   The SQLCreateSampleProductsIfNotExists subroutine. </summary>
+
+ <remarks>   This subroutine creates sample products in the database if they don't already exist. </remarks>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.SQL.CreateSampleProduct(System.Int32@,System.String,System.Decimal,System.Int32,System.Decimal,System.String,System.String)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The CreateSampleProduct subroutine. </summary>
+
+ <remarks>   This subroutine creates a sample product in the database. </remarks>
+
+ <param name="intCounter">
+ The counter for keeping track of how many sample products are being added to the database.
+ </param>
+ <param name="strName">
+ The name of a sample product.
+ </param>
+ <param name="decPrice">
+ The price of a sample product.
+ </param>
+ <param name="intStock">
+ The stock of a sample product.
+ </param>
+ <param name="decFee">
+ The fee of a sample product.
+ </param>
+ <param name="strCategory">
+ The category of a sample product.
+ </param>
+ <param name="strDescription">
+ The description of a sample product.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.SQL.SQLCreateProduct(System.String,System.Decimal,System.Int32,System.Decimal,System.String,System.String)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The SQLCreateProduct subroutine. </summary>
+
+ <remarks>   This subroutine creates a product in the database. </remarks>
+
+ <param name="strName">
+ The name of a product.
+ </param>
+ <param name="decPrice">
+ The price of a product.
+ </param>
+ <param name="intStock">
+ The stock of a product.
+ </param>
+ <param name="decFee">
+ The fee of a product.
+ </param>
+ <param name="strCategory">
+ The category of a product.
+ </param>
+ <param name="strDescription">
+ The description of a product.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.SQL.SQLCreatePayment(System.Int32,System.Int32,System.Decimal)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The SQLCreatePayment subroutine. </summary>
+
+ <remarks>   This subroutine creates a new record in the database for information about a payment. </remarks>
+
+ <param name="intAccountID">
+ The account ID that made the payment.
+ </param>
+ <param name="intQuantity">
+ The quantity of items for the payment.
+ </param>
+ <param name="decPrice">
+ The price for the payment.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.SQL.SQLCreateGuestIfNotExists">
+-------------------------------------------------------------------------------------------------
+ <summary>   The SQLCreateGuestIfNotExists subroutine. </summary>
+
+ <remarks>   This subroutine creates a guest account if it doesn't already exist. </remarks>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.SQL.SQLCreateAccount(System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The SQLCreateAccount subroutine. </summary>
+
+ <remarks>   This subroutine creates a new account record in the database. </remarks>
+
+ <param name="strUsername">
+ The username of a new account.
+ </param>
+ <param name="strPassword">
+ The password of a new account.
+ </param>
+ <param name="strFName">
+ The first name of a new account.
+ </param>
+ <param name="strLName">
+ The last name of a new account.
+ </param>
+ <param name="strEmail">
+ The email for a new account.
+ </param>
+ <param name="strPhone">
+ The phone for a new account.
+ </param>
+ <param name="strAddress">
+ The address for a new account.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.SQL.RegexValidateUserData(System.String,System.Int32)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The RegexValidateUserData subroutine. </summary>
+
+ <remarks>   This subroutine validates user input so that bad data isn't used in a SQL statement. </remarks>
+
+ <param name="strData">
+ The user input.
+ </param>
+ <param name="intDataType">
+ The type of data the user inputted.
+ </param>
+
+ <returns>   True if it the regular expression matches the user input, false otherwise. </returns>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.SQL.SQLGetFieldInfo(System.Int32,System.Int32,System.String,System.Boolean)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The SQLGetFieldInfo subroutine. </summary>
+
+ <remarks>   This subroutine reads information for a field from the database. </remarks>
+
+ <param name="intTable">
+ An integer representing the table in the database that is being accessed.
+ </param>
+ <param name="intPrimaryKeyID">
+ The unique ID of a record.
+ </param>
+ <param name="strField">
+ The field in the database that is being read.
+ </param>
+ <param name="blnCaseSensitive">
+ (Optional) True for using case sensitivity in the SQL statement, false otherwise.
+ </param>
+
+ <returns>   The value of the field found. </returns>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.SQL.SQLGetRecordID(System.Int32,System.String,System.String,System.Boolean)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The SQLGetRecordID subroutine. </summary>
+
+ <remarks>   This subroutine is used for getting the record ID of a record from its specific value in a field. </remarks>
+
+ <param name="intTable">
+ The table in the database that is being accessed.
+ </param>
+ <param name="strField">
+ The field in the record.
+ </param>
+ <param name="strFieldValue">
+ The specific value for the field.
+ </param>
+ <param name="blnCaseSensitive">
+ (Optional) True for using case sensitivity in the SQL statement, false otherwise.
+ </param>
+
+ <returns>   The record ID of a record that has a specific value in a field. </returns>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.SQL.SQLSetFieldInfo(System.Int32,System.Int32,System.String,System.String,System.Boolean)">
+-------------------------------------------------------------------------------------------------
+ <summary>   The SQLSetFieldInfo subroutine. </summary>
+
+ <remarks>   This subroutine sets the value of a field in a record in the database. </remarks>
+
+ <param name="intTable">
+ The table in the database being accessed.
+ </param>
+ <param name="intPrimaryKeyID">
+ The unique ID of a record.
+ </param>
+ <param name="strField">
+ The field whose value is being changed.
+ </param>
+ <param name="strFieldNewValue">
+ The new value for a field.
+ </param>
+ <param name="blnCaseSensitive">
+ (Optional) True for using case sensitivity in the SQL statement, false otherwise.
+ </param>
+-------------------------------------------------------------------------------------------------
+</member>
+<member name="M:Furniture_Co.Catalog.SQL.SQLGetProducts">
+-------------------------------------------------------------------------------------------------
+ <summary>   The SQLGetProducts subroutine. </summary>
+
+ <remarks>   This subroutine reads all of the record from the PRODUCT table and stores values in memory. </remarks>
+-------------------------------------------------------------------------------------------------
+</member>
+</members>
+</doc>
