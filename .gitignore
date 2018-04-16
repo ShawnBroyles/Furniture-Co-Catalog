@@ -286,3 +286,6 @@ __pycache__/
 *.btm.cs
 *.odx.cs
 *.xsd.cs
+
+# Tracking the XML documentation file
+!Furniture Co. Catalog/bin/Debug/Furniture_Co.Catalog
