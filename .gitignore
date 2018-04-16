@@ -288,4 +288,4 @@ __pycache__/
 *.xsd.cs
 
 # Tracking the XML documentation file
-!Furniture Co. Catalog/bin/Debug/Furniture_Co.Catalog
+!Furniture Co. Catalog/bin/Debug/Furniture_Co.Catalog.xml

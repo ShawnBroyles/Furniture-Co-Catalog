@@ -10,8 +10,6 @@
 ' in the application.
 
 Module Main
-    ' Enumeration for the forms in the application
-
     '''-------------------------------------------------------------------------------------------------
     ''' <summary>   Values that represent the forms in the application. </summary>
     '''
@@ -70,18 +68,18 @@ Module Main
     ''' <summary>   The global constant string variable for empty. </summary>
     Public Const gcstrEmpty As String = ""
 
-    ''' <summary>   The currently logged in user. </summary>
-    Public _CurrentUser As User = New User()
-    ''' <summary>   The List of ShoppingCartItems. </summary>
-    Public _ShoppingCart As New List(Of ShoppingCartItem)()
-    ''' <summary>   The List of all Items from the database. </summary>
-    Public _Products As New List(Of Item)()
-    ''' <summary>   The List of Items from the search results on the Category form. </summary>
-    Public _ProductResults As New List(Of Item)()
-    ''' <summary>   The List of Items in the shopping cart. </summary>
-    Public _ShoppingCartResults As New List(Of Item)()
-    ''' <summary>   The current Item displayed on the Item form. </summary>
-    Public _CurrentItem As New Item()
+    ''' <summary>   The global User for the currently logged in user. </summary>
+    Public gusrCurrentUser As User = New User()
+    ''' <summary>   The global List for the ShoppingCartItems. </summary>
+    Public glstShoppingCart As New List(Of ShoppingCartItem)()
+    ''' <summary>   The global List for all Items from the database. </summary>
+    Public glstProducts As New List(Of Item)()
+    ''' <summary>   The global List of Items from the search results on the Category form. </summary>
+    Public glstProductResults As New List(Of Item)()
+    ''' <summary>   The global List of Items in the shopping cart. </summary>
+    Public glstShoppingCartResults As New List(Of Item)()
+    ''' <summary>   The global Item for the current Item displayed on the Item form. </summary>
+    Public gitmCurrentItem As New Item()
 
     '''-------------------------------------------------------------------------------------------------
     ''' <summary>   The PositionForm subroutine. </summary>
@@ -210,15 +208,15 @@ Module Main
         Dim blnNavigate As Boolean = True
         Dim strMessage As String = ""
         Dim cstrTitle As String = "Error"
-        If (blnItemRequired AndAlso _CurrentItem.ID.Equals(gcintZero)) Then
+        If (blnItemRequired AndAlso gitmCurrentItem.ID.Equals(gcintZero)) Then
             AskForItem()
         End If
-        If (Not blnItemRequired Or _CurrentItem.ID.Equals(gcintZero)) Then
-            If (blnSignedInRequired And _CurrentUser.SignedIn.Equals(False)) Then
+        If (Not blnItemRequired Or gitmCurrentItem.ID.Equals(gcintZero)) Then
+            If (blnSignedInRequired And gusrCurrentUser.SignedIn.Equals(False)) Then
                 blnNavigate = False
                 strMessage = "You must be signed in to navigate to this form."
                 MsgBox(strMessage, , cstrTitle)
-            ElseIf (blnSignedOutRequired And _CurrentUser.SignedIn.Equals(True)) Then
+            ElseIf (blnSignedOutRequired And gusrCurrentUser.SignedIn.Equals(True)) Then
                 blnNavigate = False
                 strMessage = "You must be signed out to navigate to this form."
                 MsgBox(strMessage, , cstrTitle)
@@ -254,11 +252,11 @@ Module Main
     '''-------------------------------------------------------------------------------------------------
 
     Public Sub SignOut()
-        If (_CurrentUser.SignedIn) Then
-            Dim strUserSigningOut As String = _CurrentUser.Username
-            _CurrentUser.SignOut()
+        If (gusrCurrentUser.SignedIn) Then
+            Dim strUserSigningOut As String = gusrCurrentUser.Username
+            gusrCurrentUser.SignOut()
             ClearShoppingCart()
-            _CurrentItem = New Item()
+            gitmCurrentItem = New Item()
             MsgBox("You are now signed out.", , "Sign Out Success")
         Else
             MsgBox("You are not signed in.", , "Sign Out Error")
@@ -273,10 +271,10 @@ Module Main
 
     Public Sub CreateShoppingCart()
         Dim sciItem As ShoppingCartItem
-        _Products.ForEach(Sub(itmItem)
-                              sciItem = New ShoppingCartItem(itmItem, gcintZero)
-                              _ShoppingCart.Add(sciItem)
-                          End Sub)
+        glstProducts.ForEach(Sub(itmItem)
+                                 sciItem = New ShoppingCartItem(itmItem, gcintZero)
+                                 glstShoppingCart.Add(sciItem)
+                             End Sub)
     End Sub
 
     '''-------------------------------------------------------------------------------------------------
@@ -290,15 +288,15 @@ Module Main
     '''-------------------------------------------------------------------------------------------------
 
     Public Sub ClearShoppingCart(Optional ByVal blnConfirmIntention As Boolean = False)
-        If (_ShoppingCart.Count > gcintZero) Then
+        If (glstShoppingCart.Count > gcintZero) Then
             If (blnConfirmIntention AndAlso MessageBox.Show("Are you sure you want to empty the shopping cart?", "Empty Shopping Cart?", MessageBoxButtons.YesNo).Equals(DialogResult.Yes)) Then
-                _ShoppingCart.ForEach(Sub(sciItem)
-                                          sciItem.Quantity = gcintZero
-                                      End Sub)
+                glstShoppingCart.ForEach(Sub(sciItem)
+                                             sciItem.Quantity = gcintZero
+                                         End Sub)
             Else
-                _ShoppingCart.ForEach(Sub(sciItem)
-                                          sciItem.Quantity = gcintZero
-                                      End Sub)
+                glstShoppingCart.ForEach(Sub(sciItem)
+                                             sciItem.Quantity = gcintZero
+                                         End Sub)
             End If
         End If
     End Sub
@@ -311,7 +309,7 @@ Module Main
 
     Public Sub SignInAsGuest()
         ' Hard-coded guest sign-in (no SQL validation)
-        _CurrentUser.SignIn(SQLGetRecordID(DatabaseTables.ACCOUNT, "ACC_USERNAME", "Guest"))
+        gusrCurrentUser.SignIn(SQLGetRecordID(DatabaseTables.ACCOUNT, "ACC_USERNAME", "Guest"))
     End Sub
 
     '''-------------------------------------------------------------------------------------------------
@@ -331,7 +329,7 @@ Module Main
         Else
             GetProduct(strProduct)
         End If
-        If (_CurrentItem.ID.Equals(gcintZero)) Then
+        If (gitmCurrentItem.ID.Equals(gcintZero)) Then
             MsgBox("Item not found.", , "Error")
         Else
             blnValidItem = True
@@ -351,7 +349,7 @@ Module Main
         Dim blnConfirmed As Boolean = False
         Dim strPassword As String = InputBox("Re-Enter your password to confirm your identity.", "Re-Enter Password")
         ' SQL validation is not required here because User.Password is in memory
-        blnConfirmed = strPassword.Equals(_CurrentUser.Password)
+        blnConfirmed = strPassword.Equals(gusrCurrentUser.Password)
         Return blnConfirmed
     End Function
 
@@ -470,7 +468,7 @@ Module Main
     '''-------------------------------------------------------------------------------------------------
 
     Public Sub AddToShoppingCart(ByRef sciNewItem As ShoppingCartItem)
-        _ShoppingCart.Add(sciNewItem)
+        glstShoppingCart.Add(sciNewItem)
     End Sub
 
     '''-------------------------------------------------------------------------------------------------
@@ -484,7 +482,7 @@ Module Main
     '''-------------------------------------------------------------------------------------------------
 
     Public Sub AddToProducts(ByRef itmNewItem As Item)
-        _Products.Add(itmNewItem)
+        glstProducts.Add(itmNewItem)
     End Sub
 
     '''-------------------------------------------------------------------------------------------------
@@ -503,7 +501,7 @@ Module Main
     Public Sub GetSelectedItem(ByRef lstListBox As ListBox, ByRef Results As List(Of Item))
         Try
             If (Not String.IsNullOrWhiteSpace(lstListBox.SelectedItem)) Then
-                _CurrentItem = Results(lstListBox.SelectedIndex())
+                gitmCurrentItem = Results(lstListBox.SelectedIndex())
             End If
         Catch ex As Exception
             Console.WriteLine("Error occurred when attempting to get the current item from the selected item.")
@@ -523,11 +521,11 @@ Module Main
 
     Public Sub GetProduct(ByVal intID As Integer)
         Try
-            _Products.ForEach(Sub(itmItem)
-                                  If (itmItem.ID.Equals(intID)) Then
-                                      _CurrentItem = itmItem
-                                  End If
-                              End Sub)
+            glstProducts.ForEach(Sub(itmItem)
+                                     If (itmItem.ID.Equals(intID)) Then
+                                         gitmCurrentItem = itmItem
+                                     End If
+                                 End Sub)
         Catch ex As Exception
             MsgBox("An unknown error has occurred when trying to get product information.", , "Error")
             Console.WriteLine("Failed at getting product information for ID: " & intID.ToString())
@@ -548,11 +546,11 @@ Module Main
 
     Public Sub GetProduct(ByVal strName As String)
         Try
-            _Products.ForEach(Sub(itmItem)
-                                  If (itmItem.Name.Equals(strName)) Then
-                                      _CurrentItem = itmItem
-                                  End If
-                              End Sub)
+            glstProducts.ForEach(Sub(itmItem)
+                                     If (itmItem.Name.Equals(strName)) Then
+                                         gitmCurrentItem = itmItem
+                                     End If
+                                 End Sub)
         Catch ex As Exception
             MsgBox("An unknown error has occurred when trying to get product information.", , "Error")
             Console.WriteLine("Failed at getting product information for Name: " & strName.ToString())
@@ -617,9 +615,9 @@ Module Main
 
     Public Sub UpdateProducts()
         Try
-            _Products.ForEach(Sub(itmItem)
-                                  itmItem.Update()
-                              End Sub)
+            glstProducts.ForEach(Sub(itmItem)
+                                     itmItem.Update()
+                                 End Sub)
         Catch ex As Exception
             Console.WriteLine(ex.Message)
             Console.WriteLine("Unable to update products list.")
@@ -802,11 +800,11 @@ Module Main
 
         Function GetShoppingCartItem() As ShoppingCartItem
             Dim sciRelatedItem As New ShoppingCartItem()
-            _ShoppingCart.ForEach(Sub(sciItem)
-                                      If (sciItem.ID.Equals(ID)) Then
-                                          sciRelatedItem = sciItem
-                                      End If
-                                  End Sub)
+            glstShoppingCart.ForEach(Sub(sciItem)
+                                         If (sciItem.ID.Equals(ID)) Then
+                                             sciRelatedItem = sciItem
+                                         End If
+                                     End Sub)
             Return sciRelatedItem
         End Function
     End Class
@@ -1016,7 +1014,7 @@ Module Main
             CreationDate = SQLGetFieldInfo(DatabaseTables.ACCOUNT, intRecordID, "ACC_CREATION_DATE")
             Status = SQLGetFieldInfo(DatabaseTables.ACCOUNT, intRecordID, "ACC_STATUS")
             SignedIn = True
-            Console.WriteLine("Signed in = " & _CurrentUser.SignedIn & " (Signed in as " & _CurrentUser.Username & ")")
+            Console.WriteLine("Signed in = " & gusrCurrentUser.SignedIn & " (Signed in as " & gusrCurrentUser.Username & ")")
             RaiseEvent UserUpdated()
         End Sub
 
@@ -1027,7 +1025,7 @@ Module Main
         '''-------------------------------------------------------------------------------------------------
 
         Public Sub SignOut()
-            Dim strUserSigningOut As String = _CurrentUser.Username
+            Dim strUserSigningOut As String = gusrCurrentUser.Username
             ID = gcintZero
             Username = gcstrEmpty
             Password = gcstrEmpty
@@ -1040,7 +1038,7 @@ Module Main
             CreationDate = gcstrEmpty
             Status = gcstrEmpty
             SignedIn = False
-            Console.WriteLine("Signed in = " & _CurrentUser.SignedIn & " (Signed out of " & strUserSigningOut & ")")
+            Console.WriteLine("Signed in = " & gusrCurrentUser.SignedIn & " (Signed out of " & strUserSigningOut & ")")
             RaiseEvent UserUpdated()
         End Sub
 
