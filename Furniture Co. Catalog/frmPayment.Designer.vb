@@ -45,7 +45,7 @@ Partial Class frmPayment
         Me.lblSubTitle = New System.Windows.Forms.Label()
         Me.lblTitle = New System.Windows.Forms.Label()
         Me.grpPaymentOptions = New System.Windows.Forms.GroupBox()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnAddMoney = New System.Windows.Forms.Button()
         Me.mnuMenuStrip.SuspendLayout()
         Me.grpPaymentOptions.SuspendLayout()
         Me.SuspendLayout()
@@ -189,7 +189,7 @@ Partial Class frmPayment
         '
         'grpPaymentOptions
         '
-        Me.grpPaymentOptions.Controls.Add(Me.Button1)
+        Me.grpPaymentOptions.Controls.Add(Me.btnAddMoney)
         Me.grpPaymentOptions.Location = New System.Drawing.Point(67, 120)
         Me.grpPaymentOptions.Name = "grpPaymentOptions"
         Me.grpPaymentOptions.Size = New System.Drawing.Size(255, 175)
@@ -197,14 +197,14 @@ Partial Class frmPayment
         Me.grpPaymentOptions.TabStop = False
         Me.grpPaymentOptions.Text = "Payment Options"
         '
-        'Button1
+        'btnAddMoney
         '
-        Me.Button1.Location = New System.Drawing.Point(62, 32)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(131, 23)
-        Me.Button1.TabIndex = 1
-        Me.Button1.Text = "&Add money to account"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnAddMoney.Location = New System.Drawing.Point(62, 32)
+        Me.btnAddMoney.Name = "btnAddMoney"
+        Me.btnAddMoney.Size = New System.Drawing.Size(131, 23)
+        Me.btnAddMoney.TabIndex = 1
+        Me.btnAddMoney.Text = "&Add money to account"
+        Me.btnAddMoney.UseVisualStyleBackColor = True
         '
         'frmPayment
         '
@@ -246,5 +246,5 @@ Partial Class frmPayment
     Friend WithEvents lblSubTitle As Label
     Friend WithEvents lblTitle As Label
     Friend WithEvents grpPaymentOptions As GroupBox
-    Friend WithEvents Button1 As Button
+    Friend WithEvents btnAddMoney As Button
 End Class

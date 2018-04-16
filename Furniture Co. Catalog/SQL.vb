@@ -8,23 +8,52 @@ Imports System.Data.SQLite
 
 Module SQL
 
+    '''-------------------------------------------------------------------------------------------------
+    ''' <summary>   Values that represent the tabls in the database. </summary>
+    '''
+    ''' <remarks>   The values are used for determining which table the program wants to read/write to/from when it accesses the database. </remarks>
+    '''-------------------------------------------------------------------------------------------------
+
     Enum DatabaseTables
+        ''' <summary>   An enum constant representing the ACCOUNT table. </summary>
         ACCOUNT
+        ''' <summary>   An enum constant representing the PAYMENT table. </summary>
         PAYMENT
+        ''' <summary>   An enum constant representing the PRODUCT table. </summary>
         PRODUCT
     End Enum
 
+    '''-------------------------------------------------------------------------------------------------
+    ''' <summary>   Values that represent the different RegEx validations. </summary>
+    '''
+    ''' <remarks>   The values are used for matching regular expressions to use input. </remarks>
+    '''-------------------------------------------------------------------------------------------------
+
     Enum RegexValidate
+        ''' <summary>   An enum constant representing the Username RegEx. </summary>
         USERNAME
+        ''' <summary>   An enum constant representing the Password RegEx. </summary>
         PASSWORD
+        ''' <summary>   An enum constant representing the Email RegEx. </summary>
         EMAIL
+        ''' <summary>   An enum constant representing other data with allowing empty RegEx. </summary>
         OTHER_EMPTY
+        ''' <summary>   An enum constant representing the ID RegEx. </summary>
         ID
     End Enum
 
+    ''' <summary>   The constant string variable for the name of the database. </summary>
     Const _cstrDatabaseName As String = "Database.db"
+    ''' <summary>   The constant string variable for the connection. </summary>
     Const _cstrConnection As String = "Data Source=" & _cstrDatabaseName
+    ''' <summary>   The constant string for allowing case insensitivity. </summary>
     Const _cstrCaseInsensitive As String = " COLLATE NOCASE"
+
+    '''-------------------------------------------------------------------------------------------------
+    ''' <summary>   The SQLInitializeDatabase subroutine. </summary>
+    '''
+    ''' <remarks>   This subroutine creates the database and sample data if appropriate. </remarks>
+    '''-------------------------------------------------------------------------------------------------
 
     Public Sub SQLInitializeDatabase()
         SQLCreateDatabaseIfNotExists()
@@ -33,6 +62,12 @@ Module SQL
         SQLGetProducts()
         CreateShoppingCart()
     End Sub
+
+    '''-------------------------------------------------------------------------------------------------
+    ''' <summary>   The SQLCreateDatabaseIfNotExists subroutine. </summary>
+    '''
+    ''' <remarks>   This subroutine creates the database if it doesn't exist. </remarks>
+    '''-------------------------------------------------------------------------------------------------
 
     Public Sub SQLCreateDatabaseIfNotExists()
         Dim strSQLCreateDatabase As String = "CREATE TABLE IF NOT EXISTS ACCOUNT (
@@ -83,6 +118,18 @@ Module SQL
 
     End Sub
 
+    '''-------------------------------------------------------------------------------------------------
+    ''' <summary>   The Exists function. </summary>
+    '''
+    ''' <remarks>   This function determines if a record with a unique ID exists. </remarks>
+    '''
+    ''' <param name="intRecordID">
+    ''' Unique ID for the record.
+    ''' </param>
+    '''
+    ''' <returns>   True if the record exists, false otherwise. </returns>
+    '''-------------------------------------------------------------------------------------------------
+
     Function Exists(ByVal intRecordID As Integer) As Boolean
         Dim blnExists As Boolean
         Dim intErrorID As Integer = -1
@@ -97,10 +144,16 @@ Module SQL
 
     End Function
 
+    '''-------------------------------------------------------------------------------------------------
+    ''' <summary>   The SQLCreateSampleProductsIfNotExists subroutine. </summary>
+    '''
+    ''' <remarks>   This subroutine creates sample products in the database if they don't already exist. </remarks>
+    '''-------------------------------------------------------------------------------------------------
+
     Public Sub SQLCreateSampleProductsIfNotExists()
         ' Creating new records in the PRODUCT table for sample products if they don't already exist
         Try
-            Dim intCounter As Integer = _cintZero
+            Dim intCounter As Integer = gcintZero
 
             ' Hard-coded sample products
             CreateSampleProduct(intCounter, "Pine Chair", 72D, 1, 4.5D, "Chair", "Our pine chairs are created from the finest pine wood.")
@@ -119,7 +172,7 @@ Module SQL
             CreateSampleProduct(intCounter, "Silk Carpet", 440D, 5, 55.99D, "Carpet", "This silk carpet can withstand some wear and tear.")
             CreateSampleProduct(intCounter, "Wool Carpet", 442.99D, 8, 78.37D, "Carpet", "Our wool carpets are stain-resistant.")
 
-            If (intCounter.Equals(_cintZero)) Then
+            If (intCounter.Equals(gcintZero)) Then
                 Console.WriteLine("Sample products already exist in the database.")
             Else
                 Console.WriteLine("Created " & intCounter.ToString() & " sample products in the database.")
@@ -130,6 +183,34 @@ Module SQL
             Console.WriteLine("Unknown error occurred when trying to create sample products.")
         End Try
     End Sub
+
+    '''-------------------------------------------------------------------------------------------------
+    ''' <summary>   The CreateSampleProduct subroutine. </summary>
+    '''
+    ''' <remarks>   This subroutine creates a sample product in the database. </remarks>
+    '''
+    ''' <param name="intCounter">
+    ''' The counter for keeping track of how many sample products are being added to the database.
+    ''' </param>
+    ''' <param name="strName">
+    ''' The name of a sample product.
+    ''' </param>
+    ''' <param name="decPrice">
+    ''' The price of a sample product.
+    ''' </param>
+    ''' <param name="intStock">
+    ''' The stock of a sample product.
+    ''' </param>
+    ''' <param name="decFee">
+    ''' The fee of a sample product.
+    ''' </param>
+    ''' <param name="strCategory">
+    ''' The category of a sample product.
+    ''' </param>
+    ''' <param name="strDescription">
+    ''' The description of a sample product.
+    ''' </param>
+    '''-------------------------------------------------------------------------------------------------
 
     Private Sub CreateSampleProduct(ByRef intCounter As Integer,
                                     ByVal strName As String,
@@ -146,6 +227,31 @@ Module SQL
         End If
 
     End Sub
+
+    '''-------------------------------------------------------------------------------------------------
+    ''' <summary>   The SQLCreateProduct subroutine. </summary>
+    '''
+    ''' <remarks>   This subroutine creates a product in the database. </remarks>
+    '''
+    ''' <param name="strName">
+    ''' The name of a product.
+    ''' </param>
+    ''' <param name="decPrice">
+    ''' The price of a product.
+    ''' </param>
+    ''' <param name="intStock">
+    ''' The stock of a product.
+    ''' </param>
+    ''' <param name="decFee">
+    ''' The fee of a product.
+    ''' </param>
+    ''' <param name="strCategory">
+    ''' The category of a product.
+    ''' </param>
+    ''' <param name="strDescription">
+    ''' The description of a product.
+    ''' </param>
+    '''-------------------------------------------------------------------------------------------------
 
     Public Sub SQLCreateProduct(ByVal strName As String,
                                 ByVal decPrice As Decimal,
@@ -173,6 +279,22 @@ Module SQL
         SQLConn.Close()
     End Sub
 
+    '''-------------------------------------------------------------------------------------------------
+    ''' <summary>   The SQLCreatePayment subroutine. </summary>
+    '''
+    ''' <remarks>   This subroutine creates a new record in the database for information about a payment. </remarks>
+    '''
+    ''' <param name="intAccountID">
+    ''' The account ID that made the payment.
+    ''' </param>
+    ''' <param name="intQuantity">
+    ''' The quantity of items for the payment.
+    ''' </param>
+    ''' <param name="decPrice">
+    ''' The price for the payment.
+    ''' </param>
+    '''-------------------------------------------------------------------------------------------------
+
     Public Sub SQLCreatePayment(ByVal intAccountID As Integer,
                                 ByVal intQuantity As Integer,
                                 ByVal decPrice As Decimal)
@@ -196,6 +318,12 @@ Module SQL
         SQLConn.Close()
     End Sub
 
+    '''-------------------------------------------------------------------------------------------------
+    ''' <summary>   The SQLCreateGuestIfNotExists subroutine. </summary>
+    '''
+    ''' <remarks>   This subroutine creates a guest account if it doesn't already exist. </remarks>
+    '''-------------------------------------------------------------------------------------------------
+
     Public Sub SQLCreateGuestIfNotExists()
         ' Creating a new record in the ACCOUNT table for Guest if it doesn't already exist
         Try
@@ -214,6 +342,34 @@ Module SQL
         End Try
 
     End Sub
+
+    '''-------------------------------------------------------------------------------------------------
+    ''' <summary>   The SQLCreateAccount subroutine. </summary>
+    '''
+    ''' <remarks>   This subroutine creates a new account record in the database. </remarks>
+    '''
+    ''' <param name="strUsername">
+    ''' The username of a new account.
+    ''' </param>
+    ''' <param name="strPassword">
+    ''' The password of a new account.
+    ''' </param>
+    ''' <param name="strFName">
+    ''' The first name of a new account.
+    ''' </param>
+    ''' <param name="strLName">
+    ''' The last name of a new account.
+    ''' </param>
+    ''' <param name="strEmail">
+    ''' The email for a new account.
+    ''' </param>
+    ''' <param name="strPhone">
+    ''' The phone for a new account.
+    ''' </param>
+    ''' <param name="strAddress">
+    ''' The address for a new account.
+    ''' </param>
+    '''-------------------------------------------------------------------------------------------------
 
     Public Sub SQLCreateAccount(ByVal strUsername As String,
                                 ByVal strPassword As String,
@@ -242,6 +398,21 @@ Module SQL
         SQLConn.Close()
     End Sub
 
+    '''-------------------------------------------------------------------------------------------------
+    ''' <summary>   The RegexValidateUserData subroutine. </summary>
+    '''
+    ''' <remarks>   This subroutine validates user input so that bad data isn't used in a SQL statement. </remarks>
+    '''
+    ''' <param name="strData">
+    ''' The user input.
+    ''' </param>
+    ''' <param name="intDataType">
+    ''' The type of data the user inputted.
+    ''' </param>
+    '''
+    ''' <returns>   True if it the regular expression matches the user input, false otherwise. </returns>
+    '''-------------------------------------------------------------------------------------------------
+
     Function RegexValidateUserData(ByVal strData As String, ByVal intDataType As Integer) As Boolean
         Dim blnReturn As Boolean
         Dim strAllowedCharactersRegex As String
@@ -267,15 +438,36 @@ Module SQL
         Return blnReturn
     End Function
 
+    '''-------------------------------------------------------------------------------------------------
+    ''' <summary>   The SQLGetFieldInfo subroutine. </summary>
+    '''
+    ''' <remarks>   This subroutine reads information for a field from the database. </remarks>
+    '''
+    ''' <param name="intTable">
+    ''' An integer representing the table in the database that is being accessed.
+    ''' </param>
+    ''' <param name="intPrimaryKeyID">
+    ''' The unique ID of a record.
+    ''' </param>
+    ''' <param name="strField">
+    ''' The field in the database that is being read.
+    ''' </param>
+    ''' <param name="blnCaseSensitive">
+    ''' (Optional) True for using case sensitivity in the SQL statement, false otherwise.
+    ''' </param>
+    '''
+    ''' <returns>   The value of the field found. </returns>
+    '''-------------------------------------------------------------------------------------------------
+
     Function SQLGetFieldInfo(ByVal intTable As Integer, ByVal intPrimaryKeyID As Integer, ByVal strField As String, Optional ByVal blnCaseSensitive As Boolean = False) As String
 
         Const cstrError As String = "Error - Unable to get field info from the database."
 
-        Dim strReturn As String = _cstrEmpty
+        Dim strReturn As String = gcstrEmpty
 
-        Dim strTable As String = _cstrEmpty
-        Dim strPrimaryKey As String = _cstrEmpty
-        Dim strCaseSensitivity As String = _cstrEmpty
+        Dim strTable As String = gcstrEmpty
+        Dim strPrimaryKey As String = gcstrEmpty
+        Dim strCaseSensitivity As String = gcstrEmpty
 
         If (blnCaseSensitive) Then
             ' SQL queries are case sensitive by default
@@ -300,7 +492,7 @@ Module SQL
             strReturn = cstrError
         Else
 
-            Dim strFieldInfo As String = _cstrEmpty
+            Dim strFieldInfo As String = gcstrEmpty
 
             Dim SQLstr As String = "SELECT * FROM " & strTable & " WHERE " & strPrimaryKey & "=" & intPrimaryKeyID.ToString() & strCaseSensitivity & ";"
 
@@ -340,14 +532,35 @@ Module SQL
 
     End Function
 
+    '''-------------------------------------------------------------------------------------------------
+    ''' <summary>   The SQLGetRecordID subroutine. </summary>
+    '''
+    ''' <remarks>   This subroutine is used for getting the record ID of a record from its specific value in a field. </remarks>
+    '''
+    ''' <param name="intTable">
+    ''' The table in the database that is being accessed.
+    ''' </param>
+    ''' <param name="strField">
+    ''' The field in the record.
+    ''' </param>
+    ''' <param name="strFieldValue">
+    ''' The specific value for the field.
+    ''' </param>
+    ''' <param name="blnCaseSensitive">
+    ''' (Optional) True for using case sensitivity in the SQL statement, false otherwise.
+    ''' </param>
+    '''
+    ''' <returns>   The record ID of a record that has a specific value in a field. </returns>
+    '''-------------------------------------------------------------------------------------------------
+
     Function SQLGetRecordID(ByVal intTable As Integer, ByVal strField As String, ByVal strFieldValue As String, Optional ByVal blnCaseSensitive As Boolean = False) As Integer
 
         Dim intErrorID As Integer = -1
         Dim intRecordID As Integer = intErrorID
 
-        Dim strTable As String = _cstrEmpty
-        Dim strPrimaryKey As String = _cstrEmpty
-        Dim strCaseSensitivity As String = _cstrEmpty
+        Dim strTable As String = gcstrEmpty
+        Dim strPrimaryKey As String = gcstrEmpty
+        Dim strCaseSensitivity As String = gcstrEmpty
 
         If (blnCaseSensitive) Then
             ' SQL queries are case sensitive by default
@@ -405,13 +618,35 @@ Module SQL
 
     End Function
 
+    '''-------------------------------------------------------------------------------------------------
+    ''' <summary>   The SQLSetFieldInfo subroutine. </summary>
+    '''
+    ''' <remarks>   This subroutine sets the value of a field in a record in the database. </remarks>
+    '''
+    ''' <param name="intTable">
+    ''' The table in the database being accessed.
+    ''' </param>
+    ''' <param name="intPrimaryKeyID">
+    ''' The unique ID of a record.
+    ''' </param>
+    ''' <param name="strField">
+    ''' The field whose value is being changed.
+    ''' </param>
+    ''' <param name="strFieldNewValue">
+    ''' The new value for a field.
+    ''' </param>
+    ''' <param name="blnCaseSensitive">
+    ''' (Optional) True for using case sensitivity in the SQL statement, false otherwise.
+    ''' </param>
+    '''-------------------------------------------------------------------------------------------------
+
     Public Sub SQLSetFieldInfo(ByVal intTable As Integer, ByVal intPrimaryKeyID As Integer, ByVal strField As String, ByVal strFieldNewValue As String, Optional ByVal blnCaseSensitive As Boolean = False)
         Dim intErrorID As Integer = -1
         Dim intRecordID As Integer = intErrorID
 
-        Dim strTable As String = _cstrEmpty
-        Dim strPrimaryKey As String = _cstrEmpty
-        Dim strCaseSensitivity As String = _cstrEmpty
+        Dim strTable As String = gcstrEmpty
+        Dim strPrimaryKey As String = gcstrEmpty
+        Dim strCaseSensitivity As String = gcstrEmpty
 
         If (blnCaseSensitive) Then
             ' SQL queries are case sensitive by default
@@ -455,9 +690,15 @@ Module SQL
 
     End Sub
 
+    '''-------------------------------------------------------------------------------------------------
+    ''' <summary>   The SQLGetProducts subroutine. </summary>
+    '''
+    ''' <remarks>   This subroutine reads all of the record from the PRODUCT table and stores values in memory. </remarks>
+    '''-------------------------------------------------------------------------------------------------
+
     Public Sub SQLGetProducts()
         ' Reading products from the database, creating Items, and adding the Items
-        ' to the _Products list
+        ' to the glstProducts list
         Dim SQLstr As String = "SELECT * FROM PRODUCT;"
 
         Dim SQLConn As New SQLiteConnection(_cstrConnection)

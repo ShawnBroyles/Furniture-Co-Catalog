@@ -1,8 +1,4 @@
-﻿' Developed by Shawn Broyles
-' The Checkout form displays a list of items in the user's shopping
-' cart. There are options for removing items and making purchases.
-
-'''-------------------------------------------------------------------------------------------------
+﻿'''-------------------------------------------------------------------------------------------------
 ''' <summary>   The Checkout form. </summary>
 '''
 ''' <remarks>   This form allows a user to purchase items in the shopping cart. </remarks>
